@@ -183,7 +183,7 @@ ul.list-group > a {
     opacity: 1;
 }
 
-.card-container {
+.tutorials-card-container {
     display: flex;
     justify-content: center;
     gap: 20px; 
@@ -195,7 +195,7 @@ footer {
     margin-top: 20px;
 }
 
-.card {
+.tutorials-card {
     background-color: #f0fbff;
     border-radius: 12px;
     text-align: center;
@@ -205,26 +205,26 @@ footer {
     font-family: 'Roboto', sans-serif;
 }
 
-.card img {
+.tutorials-card img {
     width: 40px;
     height: 40px;
     margin-bottom: 10px;
 }
 
-.card h3 {
+.tutorials-card h3 {
     font-size: 16px;
     font-weight: bold;
     margin: 10px 0;
     color: #333;
 }
 
-.card p {
+.tutorials-card p {
     font-size: 14px;
     color: #666;
     margin: 5px 0;
 }
 
-.card a {
+.tutorials-card a {
     text-decoration: none;
     color: #2880a7;
     font-weight: bold;
@@ -232,7 +232,7 @@ footer {
     font-size: 14px;
 }
 
-.card a:hover {
+.tutorials-card a:hover {
     text-decoration: underline;
 }
   
