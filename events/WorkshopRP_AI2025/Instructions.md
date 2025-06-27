@@ -2,6 +2,11 @@
 This document is for online attendees. All steps must be completed before the event, as they may take some time to load.
 If you have any doubts or problems, please get in touch with us by email: douglas.samuel@usp.com or during the Google Meet on Friday, June 27, 2025, https://meet.google.com/vpk-wjgh-fip.
 
+## Download the Datasets
+- **Hands-on**: https://www.dropbox.com/scl/fi/mdbz1gklawyxmi0tukxpu/SlicerData.zip?rlkey=7lymqsoa39e9pkr1v8hatq2e2&dl=0
+- **TC Segmentation**: https://drive.google.com/drive/folders/1ERbG6MzFM2pbuGm94o1u_FC_8iUsEvwn?usp=drive_link
+- **MR Segmentation**: https://drive.google.com/drive/folders/1nv21wXaGQZLPywuCSY-brn2AIT5smDwV?usp=drive_link
+
 ## Download 3D Slicer
 Following your OS, download the software by clicking on one of the links below. 
 
