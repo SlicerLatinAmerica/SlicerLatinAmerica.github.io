@@ -4,8 +4,8 @@ If you have any doubts or problems, please get in touch with us by email: dougla
 
 ## Download the Datasets
 - **Hands-on**: https://www.dropbox.com/scl/fi/mdbz1gklawyxmi0tukxpu/SlicerData.zip?rlkey=7lymqsoa39e9pkr1v8hatq2e2&dl=0
-- **TC Segmentation**: https://drive.google.com/drive/folders/1ERbG6MzFM2pbuGm94o1u_FC_8iUsEvwn?usp=drive_link
-- **MR Segmentation**: https://drive.google.com/drive/folders/1nv21wXaGQZLPywuCSY-brn2AIT5smDwV?usp=drive_link
+- **PCT00-TOMOGRAFIA**: https://drive.google.com/drive/folders/1ERbG6MzFM2pbuGm94o1u_FC_8iUsEvwn?usp=drive_link
+- **PCT00-RESSONANCIA**: https://drive.google.com/drive/folders/1nv21wXaGQZLPywuCSY-brn2AIT5smDwV?usp=drive_link
 
 ## Download 3D Slicer
 Following your OS, download the software by clicking on one of the links below. 
