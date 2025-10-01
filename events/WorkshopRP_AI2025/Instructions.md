@@ -4,8 +4,6 @@ If you have any doubts or problems, please get in touch with us by email: dougla
 
 ## Download the Datasets
 - **Hands-on**: https://www.dropbox.com/scl/fi/mdbz1gklawyxmi0tukxpu/SlicerData.zip?rlkey=7lymqsoa39e9pkr1v8hatq2e2&dl=0
-- **PCT00-TOMOGRAFIA**: 
-- **PCT00-RESSONANCIA**: 
 
 ## Download 3D Slicer
 Following your OS, download the software by clicking on one of the links below. 
