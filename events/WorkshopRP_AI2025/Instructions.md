@@ -3,7 +3,7 @@ This document is for online attendees. All steps must be completed before the ev
 If you have any doubts or problems, please get in touch with us by email: douglas.samuel@usp.com or during the Google Meet on Friday, June 27, 2025, https://meet.google.com/vpk-wjgh-fip.
 
 ## Download the Datasets
-- **Hands-on**: https://www.dropbox.com/scl/fi/mdbz1gklawyxmi0tukxpu/SlicerData.zip?rlkey=7lymqsoa39e9pkr1v8hatq2e2&dl=0
+- **Hands-on**: https://www.dropbox.com/scl/fo/17bod43bcev1oszsj90n9/ANXEtL9Sx5RWddVMD3XdoG0?rlkey=fx4m2whnsqd9o0o74jbnbmzlg&e=1&dl=0
 
 ## Download 3D Slicer
 Following your OS, download the software by clicking on one of the links below. 
