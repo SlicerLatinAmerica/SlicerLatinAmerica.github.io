@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - 3D Slicer Ribeirão Preto Workshop</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #eaf7ea;
+      color: #2e4e2e;
+    }
+    header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header img {
+      max-height: 80px;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      margin: 10px 0;
+      font-size: 2.5em;
+    }
+    header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+    main {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    section {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h2 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+    .gallery {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-auto-rows: 200px;
+      grid-auto-flow: dense;
+      gap: 50px;
+      padding: 50px;
+      border-radius: 15px;
+      background-color: #f1f8e9;
+      background-image: 
+        linear-gradient(rgba(46, 125, 50, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(46, 125, 50, 0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transform: perspective(1000px);
+      overflow: visible; 
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transform: translateZ(20px);
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .slice-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 8px;
+      pointer-events: none;
+      opacity: 0.3;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      transition: transform 4s ease-in-out, opacity 0.4s ease;
+    }
+    .gallery-item:hover .slice-layer {
+      opacity: 0.7;
+      transition: transform 0.1s ease-out, opacity 0.4s ease;
+    }
+    .gallery-item.wide { grid-column: span 2; }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item.big { grid-column: span 2; grid-row: span 2; }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 25px;
+      background-color: #2e7d32;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .back-link:hover {
+      background-color: #1b5e20;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      padding: 20px;
+      background-color: #c8e6c9;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 4px;
+      transform: scale(0.8) translateZ(-100px) rotateX(10deg);
+      opacity: 0;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+    }
+    .lightbox.active img {
+      transform: scale(1) translateZ(0) rotateX(0);
+      opacity: 1;
+    }
+    .lightbox:target {
+      display: flex;
+    }
+    .close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://slicerlatinamerica.github.io/media/public/images/logo.png" alt="Logo 3D Slicer">
+    <h1>Thank You for Participating!</h1>
+    <p>3D Slicer Ribeirão Preto Workshop: AI-driven technology for Radiologists</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Event Highlights</h2>
+      <p>We would like to express our sincere gratitude to everyone who attended and contributed to the success of our workshop. It was an inspiring day of learning, collaboration, and innovation in AI-driven medical imaging.</p>
+      <p>Here are some memorable moments from the event:</p>
+      
+      <div class="gallery">
+        <div class="gallery-item big" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03639.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03639.JPG" alt="Workshop Photo 1" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03630.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03630.JPG" alt="Workshop Photo 2" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-item tall" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03635.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03635.JPG" alt="Workshop Photo 3" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03633.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03633.JPG" alt="Workshop Photo 4" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-item wide" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03625.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03625.JPG" alt="Workshop Photo 5" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03647.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03647.JPG" alt="Workshop Photo 6" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-item tall" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03650.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03650.JPG" alt="Workshop Photo 7" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03651.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03651.JPG" alt="Workshop Photo 8" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-item wide" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03652.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03652.JPG" alt="Workshop Photo 9" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03653.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03653.JPG" alt="Workshop Photo 10" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03658.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03658.JPG" alt="Workshop Photo 13" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-item tall" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03656.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03656.JPG" alt="Workshop Photo 12" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-item big" onclick="openLightbox('media/WorkshopRP_AI2025_ending/DSC03655.JPG')">
+          <img src="media/WorkshopRP_AI2025_ending/DSC03655.JPG" alt="Workshop Photo 11" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <a href="WorkshopRP_AI2025.html" class="back-link">Back to Workshop Details</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Workshop 3D Slicer – USP Ribeirão Preto</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="Full screen image">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+  <script>
+    VanillaTilt.init(document.querySelectorAll(".gallery-item"), {
+      max: 1,
+      speed: 100,
+      glare: true,
+      "max-glare": 0.2,
+      scale: 1.02,
+      perspective: 800
+    });
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      const img = item.querySelector('img');
+      const src = img.getAttribute('src');
+      
+      for (let i = 1; i <= 3; i++) {
+        const slice = document.createElement('div');
+        slice.classList.add('slice-layer');
+        slice.style.backgroundImage = `url('${src}')`;
+        
+        const depth = -(i * 10);
+        slice.dataset.depth = depth;
+        
+        slice.style.transform = `translateZ(${depth}px)`;
+        slice.style.filter = `brightness(${1 - i * 0.1})`;
+        item.insertBefore(slice, img);
+        
+        floatSlice(slice);
+      }
+
+      function floatSlice(slice) {
+        if (item.matches(':hover')) return;
+        
+        const depth = slice.dataset.depth;
+        const rx = (Math.random() - 0.5) * 20;
+        const ry = (Math.random() - 0.5) * 20;
+        
+        slice.style.transform = `translateZ(${depth}px) translate(${rx}px, ${ry}px)`;
+        
+        const duration = 3000 + Math.random() * 2000;
+        slice.floatTimeout = setTimeout(() => floatSlice(slice), duration);
+      }
+
+      item.addEventListener('mouseenter', () => {
+        item.querySelectorAll('.slice-layer').forEach(slice => {
+            clearTimeout(slice.floatTimeout);
+        });
+      });
+
+      item.addEventListener('mouseleave', () => {
+         item.querySelectorAll('.slice-layer').forEach(slice => {
+             floatSlice(slice);
+         });
+      });
+
+      item.addEventListener("tiltChange", (event) => {
+        const pX = (event.detail.percentageX - 50) / 50;
+        const pY = (event.detail.percentageY - 50) / 50;
+
+        const slices = item.querySelectorAll('.slice-layer');
+        slices.forEach((slice, index) => {
+          const depth = (index + 1) * 5;
+          const moveX = pX * (index + 1) * 8; 
+          const moveY = pY * (index + 1) * 8;
+          
+          slice.style.transform = `translateZ(-${depth}px) translate(${moveX}px, ${moveY}px)`;
+        });
+      });
+    });
+
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = src;
+      lightbox.style.display = 'flex';
+      void lightbox.offsetWidth;
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      setTimeout(() => {
+        lightbox.style.display = 'none';
+      }, 300);
+    }
+  </script>
+</body>
+</html>
