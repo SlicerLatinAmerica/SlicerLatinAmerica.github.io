@@ -4,125 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3D Slicer Ribeirão Preto Workshop: AI-driven technology for Radiologists</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #eaf7ea;
-      color: #2e4e2e;
-    }
-    header {
-      background-color: #2e7d32;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    header img {
-      max-height: 80px;
-      margin-bottom: 10px;
-    }
-    main {
-      padding: 20px;
-      max-width: 960px;
-      margin: auto;
-    }
-    section {
-      background-color: white;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #2e7d32;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      padding: 5px 0;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #555;
-      padding: 20px;
-      background-color: #c8e6c9;
-    }
-    .buttons {
-      text-align: center;
-      margin: 30px 0;
-    }
-    .buttons a {
-      display: inline-block;
-      background-color: #43a047;
-      color: white;
-      padding: 10px 20px;
-      margin: 10px;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    .buttons a:hover {
-      background-color: #2e7d32;
-    }
-    .image-banner {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-    .speakers {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: space-around;
-    }
-    .speaker {
-      flex: 1 1 250px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      padding: 15px;
-      text-align: center;
-    }
-    .speaker img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
-    .daily-speaker {
-      display: flex;
-      align-items: center;
-      margin-top: 10px;
-    }
-    .daily-speaker img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      margin-right: 15px;
-    }
-    nav {
-      margin-top: 15px;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="./css/styles.css" />
 </head>
-<body>
-  <header>
+<body class="workshop-body">
+  <header class="workshop-header">
     <img src="https://raw.githubusercontent.com/Slicer/Slicer/refs/heads/main/Docs/_static/images/3D-Slicer-Mark.png" alt="Logo 3D Slicer">
     <h1>3D Slicer Ribeirão Preto Workshop: AI-driven technology for Radiologists</h1>
     <p>Join us for an interactive workshop exploring AI-powered image segmentation using the 3D Slicer platform. Designed for radiology residents, this session will introduce practical tools and techniques to enhance imaging workflows through image segmentation and artificial intelligence.</p>
@@ -132,13 +17,14 @@
 	  <p><strong>Location:  Digital Room 1 - Didactic block FMRP (Sala Digital 1 - Bloco Didático FMRP)</strong></p>
 	
   </header>
-  <main>
-    <div class="buttons">
+  <main class="workshop-main">
+    <div class="workshop-buttons">
       <a href="https://forms.gle/1WYdcecNt5FuRimP7" target="_blank">📝 Enroll</a>
       <a href="WorkshopRP_AI2025_materials_june.html" target="_blank">📦 Workshop Materials</a>
+      <a href="WorkshopRP_AI2025_june_ending.html" target="_blank">📸 Event Photos</a>
     </div>
 
-    <section>
+    <section class="workshop-section">
       <h2>Agenda (São Paulo Time)</h2>
       <ul>
         <li>08:00 - Welcome Address and Opening Remarks (Luiz Otavio Murta Junior) </li>
@@ -152,24 +38,24 @@
         <li>11:30 - Q&A Session </li>
       </ul>
     </section>
-    <section>
+    <section class="workshop-section">
       <h2>Speakers</h2>
-      <div class="speakers">
-        <div class="speaker">
-          <img src="https://projects.iq.harvard.edu/sites/projects.iq.harvard.edu/files/styles/profile_full/public/nac/files/sonia_pujol-sq.jpeg?m=1646925097&itok=qY4c7-Zj" alt="Dr. Sonia Pujol">
+      <div class="workshop-speakers">
+        <div class="workshop-speaker">
+          <img src="https://slicerlatinamerica.github.io/media/public/images/photos/sonia_pujol.webp" alt="Dr. Sonia Pujol">
           <h3>Dr. Sonia Pujol</h3>
           <p><strong>Assistant Professor of Radiology, Harvard Medical School</strong></p>
           <p> Director of Training, Education, and Internationalization, 3D Slicer | PhD in Biomedical Engineering | Dual Engineering Degrees in Physics and Computer Science and Applied Mathematics</p>
           <p><a href="https://www.linkedin.com/in/sonia-pujol-165660186/" target="_blank">See profile</a></p>
         </div>
-        <div class="speaker">
-          <img src="https://slicerlatinamerica.github.io/media/public/images/photos/luiz_murta.jpg" alt="Dr. Luiz Otavio Murta Junior">
+        <div class="workshop-speaker">
+          <img src="https://slicerlatinamerica.github.io/media/public/images/photos/luiz_murta.PNG" alt="Dr. Luiz Otavio Murta Junior">
           <h3>Dr. Luiz Otavio Murta Junior</h3>
           <p><strong>University of São Paulo</strong></p>
           <p>Associate Professor at the University of São Paulo. Undergraduate in Physics and Electrical Engineer (1992), master's (1995), and Ph.D. (2001) in Applied Physics</p>
           <p><a href="https://www.linkedin.com/in/lomurta/" target="_blank">See profile</a></p>
         </div>
-        <div class="speaker">
+        <div class="workshop-speaker">
           <img src="https://raw.githubusercontent.com/SlicerLatinAmerica/SlicerLatinAmerica.github.io/refs/heads/main/media/public/images/photos/3f58c5e6-4108-4b2c-b34b-bf88f536d581.jpg" alt="Dr. Helio Rubens Machado">
           <h3>Dr. Helio Rubens Machado</h3>
           <p><strong>University of São Paulo</strong></p>
@@ -179,53 +65,53 @@
       </div>
     </section>
 	
-    <section>
+    <section class="workshop-section">
       <h2>Organizers</h2>
-      <div class="speakers">
-        <div class="speaker">
-          <img src="https://rio.fmrp.usp.br/wp-content/uploads/sites/538/ultimatemember/21874/profile_photo.jpg?1750247692" alt="Dr. Sonia Pujol">
+      <div class="workshop-speakers">
+        <div class="workshop-speaker">
+          <img src="https://rio.fmrp.usp.br/wp-content/uploads/sites/538/ultimatemember/21874/profile_photo.jpg?1750247692" alt="Dr. Jorge Elias Júnio">
           <h3>Dr. Jorge Elias Júnio</h3>
           <p><strong>Coordinator at CCIFM, University of São Paulo</strong></p>
           <p><a href="https://www.linkedin.com/in/jorge-elias-jr-10a42817/" target="_blank">See profile</a></p>
         </div>
-        <div class="speaker">
-          <img src="https://i1.rgstatic.net/ii/profile.image/272302499692546-1441933383104_Q128/Antonio-Santos-69.jpg" alt="Dr. Sonia Pujol">
+        <div class="workshop-speaker">
+          <img src="https://i1.rgstatic.net/ii/profile.image/272302499692546-1441933383104_Q128/Antonio-Santos-69.jpg" alt="Dr. Antonio Carlos dos Santos">
           <h3>Dr. Antonio Carlos dos Santos</h3>
           <p><strong>Deputy Coordinator at CCIFM, University of São Paulo</strong></p>
           <p><a href="http://lattes.cnpq.br/8227933586403761" target="_blank">See profile</a></p>
         </div>
-        <div class="speaker">
-          <img src="https://slicerlatinamerica.github.io/media/public/images/photos/luiz_murta.jpg" alt="Dr. Luiz Otavio Murta Junior">
+        <div class="workshop-speaker">
+          <img src="https://slicerlatinamerica.github.io/media/public/images/photos/luiz_murta.PNG" alt="Dr. Luiz Otavio Murta Junior">
           <h3>Dr. Luiz Otavio Murta Junior</h3>
           <p><strong>Associate Professor at DCM, University of São Paulo</strong></p>
           <p><a href="https://www.linkedin.com/in/lomurta/" target="_blank">See profile</a></p>
         </div>
-        <div class="speaker">
-          <img src="https://projects.iq.harvard.edu/sites/projects.iq.harvard.edu/files/styles/profile_full/public/nac/files/sonia_pujol-sq.jpeg?m=1646925097&itok=qY4c7-Zj" alt="Dr. Sonia Pujol">
+        <div class="workshop-speaker">
+          <img src="https://slicerlatinamerica.github.io/media/public/images/photos/sonia_pujol.webp" alt="Dr. Sonia Pujol">
           <h3>Dr. Sonia Pujol</h3>
           <p><strong>Assistant Professor of Radiology, Harvard Medical School</strong></p>
           <p><a href="https://www.linkedin.com/in/sonia-pujol-165660186/" target="_blank">See profile</a></p>
         </div>
-        <div class="speaker">
-          <img src="https://avatars.githubusercontent.com/u/28208639?v=4" alt="Dr. Sonia Pujol">
+        <div class="workshop-speaker">
+          <img src="https://avatars.githubusercontent.com/u/28208639?v=4" alt="Douglas Samuel Gonçalves">
           <h3>Douglas Samuel Gonçalves</h3>
           <p><strong>Master's Student in Bioengineering, University of São Paulo</strong></p>
           <p><a href="https://www.linkedin.com/in/dousam/" target="_blank">See profile</a></p>
         </div>
-        <div class="speaker">
-          <img src="https://slicerlatinamerica.github.io/media/public/images/photos/lucas_silva.jpeg" alt="Dr. Sonia Pujol">
+        <div class="workshop-speaker">
+          <img src="https://slicerlatinamerica.github.io/media/public/images/photos/lucas_silva.jpeg" alt="Lucas Sanchez Silva">
           <h3>Lucas Sanchez Silva</h3>
           <p><strong>Master's Student in Applied Computing, University of São Paulo</strong></p>
           <p><a href="https://www.linkedin.com/in/lucas-sanchez-silva-2a4917209/" target="_blank">See profile</a></p>
         </div>
-        <div class="speaker">
+        <div class="workshop-speaker">
           <img src="https://raw.githubusercontent.com/SlicerLatinAmerica/SlicerLatinAmerica.github.io/refs/heads/main/media/public/images/photos/lucas_miranda.jpg" alt="Dr. Sonia Pujol">
           <h3>Lucas Miranda</h3>
           <p><strong>Bachelor's degree student in Computer Science, University of São Paulo</strong></p>
           <p><a href="https://www.linkedin.com/in/miiranta/" target="_blank">See profile</a></p>
         </div>
-        <div class="speaker">
-          <img src="https://slicerlatinamerica.github.io/media/public/images/photos/paulo_veiga.jpeg" alt="Dr. Sonia Pujol">
+        <div class="workshop-speaker">
+          <img src="https://slicerlatinamerica.github.io/media/public/images/photos/paulo_veiga.jpeg" alt="Dr. Paulo Eduardo de Barros Veiga">
           <h3>Dr. Paulo Eduardo de Barros Veiga</h3>
           <p><strong>Doctorate in Literary Studies, University of São Paulo</strong></p>
           <p><a href="https://www.linkedin.com/in/paulo-eduardo-de-barros-veiga-85a174321/" target="_blank">See profile</a></p>
@@ -234,7 +120,7 @@
     </section>
 	
   </main>
-  <footer>
+  <footer class="workshop-footer">
     <p>&copy; 2025 Workshop 3D Slicer – USP Ribeirão Preto</p>
   </footer>
 </body>
