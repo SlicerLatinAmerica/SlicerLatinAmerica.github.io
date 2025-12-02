@@ -73,16 +73,44 @@
             padding-top: 8px;
             border-top: 1px solid #eee;
         }
+        
+        .participant-workshop {
+            font-size: 0.75em;
+            color: var(--secondary-color);
+            margin-top: 4px;
+            font-weight: bold;
+        }
 
         .workshop-section-title {
+            grid-column: 1 / -1;
             background: var(--bg-color-light);
             padding: 15px 20px;
             border-radius: 8px;
-            margin-bottom: 25px;
+            margin-top: 20px;
+            margin-bottom: 10px;
             color: var(--primary-color);
             font-size: 1.5em;
             font-weight: 700;
             border-left: 4px solid var(--primary-color);
+        }
+
+        .controls-container {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-group-custom .btn {
+            border-radius: 20px;
+            padding: 8px 20px;
+            font-weight: 500;
+        }
+        
+        .btn-check:checked + .btn-outline-primary {
+            background-color: var(--primary-color);
+            color: white;
         }
 
         @media (max-width: 768px) {
@@ -98,7 +126,7 @@
     </style>
 </head>
 <body class="">
-    <div class="container">
+    <!-- Navbar fixed: removed outer container -->
     <nav class="navbar navbar-expand-lg custom-navbar" id="homeNavBar">
       <div class="container">
         <a class="navbar-brand" href="index.html">
@@ -139,1006 +167,37 @@
         </div>
       </div>
     </nav>
-    </div>
+
     <div class="container main-content">
       <div class="row">
         <div class="col-12">
-          <h1 class="titulo">Workshop Participants Gallery</h1>
+          <h1 class="titulo">Workshop Participants</h1>
+          
+          <div class="controls-container">
+            <div class="btn-group" role="group" aria-label="View Mode">
+                <input type="radio" class="btn-check" name="viewMode" id="btnAlphabetical" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="btnAlphabetical">Alphabetical View</label>
+
+                <input type="radio" class="btn-check" name="viewMode" id="btnWorkshop" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnWorkshop">Workshop View</label>
+            </div>
+          </div>
+          
+          <!-- Search/Filter could go here -->
+          <div class="row justify-content-center mb-4">
+             <div class="col-md-6">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search participants, institutions, or workshops...">
+             </div>
+          </div>
+
         </div>
       </div>
 
-        
-        <div class="workshop-section">
-            <div class="workshop-section-title">
-                🇧🇷 1st Slicer Ribeirão Preto Workshop: AI-driven technology for Radiologists (June 30, 2025)
-            </div>
-            <div class="participants-grid">
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Vinícius Soares</div>
-                        <div class="participant-title">Master in Neuroscience</div>
-                        <div class="participant-institution">USP</div>
-                        <div class="participant-country">Brazil/São Paulo</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Guilherme Metzner</div>
-                        <div class="participant-title">Radiologist</div>
-                        <div class="participant-institution">Faculdade de Medicina de Ribeirao Preto</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Lecca</div>
-                        <div class="participant-title">Master</div>
-                        <div class="participant-institution">HCRP USP</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Erika Ludeña</div>
-                        <div class="participant-title">Master</div>
-                        <div class="participant-institution">Universidade de São Paulo</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Enzo Pacheco</div>
-                        <div class="participant-title">Undergraduate</div>
-                        <div class="participant-institution">University of São Paulo</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Paola Martins</div>
-                        <div class="participant-title">Bachelor's Degree Student</div>
-                        <div class="participant-institution">Universidade de São Paulo</div>
-                        <div class="participant-country">Brazil/Ribeirão Preto - SP</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">João Kajiwara</div>
-                        <div class="participant-title">PhD</div>
-                        <div class="participant-institution">FMRP-USP</div>
-                        <div class="participant-country">Brazil/SP</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Lucas Lima</div>
-                        <div class="participant-title">Dr.</div>
-                        <div class="participant-institution">UNIP</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Carlo Rondinoni</div>
-                        <div class="participant-title">PhD</div>
-                        <div class="participant-institution">USP</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Davi Pultrini</div>
-                        <div class="participant-title">Complete High School</div>
-                        <div class="participant-institution">USP</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Michel Raed</div>
-                        <div class="participant-title">Bachelor</div>
-                        <div class="participant-institution">USP</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Sofia Pompeu</div>
-                        <div class="participant-title">Undergraduate</div>
-                        <div class="participant-institution">Universidade de São Paulo</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Rafael Scatena</div>
-                        <div class="participant-title">PhD Student</div>
-                        <div class="participant-institution">USP</div>
-                        <div class="participant-country">Brazil/SP</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Johanna Elisabeth Rogalsky</div>
-                        <div class="participant-title">PhD Student</div>
-                        <div class="participant-institution">Universidade de São Paulo</div>
-                        <div class="participant-country">Brazil/Ribeirão Preto/SP</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Edson Perger</div>
-                        <div class="participant-title">PhD in Research and Development - Medical Biotechnology</div>
-                        <div class="participant-institution">Unesp</div>
-                        <div class="participant-country">Brazil/SP</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">ALDO BARBOSA</div>
-                        <div class="participant-title">Student</div>
-                        <div class="participant-institution">SANTA CASA DE ITUVERAVA</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Vitor Dalto</div>
-                        <div class="participant-title">PhD</div>
-                        <div class="participant-institution">FMRP-USP</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Luis Souza</div>
-                        <div class="participant-title">PhD</div>
-                        <div class="participant-institution">UFTM</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Eder Rezende Moraes</div>
-                        <div class="participant-title">PhD</div>
-                        <div class="participant-institution">FFCLRP USP</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Paulo Eduardo Hernandes Antunes</div>
-                        <div class="participant-title">Doctor</div>
-                        <div class="participant-institution">FAEPA</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Jorge Mejia</div>
-                        <div class="participant-title">Doutor em Astrofísica</div>
-                        <div class="participant-institution">Hospital Israelita Albert Einstein</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Ana Alves</div>
-                        <div class="participant-title">Tecnólogo em Radiologia</div>
-                        <div class="participant-institution">Instituto Federal de Pernambuco</div>
-                        <div class="participant-country">Brazil/Pernambuco</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Ana Barros</div>
-                        <div class="participant-title">3rd Year</div>
-                        <div class="participant-institution">IFPE-Recife</div>
-                        <div class="participant-country">Brazil/Nordeste</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Luizy Moura</div>
-                        <div class="participant-title">Undergraduate</div>
-                        <div class="participant-institution">Instituto Federal de Pernambuco</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Lucas Silva</div>
-                        <div class="participant-title">3rd Year</div>
-                        <div class="participant-institution">IFPE - Recife</div>
-                        <div class="participant-country">Brazil/Recife</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Rafaela Bento</div>
-                        <div class="participant-title">Undergraduate</div>
-                        <div class="participant-institution">IFPE</div>
-                        <div class="participant-country">Brazil/Northeast</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Leanderson Cordeiro</div>
-                        <div class="participant-title">PhD Candidate</div>
-                        <div class="participant-institution">Universidade Federal de Pernambuco</div>
-                        <div class="participant-country">Brazil/Recife/PE</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Antonio Marcos Sousa de Oliviera</div>
-                        <div class="participant-title">Bachelor</div>
-                        <div class="participant-institution">Unip</div>
-                        <div class="participant-country">Brazil, SP</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Pedro Andrade</div>
-                        <div class="participant-title">PhD</div>
-                        <div class="participant-institution">Instituto Federal de Pernambuco</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Raniele Costa</div>
-                        <div class="participant-title">Master Student</div>
-                        <div class="participant-institution">UFPE</div>
-                        <div class="participant-country">Brazil/Recife/Pernambuco</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
-        <div class="workshop-section">
-            <div class="workshop-section-title">
-                🇧🇷 2nd Slicer Ribeirão Preto Workshop: AI-driven technology for Radiologists (October 31, 2025)
-            </div>
-            <div class="participants-grid">
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Letícia Fagundes</div>
-                        <div class="participant-title">Mechanical Engineering Student</div>
-                        <div class="participant-institution">UFRJ</div>
-                        <div class="participant-country">Rio das Ostras, Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Mariana Oliveira</div>
-                        <div class="participant-title">Dentistry Student</div>
-                        <div class="participant-institution">Universidade Federal Fluminense (UFF)</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Vinícius Ramiarina Brusdzensky</div>
-                        <div class="participant-title">Dentistry Student</div>
-                        <div class="participant-institution">Universidade Federal Fluminense - ISNF</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Eder Rezende Moraes</div>
-                        <div class="participant-title">PhD</div>
-                        <div class="participant-institution">Universidade de São Paulo</div>
-                        <div class="participant-country">Brazil/São Paulo</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Paul Muka</div>
-                        <div class="participant-title">Medical Physics Student</div>
-                        <div class="participant-institution">Ladoke Akintola University of Technology</div>
-                        <div class="participant-country">Nigeria</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Martha Tarozzo</div>
-                        <div class="participant-title">PhD</div>
-                        <div class="participant-institution">FMRP-USP</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Seyi Omotoso</div>
-                        <div class="participant-title">BSc</div>
-                        <div class="participant-institution">USP</div>
-                        <div class="participant-country">Nigeria</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Gabriel Righi</div>
-                        <div class="participant-title">Undergraduate</div>
-                        <div class="participant-institution">Universidade de São Paulo</div>
-                        <div class="participant-country">Brazil, São Paulo</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Davi Rodrigues Pultrini</div>
-                        <div class="participant-title">Undergraduate</div>
-                        <div class="participant-institution">University of São Paulo</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Eneas Ferreira</div>
-                        <div class="participant-title">Student</div>
-                        <div class="participant-institution">Universidade de São Paulo</div>
-                        <div class="participant-country">Brazil/Ribeirão Preto</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Alessandro Bullentini</div>
-                        <div class="participant-title">IBM</div>
-                        <div class="participant-institution">USP</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Victor Hugo Enes Malheiro</div>
-                        <div class="participant-title">Bachelor, Master</div>
-                        <div class="participant-institution">Universidade de São Paulo</div>
-                        <div class="participant-country">Brazil/São Paulo</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Henrique Lima de Souza</div>
-                        <div class="participant-title">Student (2 years)</div>
-                        <div class="participant-institution">USP</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Leticia Wellingta Santos Costa</div>
-                        <div class="participant-title">Medical Professional</div>
-                        <div class="participant-institution">HCRP</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Roberto Pereira</div>
-                        <div class="participant-title">PhD</div>
-                        <div class="participant-institution">FMRP USP</div>
-                        <div class="participant-country">Brazil/Ribeirão Preto</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Marcelo Olivo</div>
-                        <div class="participant-title">Medical Student</div>
-                        <div class="participant-institution">Universidade de São Paulo</div>
-                        <div class="participant-country">Brazil</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
-        <div class="workshop-section">
-            <div class="workshop-section-title">
-                🇲🇽 1st Slicer Toluca Workshop: AI-based technology for Physiotherapists (October 8-10, 2025)
-            </div>
-            <div class="participants-grid">
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Emmanuel Acevedo Díaz</div>
-                        <div class="participant-title">Computational Science Student (Postgrad)</div>
-                        <div class="participant-institution">Universidad Autónoma del Estado de México</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Sandra Guadalupe Ocaña Ferreyra</div>
-                        <div class="participant-title">Rehabilitation, Teacher</div>
-                        <div class="participant-institution">CREE TOLUCA</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Aceneth Cordoba Mendez</div>
-                        <div class="participant-title">Physical Medicine & Rehabilitation, Teacher</div>
-                        <div class="participant-institution">DIFEM</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Fernando Orozco Soto</div>
-                        <div class="participant-title">Internal Medicine, Teacher</div>
-                        <div class="participant-institution">CREE TOLUCA</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Socorro Patricia Pérez Amaya</div>
-                        <div class="participant-title">Rehabilitation Medicine Specialist</div>
-                        <div class="participant-institution">DIFEM</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Alejandro Trujillo Millan</div>
-                        <div class="participant-title">Orthopedics & Traumatology, Physician</div>
-                        <div class="participant-institution">CREE DIF Toluca</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Flor Irene Rangel Solis</div>
-                        <div class="participant-title">Rehabilitation Medicine, Medical Specialist</div>
-                        <div class="participant-institution">DIF Nacional</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Norma Elia Hernández Pérez</div>
-                        <div class="participant-title">Rehabilitation Medicine Specialist</div>
-                        <div class="participant-institution">CREE Toluca</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Yessica Bustos Cruz</div>
-                        <div class="participant-title">Rehabilitation, Resident</div>
-                        <div class="participant-institution">Cree Toluca</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Alejandra Rosas Barrita</div>
-                        <div class="participant-title">Rehabilitation Medicine, Teacher</div>
-                        <div class="participant-institution">DIF Nacional</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Emmanuel Fernando Romero Alday</div>
-                        <div class="participant-title">Rehabilitation Medicine, Resident</div>
-                        <div class="participant-institution">CREE Toluca</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Karina López Cuevas</div>
-                        <div class="participant-title">Rehabilitation Medicine, Resident</div>
-                        <div class="participant-institution">CREE TOLUCA</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">José Luis Carbajal Barrera</div>
-                        <div class="participant-title">Rehabilitation Medicine, Resident</div>
-                        <div class="participant-institution">CREE Toluca</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Fanny Nadieshda Guevara Juárez</div>
-                        <div class="participant-title">Rehabilitation Medicine, Resident</div>
-                        <div class="participant-institution">CREE Toluca DIFEM</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Luz Aditi Jacinto Sandoval</div>
-                        <div class="participant-title">Rehabilitation Medicine, Resident</div>
-                        <div class="participant-institution">CREE Toluca</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">María del Carmen Carmona Gaona</div>
-                        <div class="participant-title">Rehabilitation Medicine, Resident</div>
-                        <div class="participant-institution">CREE Toluca</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Patricia Herrera Sánchez</div>
-                        <div class="participant-title">Pediatric Neurologist</div>
-                        <div class="participant-institution">DIFEM</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Salvador Martínez Caire</div>
-                        <div class="participant-title">Rehabilitation Medicine, Teacher</div>
-                        <div class="participant-institution">Cree Toluca</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
-        <div class="workshop-section">
-            <div class="workshop-section-title">
-                🇲🇽 2nd Slicer Toluca Workshop: Slicer for Ultrasound in Latin America (October 27, 2025)
-            </div>
-            <div class="participants-grid">
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Daniel Domínguez Gómez</div>
-                        <div class="participant-title">Computer Science Student (Postgrad)</div>
-                        <div class="participant-institution">UJAT</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Petrona Denise Vertiz Hidalgo</div>
-                        <div class="participant-title">Master in Computer Science Student</div>
-                        <div class="participant-institution">Universidad Juárez Autónoma de Tabasco</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Mayra Molina Carbajal</div>
-                        <div class="participant-title">Master's in Engineering Sciences</div>
-                        <div class="participant-institution">UAEMéx Faculty of Engineering</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Mariana Álvarez Carvajal</div>
-                        <div class="participant-title">Medical Image Processing Student (Postgrad)</div>
-                        <div class="participant-institution">Facultad de Ingeniería</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Juana Canul Reich</div>
-                        <div class="participant-title">Machine Learning in Health, Teacher & Researcher</div>
-                        <div class="participant-institution">Universidad Juárez Autónoma de Tabasco</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Estefany Jacqueline Segura Cortes</div>
-                        <div class="participant-title">Biomedical Engineering Student (Undergrad)</div>
-                        <div class="participant-institution">UAEMéx</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Jesús Alejandro Daniel Jiménez</div>
-                        <div class="participant-title">Biomedical Engineering Student (Undergrad)</div>
-                        <div class="participant-institution">Universidad Autónoma del Estado de México</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Bryan Jassiel Trujillo Salgado</div>
-                        <div class="participant-title">Biomedical Engineering Student (Undergrad)</div>
-                        <div class="participant-institution">UAEMéx</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Juan Eduardo Villanueva Guerrero</div>
-                        <div class="participant-title">Biomedical Engineering Student (Undergrad)</div>
-                        <div class="participant-institution">Universidad Autónoma del Estado de México</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Jessica Emma Cortés García</div>
-                        <div class="participant-title">Master's in Engineering Student (Postgrad)</div>
-                        <div class="participant-institution">Independent</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Javier Salas García</div>
-                        <div class="participant-title">Electronics & Computation, Teacher & Researcher</div>
-                        <div class="participant-institution">UAEMEX</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Emmanuel Acevedo Díaz</div>
-                        <div class="participant-title">Computer Science Student (Postgrad)</div>
-                        <div class="participant-institution">Universidad Autónoma del Estado de México</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Hellen Paloma Almeída Díaz</div>
-                        <div class="participant-title">Biomedical Engineering Student (Undergrad)</div>
-                        <div class="participant-institution">Facultad de Medicina</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Josue Eduardo Soto</div>
-                        <div class="participant-title">Biomedical Engineering Student (Undergrad)</div>
-                        <div class="participant-institution">Universidad Autónoma del Estado de Mexico</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Gabriela Sebastián Hernández</div>
-                        <div class="participant-title">Biomedical Engineering Student (Undergrad)</div>
-                        <div class="participant-institution">UAEMex</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-
-                <div class="participant-card">
-                    <div class="photo-container">
-                        <div class="photo-placeholder">👤</div>
-                    </div>
-                    <div class="participant-info">
-                        <div class="participant-name">Diego Alberto Andrade Vicente</div>
-                        <div class="participant-title">Biomedical Engineering Student (Undergrad)</div>
-                        <div class="participant-institution">UAEMex</div>
-                        <div class="participant-country">Mexico</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div id="participantsContainer" class="participants-grid">
+        <!-- Content will be injected by JS -->
+      </div>
     </div>
+
     <footer>
       <div class="container">
         <div class="row justify-content-center">
@@ -1175,5 +234,678 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-  </body>
+    
+    <!-- Data and Logic -->
+    <script>
+        const participantsData = [
+    {
+        "name": "ALDO BARBOSA",
+        "title": "Student",
+        "institution": "Santa Casa de Miseric\u00f3rdia de Ituverava",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Aceneth Cordoba Mendez",
+        "title": "Physical Medicine & Rehabilitation, Teacher",
+        "institution": "Sistema para el Desarrollo Integral de la Familia del Estado de M\u00e9xico - DIFEM",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Alejandra Rosas Barrita",
+        "title": "Rehabilitation Medicine, Teacher",
+        "institution": "Sistema Nacional para el Desarrollo Integral de la Familia - DIF Nacional",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Alejandro Trujillo Millan",
+        "title": "Orthopedics & Traumatology, Physician",
+        "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca - CREE Toluca",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Alessandro Bullentini",
+        "title": "IBM",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Ana Alves",
+        "title": "Tecn\u00f3logo em Radiologia",
+        "institution": "Instituto Federal de Pernambuco - IFPE",
+        "country": "Brazil/Pernambuco",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Ana Barros",
+        "title": "3rd Year",
+        "institution": "Instituto Federal de Pernambuco - IFPE",
+        "country": "Brazil/Nordeste",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Antonio Marcos Sousa de Oliviera",
+        "title": "Bachelor",
+        "institution": "Universidade Paulista - UNIP",
+        "country": "Brazil, SP",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Bryan Jassiel Trujillo Salgado",
+        "title": "Biomedical Engineering Student (Undergrad)",
+        "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Carlo Rondinoni",
+        "title": "PhD",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Daniel Dom\u00ednguez G\u00f3mez",
+        "title": "Computer Science Student (Postgrad)",
+        "institution": "Universidad Ju\u00e1rez Aut\u00f3noma de Tabasco - UJAT",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Davi Pultrini",
+        "title": "Complete High School",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Davi Rodrigues Pultrini",
+        "title": "Undergraduate",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Diego Alberto Andrade Vicente",
+        "title": "Biomedical Engineering Student (Undergrad)",
+        "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Eder Rezende Moraes",
+        "title": "PhD",
+        "institution": "Faculdade de Filosofia, Ci\u00eancias e Letras de Ribeir\u00e3o Preto - USP",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Eder Rezende Moraes",
+        "title": "PhD",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil/S\u00e3o Paulo",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Edson Perger",
+        "title": "PhD in Research and Development - Medical Biotechnology",
+        "institution": "Universidade Estadual Paulista - UNESP",
+        "country": "Brazil/SP",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Emmanuel Acevedo D\u00edaz",
+        "title": "Computational Science Student (Postgrad)",
+        "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Emmanuel Acevedo D\u00edaz",
+        "title": "Computer Science Student (Postgrad)",
+        "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Emmanuel Fernando Romero Alday",
+        "title": "Rehabilitation Medicine, Resident",
+        "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca - CREE Toluca",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Eneas Ferreira",
+        "title": "Student",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil/Ribeir\u00e3o Preto",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Enzo Pacheco",
+        "title": "Undergraduate",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Erika Lude\u00f1a",
+        "title": "Master",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Estefany Jacqueline Segura Cortes",
+        "title": "Biomedical Engineering Student (Undergrad)",
+        "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Fanny Nadieshda Guevara Ju\u00e1rez",
+        "title": "Rehabilitation Medicine, Resident",
+        "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca - CREE Toluca",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Fernando Orozco Soto",
+        "title": "Internal Medicine, Teacher",
+        "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca - CREE Toluca",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Flor Irene Rangel Solis",
+        "title": "Rehabilitation Medicine, Medical Specialist",
+        "institution": "Sistema Nacional para el Desarrollo Integral de la Familia - DIF Nacional",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Gabriel Righi",
+        "title": "Undergraduate",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil, S\u00e3o Paulo",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Gabriela Sebasti\u00e1n Hern\u00e1ndez",
+        "title": "Biomedical Engineering Student (Undergrad)",
+        "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Guilherme Metzner",
+        "title": "Radiologist",
+        "institution": "Faculdade de Medicina de Ribeir\u00e3o Preto - USP",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Hellen Paloma Alme\u00edda D\u00edaz",
+        "title": "Biomedical Engineering Student (Undergrad)",
+        "institution": "Facultad de Medicina - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Henrique Lima de Souza",
+        "title": "Student (2 years)",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Javier Salas Garc\u00eda",
+        "title": "Electronics & Computation, Teacher & Researcher",
+        "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Jessica Emma Cort\u00e9s Garc\u00eda",
+        "title": "Master's in Engineering Student (Postgrad)",
+        "institution": "Independent",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Jes\u00fas Alejandro Daniel Jim\u00e9nez",
+        "title": "Biomedical Engineering Student (Undergrad)",
+        "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Johanna Elisabeth Rogalsky",
+        "title": "PhD Student",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil/Ribeir\u00e3o Preto/SP",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Jorge Mejia",
+        "title": "Doutor em Astrof\u00edsica",
+        "institution": "Hospital Israelita Albert Einstein - HIAE",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Josue Eduardo Soto",
+        "title": "Biomedical Engineering Student (Undergrad)",
+        "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Jos\u00e9 Luis Carbajal Barrera",
+        "title": "Rehabilitation Medicine, Resident",
+        "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca - CREE Toluca",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Jo\u00e3o Kajiwara",
+        "title": "PhD",
+        "institution": "Faculdade de Medicina de Ribeir\u00e3o Preto - USP",
+        "country": "Brazil/SP",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Juan Eduardo Villanueva Guerrero",
+        "title": "Biomedical Engineering Student (Undergrad)",
+        "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Juana Canul Reich",
+        "title": "Machine Learning in Health, Teacher & Researcher",
+        "institution": "Universidad Ju\u00e1rez Aut\u00f3noma de Tabasco - UJAT",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Karina L\u00f3pez Cuevas",
+        "title": "Rehabilitation Medicine, Resident",
+        "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca - CREE Toluca",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Leanderson Cordeiro",
+        "title": "PhD Candidate",
+        "institution": "Universidade Federal de Pernambuco - UFPE",
+        "country": "Brazil/Recife/PE",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Lecca",
+        "title": "Master",
+        "institution": "Hospital das Cl\u00ednicas de Ribeir\u00e3o Preto - HCRP",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Leticia Wellingta Santos Costa",
+        "title": "Medical Professional",
+        "institution": "Hospital das Cl\u00ednicas de Ribeir\u00e3o Preto - HCRP",
+        "country": "Brazil",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Let\u00edcia Fagundes",
+        "title": "Mechanical Engineering Student",
+        "institution": "Universidade Federal do Rio de Janeiro - UFRJ",
+        "country": "Rio das Ostras, Brazil",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Lucas Lima",
+        "title": "Dr.",
+        "institution": "Universidade Paulista - UNIP",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Lucas Silva",
+        "title": "3rd Year",
+        "institution": "Instituto Federal de Pernambuco - IFPE",
+        "country": "Brazil/Recife",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Luis Souza",
+        "title": "PhD",
+        "institution": "Universidade Federal do Tri\u00e2ngulo Mineiro - UFTM",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Luizy Moura",
+        "title": "Undergraduate",
+        "institution": "Instituto Federal de Pernambuco - IFPE",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Luz Aditi Jacinto Sandoval",
+        "title": "Rehabilitation Medicine, Resident",
+        "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca - CREE Toluca",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Marcelo Olivo",
+        "title": "Medical Student",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Mariana Oliveira",
+        "title": "Dentistry Student",
+        "institution": "Universidade Federal Fluminense - UFF",
+        "country": "Brazil",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Mariana \u00c1lvarez Carvajal",
+        "title": "Medical Image Processing Student (Postgrad)",
+        "institution": "Facultad de Ingenier\u00eda - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Martha Tarozzo",
+        "title": "PhD",
+        "institution": "Faculdade de Medicina de Ribeir\u00e3o Preto - USP",
+        "country": "Brazil",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Mar\u00eda del Carmen Carmona Gaona",
+        "title": "Rehabilitation Medicine, Resident",
+        "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca - CREE Toluca",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Mayra Molina Carbajal",
+        "title": "Master's in Engineering Sciences",
+        "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico - UAEM\u00e9x",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Michel Raed",
+        "title": "Bachelor",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Norma Elia Hern\u00e1ndez P\u00e9rez",
+        "title": "Rehabilitation Medicine Specialist",
+        "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca - CREE Toluca",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Paola Martins",
+        "title": "Bachelor's Degree Student",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil/Ribeir\u00e3o Preto - SP",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Patricia Herrera S\u00e1nchez",
+        "title": "Pediatric Neurologist",
+        "institution": "Sistema para el Desarrollo Integral de la Familia del Estado de M\u00e9xico - DIFEM",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Paul Muka",
+        "title": "Medical Physics Student",
+        "institution": "Ladoke Akintola University of Technology",
+        "country": "Nigeria",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Paulo Eduardo Hernandes Antunes",
+        "title": "Doctor",
+        "institution": "Funda\u00e7\u00e3o de Apoio ao Ensino, Pesquisa e Assist\u00eancia do HCRP - FAEPA",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Pedro Andrade",
+        "title": "PhD",
+        "institution": "Instituto Federal de Pernambuco - IFPE",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Petrona Denise Vertiz Hidalgo",
+        "title": "Master in Computer Science Student",
+        "institution": "Universidad Ju\u00e1rez Aut\u00f3noma de Tabasco - UJAT",
+        "country": "Mexico",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Rafael Scatena",
+        "title": "PhD Student",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil/SP",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Rafaela Bento",
+        "title": "Undergraduate",
+        "institution": "Instituto Federal de Pernambuco - IFPE",
+        "country": "Brazil/Northeast",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Raniele Costa",
+        "title": "Master Student",
+        "institution": "Universidade Federal de Pernambuco - UFPE",
+        "country": "Brazil/Recife/Pernambuco",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Roberto Pereira",
+        "title": "PhD",
+        "institution": "Faculdade de Medicina de Ribeir\u00e3o Preto - USP",
+        "country": "Brazil/Ribeir\u00e3o Preto",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Salvador Mart\u00ednez Caire",
+        "title": "Rehabilitation Medicine, Teacher",
+        "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca - CREE Toluca",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Sandra Guadalupe Oca\u00f1a Ferreyra",
+        "title": "Rehabilitation, Teacher",
+        "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca - CREE Toluca",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Seyi Omotoso",
+        "title": "BSc",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Nigeria",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Socorro Patricia P\u00e9rez Amaya",
+        "title": "Rehabilitation Medicine Specialist",
+        "institution": "Sistema para el Desarrollo Integral de la Familia del Estado de M\u00e9xico - DIFEM",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Sofia Pompeu",
+        "title": "Undergraduate",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Victor Hugo Enes Malheiro",
+        "title": "Bachelor, Master",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil/S\u00e3o Paulo",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Vin\u00edcius Ramiarina Brusdzensky",
+        "title": "Dentistry Student",
+        "institution": "Universidade Federal Fluminense - UFF",
+        "country": "Brazil",
+        "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Vin\u00edcius Soares",
+        "title": "Master in Neuroscience",
+        "institution": "Universidade de S\u00e3o Paulo - USP",
+        "country": "Brazil/S\u00e3o Paulo",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Vitor Dalto",
+        "title": "PhD",
+        "institution": "Faculdade de Medicina de Ribeir\u00e3o Preto - USP",
+        "country": "Brazil",
+        "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Yessica Bustos Cruz",
+        "title": "Rehabilitation, Resident",
+        "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca - CREE Toluca",
+        "country": "Mexico",
+        "workshop": "3rd Slicer Toluca Workshop"
+    }
+];
+
+        const container = document.getElementById('participantsContainer');
+        const searchInput = document.getElementById('searchInput');
+        const btnAlphabetical = document.getElementById('btnAlphabetical');
+        const btnWorkshop = document.getElementById('btnWorkshop');
+
+        let currentMode = 'alphabetical'; // 'alphabetical' or 'workshop'
+        let searchTerm = '';
+
+        function renderCard(p) {
+            return `
+            <div class="participant-card">
+                <div class="photo-container">
+                    <div class="photo-placeholder">👤</div>
+                </div>
+                <div class="participant-info">
+                    <div class="participant-name">${p.name}</div>
+                    <div class="participant-title">${p.title}</div>
+                    <div class="participant-institution">${p.institution}</div>
+                    <div class="participant-country">${p.country}</div>
+                    <div class="participant-workshop">Workshop: ${p.workshop}</div>
+                </div>
+            </div>
+            `;
+        }
+
+        function filterParticipants(data) {
+            if (!searchTerm) return data;
+            const lowerTerm = searchTerm.toLowerCase();
+            return data.filter(p => 
+                p.name.toLowerCase().includes(lowerTerm) ||
+                p.institution.toLowerCase().includes(lowerTerm) ||
+                p.workshop.toLowerCase().includes(lowerTerm) ||
+                p.country.toLowerCase().includes(lowerTerm)
+            );
+        }
+
+        function renderAlphabetical() {
+            const filtered = filterParticipants(participantsData);
+            // Sort by name
+            filtered.sort((a, b) => a.name.localeCompare(b.name));
+            
+            const countLabel = filtered.length === 1 ? 'participant' : 'participants';
+            container.innerHTML = `
+                <div class="workshop-section-title">
+                    All Participants <small class="fw-normal text-secondary">(${filtered.length} ${countLabel})</small>
+                </div>
+            ` + filtered.map(renderCard).join('');
+        }
+
+        function renderWorkshop() {
+            const filtered = filterParticipants(participantsData);
+            
+            // Group by workshop
+            const groups = {};
+            filtered.forEach(p => {
+                if (!groups[p.workshop]) groups[p.workshop] = [];
+                groups[p.workshop].push(p);
+            });
+
+            // Sort workshops (optional, maybe by date if we could parse it, but alphabetical is fine for now)
+            const workshopNames = Object.keys(groups).sort();
+
+            let html = '';
+            workshopNames.forEach(ws => {
+                const count = groups[ws].length;
+                const countLabel = count === 1 ? 'participant' : 'participants';
+                html += `<div class="workshop-section-title">${ws} <small class="fw-normal text-secondary">(${count} ${countLabel})</small></div>`;
+                // Sort participants within workshop
+                groups[ws].sort((a, b) => a.name.localeCompare(b.name));
+                html += groups[ws].map(renderCard).join('');
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function updateView() {
+            if (currentMode === 'alphabetical') {
+                renderAlphabetical();
+            } else {
+                renderWorkshop();
+            }
+        }
+
+        // Event Listeners
+        btnAlphabetical.addEventListener('change', () => {
+            if(btnAlphabetical.checked) {
+                currentMode = 'alphabetical';
+                updateView();
+            }
+        });
+
+        btnWorkshop.addEventListener('change', () => {
+            if(btnWorkshop.checked) {
+                currentMode = 'workshop';
+                updateView();
+            }
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            searchTerm = e.target.value;
+            updateView();
+        });
+
+        // Initial Render
+        updateView();
+
+    </script>
+</body>
 </html>
