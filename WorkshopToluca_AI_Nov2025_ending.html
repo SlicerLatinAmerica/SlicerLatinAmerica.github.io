@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - AI in Medicine Workshop</title>
+  <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body class="workshop-body">
+
+  <header class="workshop-header">
+    <a href="index.html">
+      <img src="public/assets/img/logo.png" alt="Logo 3D Slicer">
+    </a>
+    <h1>Photo Gallery</h1>
+    <p>3D Slicer: Taller de tecnología basada en IA</p>
+  </header>
+
+  <main class="workshop-main">
+    <section class="workshop-section">
+      <h2>Event Moments</h2>
+      
+      <div class="gallery">
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_AI_Nov2025/IMG_8585.jpg')"><img src="public/assets/img/WorkshopToluca_AI_Nov2025/IMG_8585.jpg" loading="lazy"></div>
+        <div class="gallery-item tall" onclick="openLightbox('public/assets/img/WorkshopToluca_AI_Nov2025/IMG_8588.jpg')"><img src="public/assets/img/WorkshopToluca_AI_Nov2025/IMG_8588.jpg" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_AI_Nov2025/IMG_8600.jpg')"><img src="public/assets/img/WorkshopToluca_AI_Nov2025/IMG_8600.jpg" loading="lazy"></div>
+        <div class="gallery-item wide" onclick="openLightbox('public/assets/img/WorkshopToluca_AI_Nov2025/IMG_8614.jpg')"><img src="public/assets/img/WorkshopToluca_AI_Nov2025/IMG_8614.jpg" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_AI_Nov2025/IMG_9244.JPEG')"><img src="public/assets/img/WorkshopToluca_AI_Nov2025/IMG_9244.JPEG" loading="lazy"></div>
+        <div class="gallery-item tall" onclick="openLightbox('public/assets/img/WorkshopToluca_AI_Nov2025/IMG_9246.JPEG')"><img src="public/assets/img/WorkshopToluca_AI_Nov2025/IMG_9246.JPEG" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_AI_Nov2025/IMG_9247.JPEG')"><img src="public/assets/img/WorkshopToluca_AI_Nov2025/IMG_9247.JPEG" loading="lazy"></div>
+        <div class="gallery-item wide" onclick="openLightbox('public/assets/img/WorkshopToluca_AI_Nov2025/IMG_9248.JPEG')"><img src="public/assets/img/WorkshopToluca_AI_Nov2025/IMG_9248.JPEG" loading="lazy"></div>
+        <div class="gallery-item tall" onclick="openLightbox('public/assets/img/WorkshopToluca_AI_Nov2025/WhatsApp Image 2025-11-29 at 12.41.56_85627d28.jpg')"><img src="public/assets/img/WorkshopToluca_AI_Nov2025/WhatsApp Image 2025-11-29 at 12.41.56_85627d28.jpg" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_AI_Nov2025/WhatsApp Image 2025-11-29 at 12.41.56_40c326d2.jpg')"><img src="public/assets/img/WorkshopToluca_AI_Nov2025/WhatsApp Image 2025-11-29 at 12.41.56_40c326d2.jpg" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_AI_Nov2025/WhatsApp Image 2025-11-29 at 12.42.01_0883a9f1.jpg')"><img src="public/assets/img/WorkshopToluca_AI_Nov2025/WhatsApp Image 2025-11-29 at 12.42.01_0883a9f1.jpg" loading="lazy"></div>
+        <div class="gallery-item wide" onclick="openLightbox('public/assets/img/WorkshopToluca_AI_Nov2025/WhatsApp Image 2025-11-29 at 12.42.01_dff280bf.jpg')"><img src="public/assets/img/WorkshopToluca_AI_Nov2025/WhatsApp Image 2025-11-29 at 12.42.01_dff280bf.jpg" loading="lazy"></div>
+      </div>
+
+      <a href="WorkshopToluca_AI_Nov2025.html" class="back-link">Back to Workshop Details</a>
+      <a href="index.html" class="back-link">Back to Home</a>
+    </section>
+  </main>
+
+  <footer class="workshop-footer">
+    <p>&copy; 2025 Workshop 3D Slicer – Toluca</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="Full screen image">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="public/js/gallery-animation.js"></script>
+</body>
+</html>

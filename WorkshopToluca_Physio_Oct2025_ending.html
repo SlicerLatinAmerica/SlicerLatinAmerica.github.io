@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - 3D Slicer: Physiotherapy Workshop</title>
+  <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body class="workshop-body">
+
+  <header class="workshop-header">
+    <a href="index.html">
+      <img src="public/assets/img/logo.png" alt="Logo 3D Slicer">
+    </a>
+    <h1>Photo Gallery</h1>
+    <p>3D Slicer: Taller de tecnología basada en IA para fisioterapeutas</p>
+  </header>
+
+  <main class="workshop-main">
+    <section class="workshop-section">
+      <h2>Event Moments</h2>
+      
+      <div class="gallery">
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/2.jpg')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/2.jpg" loading="lazy"></div>
+        <div class="gallery-item tall" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8176.jpg')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8176.jpg" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8181.jpg')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8181.jpg" loading="lazy"></div>
+        <div class="gallery-item wide" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8185.jpg')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8185.jpg" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8197.jpg')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8197.jpg" loading="lazy"></div>
+        <div class="gallery-item tall" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8199.jpg')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8199.jpg" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8204.jpg')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8204.jpg" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8206.jpg')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8206.jpg" loading="lazy"></div>
+        <div class="gallery-item wide" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8211.jpg')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_8211.jpg" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9016.JPEG')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9016.JPEG" loading="lazy"></div>
+        <div class="gallery-item tall" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9018.JPEG')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9018.JPEG" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9019.JPEG')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9019.JPEG" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9020.JPEG')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9020.JPEG" loading="lazy"></div>
+        <div class="gallery-item wide" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9022.JPEG')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9022.JPEG" loading="lazy"></div>
+        <div class="gallery-item tall" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9023.JPEG')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9023.JPEG" loading="lazy"></div>
+        <div class="gallery-item wide" onclick="openLightbox('public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9026.JPEG')"><img src="public/assets/img/WorkshopToluca_Physio_Oct2025/IMG_9026.JPEG" loading="lazy"></div>
+      </div>
+
+      <a href="WorkshopToluca_Physio_Oct2025.html" class="back-link">Back to Workshop Details</a>
+      <a href="index.html" class="back-link">Back to Home</a>
+    </section>
+  </main>
+
+  <footer class="workshop-footer">
+    <p>&copy; 2025 Workshop 3D Slicer – Toluca</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="Full screen image">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="public/js/gallery-animation.js"></script>
+</body>
+</html>
