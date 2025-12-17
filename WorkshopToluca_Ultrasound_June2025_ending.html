@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - 3D Slicer: Ultrasound Images</title>
+  <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body class="workshop-body">
+
+  <header class="workshop-header">
+    <a href="index.html">
+      <img src="public/assets/img/logo.png" alt="Logo 3D Slicer">
+    </a>
+    <h1>Photo Gallery</h1>
+    <p>3D Slicer: Ultrasound Images</p>
+  </header>
+
+  <main class="workshop-main">
+    <section class="workshop-section">
+      <h2>Event Moments</h2>
+      
+      <div class="gallery">
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8659.JPEG')"><img src="public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8659.JPEG" loading="lazy"></div>
+        <div class="gallery-item tall" onclick="openLightbox('public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8661.JPEG')"><img src="public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8661.JPEG" loading="lazy"></div>
+        <div class="gallery-item wide" onclick="openLightbox('public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8663.JPEG')"><img src="public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8663.JPEG" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8664.JPEG')"><img src="public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8664.JPEG" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8665.JPEG')"><img src="public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8665.JPEG" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8667.JPEG')"><img src="public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8667.JPEG" loading="lazy"></div>
+        <div class="gallery-item wide" onclick="openLightbox('public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8671.JPEG')"><img src="public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8671.JPEG" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8673.JPEG')"><img src="public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8673.JPEG" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox('public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8674.JPEG')"><img src="public/assets/img/WorkshopToluca_Ultrasound_June2025/IMG_8674.JPEG" loading="lazy"></div>
+      </div>
+
+      <a href="WorkshopToluca_Ultrasound_June2025.html" class="back-link">Back to Workshop Details</a>
+      <a href="index.html" class="back-link">Back to Home</a>
+    </section>
+  </main>
+
+  <footer class="workshop-footer">
+    <div class="footer-content">
+        <a href="index.html">
+            <img src="./public/assets/img/icon.png" alt="3D Slicer" />
+        </a>
+        <nav class="footer-nav">
+            <a href="index.html">The Project</a>
+            <a href="events.html">Events</a>
+            <a href="team.html">Our Team</a>
+            <a href="work.html">Our Work</a>
+            <a href="sponsors.html">Acknowledgment</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+</footer>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="Full screen image">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="public/js/gallery-animation.js"></script>
+</body>
+</html>
