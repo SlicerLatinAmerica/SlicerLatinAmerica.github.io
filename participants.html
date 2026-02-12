@@ -19,111 +19,9 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-        .participants-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .participant-card {
-            background: var(--bg-color-light);
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #eee;
-        }
-
-        .participant-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .participant-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .participant-name {
-            font-size: 1.1em;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 6px;
-        }
-
-        .participant-title {
-            font-size: 0.85em;
-            color: #555;
-            font-style: italic;
-            margin-bottom: 6px;
-        }
-
-        .participant-institution {
-            font-size: 0.8em;
-            color: #666;
-            margin-bottom: 4px;
-            flex-grow: 1;
-        }
-
-        .participant-country {
-            font-size: 0.75em;
-            color: #888;
-            padding-top: 8px;
-            border-top: 1px solid #eee;
-        }
-        
-        .participant-workshop {
-            font-size: 0.75em;
-            color: var(--secondary-color);
-            margin-top: 4px;
-            font-weight: bold;
-        }
-
-        .workshop-section-title {
-            grid-column: 1 / -1;
-            background: var(--bg-color-light);
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-            font-size: 1.5em;
-            font-weight: 700;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .controls-container {
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn-group-custom .btn {
-            border-radius: 20px;
-            padding: 8px 20px;
-            font-weight: 500;
-        }
-        
-        .btn-check:checked + .btn-outline-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .participants-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 20px;
-            }
-
-            .workshop-section-title {
-                font-size: 1.2em;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
 </head>
 <body class="">
     <nav class="navbar navbar-expand-lg custom-navbar" id="homeNavBar">
@@ -171,7 +69,28 @@
       <div class="row">
         <div class="col-12">
           <h1 class="titulo">Workshop Participants</h1>
+
+          <!-- Statistics Section -->
+          <div class="statistics-section">
+            <h2 class="section-title">Statistics</h2>
+            
+            <div class="stats-row">
+              <div class="stats-left">
+                <div class="stats-container" id="statsContainer">
+                  <!-- Stats will be injected by JS -->
+                </div>
+              </div>
+              
+              <div class="stat-group map-container">
+                <h3 class="stat-group-title">Geographic Distribution</h3>
+                <div id="map"></div>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="section-title">Details</h2>
           
+          <!-- Search/Filter -->  
           <div class="controls-container">
             <div class="btn-group" role="group" aria-label="View Mode">
                 <input type="radio" class="btn-check" name="viewMode" id="btnAlphabetical" autocomplete="off" checked>
@@ -181,9 +100,8 @@
                 <label class="btn btn-outline-primary" for="btnWorkshop">Workshop View</label>
             </div>
           </div>
-          
-          <!-- Search/Filter could go here -->
-          <div class="row justify-content-center mb-4">
+
+          <div class="row justify-content-center mb-4 mt-5">
              <div class="col-md-6">
                 <input type="text" id="searchInput" class="form-control" placeholder="Search participants, institutions, or workshops...">
              </div>
@@ -235,568 +153,571 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
     
     <!-- Data and Logic -->
     <script>
         const participantsData = [
     {
         "name": "ALDO BARBOSA",
-        "title": "Student",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Santa Casa de Miseric\u00f3rdia de Ituverava",
-        "country": "Brazil",
+        "country": "Ituverava - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Aceneth Cordoba Mendez",
-        "title": "Physical Medicine & Rehabilitation, Teacher",
+        "title": "Teacher - Physical Medicine & Rehabilitation",
         "institution": "Sistema para el Desarrollo Integral de la Familia del Estado de M\u00e9xico (DIFEM)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Alejandra Rosas Barrita",
-        "title": "Rehabilitation Medicine, Teacher",
+        "title": "Teacher - Rehabilitation Medicine",
         "institution": "Sistema Nacional para el Desarrollo Integral de la Familia (DIF Nacional)",
-        "country": "Mexico",
+        "country": "Mexico City - Mexico",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Alejandro Trujillo Millan",
-        "title": "Orthopedics & Traumatology, Physician",
+        "title": "Physician - Orthopedics & Traumatology",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Alessandro Bullentini",
-        "title": "IBM",
+        "title": "Researcher - Medical Imaging",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Ana Alves",
-        "title": "Tecn\u00f3logo em Radiologia",
+        "title": "Radiology Technologist - Medical Imaging",
         "institution": "Instituto Federal de Pernambuco (IFPE)",
-        "country": "Brazil/Pernambuco",
+        "country": "Recife - Brazil (Pernambuco)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Ana Barros",
-        "title": "3rd Year",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Instituto Federal de Pernambuco (IFPE)",
-        "country": "Brazil/Nordeste",
+        "country": "Recife - Brazil (Pernambuco)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Antonio Marcos Sousa de Oliviera",
-        "title": "Bachelor",
+        "title": "Bachelor's Degree - General Studies",
         "institution": "Universidade Paulista (UNIP)",
-        "country": "Brazil, SP",
+        "country": "Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Bryan Jassiel Trujillo Salgado",
-        "title": "Biomedical Engineering Student (Undergrad)",
+        "title": "Undergraduate Student (Bachelor's) - Biomedical Engineering",
         "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Carlo Rondinoni",
-        "title": "PhD",
+        "title": "PhD - Neuroscience",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Daniel Dom\u00ednguez G\u00f3mez",
-        "title": "Computer Science Student (Postgrad)",
+        "title": "Graduate Student (Master's) - Computer Science",
         "institution": "Universidad Ju\u00e1rez Aut\u00f3noma de Tabasco (UJAT)",
-        "country": "Mexico",
+        "country": "Villahermosa - Mexico (Tabasco)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Davi Pultrini",
-        "title": "Complete High School",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Davi Rodrigues Pultrini",
-        "title": "Undergraduate",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Diego Alberto Andrade Vicente",
-        "title": "Biomedical Engineering Student (Undergrad)",
+        "title": "Undergraduate Student (Bachelor's) - Biomedical Engineering",
         "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Eder Rezende Moraes",
-        "title": "PhD",
+        "title": "PhD - Neuroscience",
         "institution": "Faculdade de Filosofia, Ci\u00eancias e Letras de Ribeir\u00e3o Preto (USP)",
-        "country": "Brazil",
+        "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Eder Rezende Moraes",
-        "title": "PhD",
+        "title": "PhD - Neuroscience",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil/S\u00e3o Paulo",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Edson Perger",
-        "title": "PhD in Research and Development (Medical Biotechnology)",
+        "title": "PhD - Medical Biotechnology",
         "institution": "Universidade Estadual Paulista (UNESP)",
-        "country": "Brazil/SP",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Emmanuel Acevedo D\u00edaz",
-        "title": "Computational Science Student (Postgrad)",
+        "title": "Graduate Student (Master's) - Computational Science",
         "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Emmanuel Acevedo D\u00edaz",
-        "title": "Computer Science Student (Postgrad)",
+        "title": "Graduate Student (Master's) - Computer Science",
         "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Emmanuel Fernando Romero Alday",
-        "title": "Rehabilitation Medicine, Resident",
+        "title": "Resident - Rehabilitation Medicine",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Eneas Ferreira",
-        "title": "Student",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil/Ribeir\u00e3o Preto",
+        "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Enzo Pacheco",
-        "title": "Undergraduate",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Erika Lude\u00f1a",
-        "title": "Master",
+        "title": "Master's Degree - Biomedical Sciences",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Estefany Jacqueline Segura Cortes",
-        "title": "Biomedical Engineering Student (Undergrad)",
+        "title": "Undergraduate Student (Bachelor's) - Biomedical Engineering",
         "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Fanny Nadieshda Guevara Ju\u00e1rez",
-        "title": "Rehabilitation Medicine, Resident",
+        "title": "Resident - Rehabilitation Medicine",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Fernando Orozco Soto",
-        "title": "Internal Medicine, Teacher",
+        "title": "Teacher - Internal Medicine",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Flor Irene Rangel Solis",
-        "title": "Rehabilitation Medicine, Medical Specialist",
+        "title": "Medical Specialist - Rehabilitation Medicine",
         "institution": "Sistema Nacional para el Desarrollo Integral de la Familia (DIF Nacional)",
-        "country": "Mexico",
+        "country": "Mexico City - Mexico",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Gabriel Righi",
-        "title": "Undergraduate",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil, S\u00e3o Paulo",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Gabriela Sebasti\u00e1n Hern\u00e1ndez",
-        "title": "Biomedical Engineering Student (Undergrad)",
+        "title": "Undergraduate Student (Bachelor's) - Biomedical Engineering",
         "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Guilherme Metzner",
-        "title": "Radiologist",
+        "title": "Medical Specialist - Radiology",
         "institution": "Faculdade de Medicina de Ribeir\u00e3o Preto (USP)",
-        "country": "Brazil",
+        "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Hellen Paloma Alme\u00edda D\u00edaz",
-        "title": "Biomedical Engineering Student (Undergrad)",
+        "title": "Undergraduate Student (Bachelor's) - Biomedical Engineering",
         "institution": "Facultad de Medicina (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Henrique Lima de Souza",
-        "title": "Student (2 years)",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Javier Salas Garc\u00eda",
-        "title": "Electronics & Computation, Teacher & Researcher",
+        "title": "Teacher & Researcher - Electronics & Computation",
         "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Jessica Emma Cort\u00e9s Garc\u00eda",
-        "title": "Master's in Engineering Student (Postgrad)",
+        "title": "Graduate Student (Master's) - Engineering",
         "institution": "Independent",
         "country": "Mexico",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Jes\u00fas Alejandro Daniel Jim\u00e9nez",
-        "title": "Biomedical Engineering Student (Undergrad)",
+        "title": "Undergraduate Student (Bachelor's) - Biomedical Engineering",
         "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Johanna Elisabeth Rogalsky",
-        "title": "PhD Student",
+        "title": "Graduate Student (PhD) - Neuroscience",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil/Ribeir\u00e3o Preto/SP",
+        "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Jorge Mejia",
-        "title": "Doutor em Astrof\u00edsica",
+        "title": "PhD - Astrophysics",
         "institution": "Hospital Israelita Albert Einstein (HIAE)",
-        "country": "Brazil",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Josue Eduardo Soto",
-        "title": "Biomedical Engineering Student (Undergrad)",
+        "title": "Undergraduate Student (Bachelor's) - Biomedical Engineering",
         "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Jos\u00e9 Luis Carbajal Barrera",
-        "title": "Rehabilitation Medicine, Resident",
+        "title": "Resident - Rehabilitation Medicine",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Jo\u00e3o Kajiwara",
-        "title": "PhD",
+        "title": "PhD - Medical Sciences",
         "institution": "Faculdade de Medicina de Ribeir\u00e3o Preto (USP)",
-        "country": "Brazil/SP",
+        "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Juan Eduardo Villanueva Guerrero",
-        "title": "Biomedical Engineering Student (Undergrad)",
+        "title": "Undergraduate Student (Bachelor's) - Biomedical Engineering",
         "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Juana Canul Reich",
-        "title": "Machine Learning in Health, Teacher & Researcher",
+        "title": "Teacher & Researcher - Machine Learning in Health",
         "institution": "Universidad Ju\u00e1rez Aut\u00f3noma de Tabasco (UJAT)",
-        "country": "Mexico",
+        "country": "Villahermosa - Mexico (Tabasco)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Karina L\u00f3pez Cuevas",
-        "title": "Rehabilitation Medicine, Resident",
+        "title": "Resident - Rehabilitation Medicine",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Leanderson Cordeiro",
-        "title": "PhD Candidate",
+        "title": "Graduate Student (PhD) - Computer Science",
         "institution": "Universidade Federal de Pernambuco (UFPE)",
-        "country": "Brazil/Recife/PE",
+        "country": "Recife - Brazil (Pernambuco)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Lecca",
-        "title": "Master",
+        "title": "Master's Degree - Health Sciences",
         "institution": "Hospital das Cl\u00ednicas de Ribeir\u00e3o Preto (HCRP)",
-        "country": "Brazil",
+        "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Leticia Wellingta Santos Costa",
-        "title": "Medical Professional",
+        "title": "Physician",
         "institution": "Hospital das Cl\u00ednicas de Ribeir\u00e3o Preto (HCRP)",
-        "country": "Brazil",
+        "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Let\u00edcia Fagundes",
-        "title": "Mechanical Engineering Student",
+        "title": "Undergraduate Student (Bachelor's) - Mechanical Engineering",
         "institution": "Universidade Federal do Rio de Janeiro (UFRJ)",
-        "country": "Rio das Ostras, Brazil",
+        "country": "Rio das Ostras - Brazil (Rio de Janeiro)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Lucas Lima",
-        "title": "Dr.",
+        "title": "Physician",
         "institution": "Universidade Paulista (UNIP)",
-        "country": "Brazil",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Lucas Silva",
-        "title": "3rd Year",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Instituto Federal de Pernambuco (IFPE)",
-        "country": "Brazil/Recife",
+        "country": "Recife - Brazil (Pernambuco)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Luis Souza",
-        "title": "PhD",
+        "title": "PhD - Biomedical Sciences",
         "institution": "Universidade Federal do Tri\u00e2ngulo Mineiro (UFTM)",
-        "country": "Brazil",
+        "country": "Uberaba - Brazil (Minas Gerais)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Luizy Moura",
-        "title": "Undergraduate",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Instituto Federal de Pernambuco (IFPE)",
-        "country": "Brazil",
+        "country": "Recife - Brazil (Pernambuco)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Luz Aditi Jacinto Sandoval",
-        "title": "Rehabilitation Medicine, Resident",
+        "title": "Resident - Rehabilitation Medicine",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Marcelo Olivo",
-        "title": "Medical Student",
+        "title": "Undergraduate Student (Bachelor's) - Medicine",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Mariana Oliveira",
-        "title": "Dentistry Student",
+        "title": "Undergraduate Student (Bachelor's) - Dentistry",
         "institution": "Universidade Federal Fluminense (UFF)",
-        "country": "Brazil",
+        "country": "Niter\u00f3i - Brazil (Rio de Janeiro)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Mariana \u00c1lvarez Carvajal",
-        "title": "Medical Image Processing Student (Postgrad)",
+        "title": "Graduate Student (Master's) - Medical Image Processing",
         "institution": "Facultad de Ingenier\u00eda (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Martha Tarozzo",
-        "title": "PhD",
+        "title": "PhD - Medical Sciences",
         "institution": "Faculdade de Medicina de Ribeir\u00e3o Preto (USP)",
-        "country": "Brazil",
+        "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Mar\u00eda del Carmen Carmona Gaona",
-        "title": "Rehabilitation Medicine, Resident",
+        "title": "Resident - Rehabilitation Medicine",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Mayra Molina Carbajal",
-        "title": "Master's in Engineering Sciences",
+        "title": "Master's Degree - Engineering Sciences",
         "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico (UAEM\u00e9x)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Michel Raed",
-        "title": "Bachelor",
+        "title": "Bachelor's Degree - General Studies",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Norma Elia Hern\u00e1ndez P\u00e9rez",
-        "title": "Rehabilitation Medicine Specialist",
+        "title": "Medical Specialist - Rehabilitation Medicine",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Paola Martins",
-        "title": "Bachelor's Degree Student",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil/Ribeir\u00e3o Preto (SP)",
+        "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Patricia Herrera S\u00e1nchez",
-        "title": "Pediatric Neurologist",
+        "title": "Medical Specialist - Pediatric Neurology",
         "institution": "Sistema para el Desarrollo Integral de la Familia del Estado de M\u00e9xico (DIFEM)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Paul Muka",
-        "title": "Medical Physics Student",
+        "title": "Undergraduate Student (Bachelor's) - Medical Physics",
         "institution": "Ladoke Akintola University of Technology",
         "country": "Nigeria",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Paulo Eduardo Hernandes Antunes",
-        "title": "Doctor",
+        "title": "Physician",
         "institution": "Funda\u00e7\u00e3o de Apoio ao Ensino, Pesquisa e Assist\u00eancia do HCRP (FAEPA)",
-        "country": "Brazil",
+        "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Pedro Andrade",
-        "title": "PhD",
+        "title": "PhD - Computer Science",
         "institution": "Instituto Federal de Pernambuco (IFPE)",
-        "country": "Brazil",
+        "country": "Recife - Brazil (Pernambuco)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Petrona Denise Vertiz Hidalgo",
-        "title": "Master in Computer Science Student",
+        "title": "Graduate Student (Master's) - Computer Science",
         "institution": "Universidad Ju\u00e1rez Aut\u00f3noma de Tabasco (UJAT)",
-        "country": "Mexico",
+        "country": "Villahermosa - Mexico (Tabasco)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
         "name": "Rafael Scatena",
-        "title": "PhD Student",
+        "title": "Graduate Student (PhD) - Neuroscience",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil/SP",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Rafaela Bento",
-        "title": "Undergraduate",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Instituto Federal de Pernambuco (IFPE)",
-        "country": "Brazil/Northeast",
+        "country": "Recife - Brazil (Pernambuco)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Raniele Costa",
-        "title": "Master Student",
+        "title": "Graduate Student (Master's)",
         "institution": "Universidade Federal de Pernambuco (UFPE)",
-        "country": "Brazil/Recife/Pernambuco",
+        "country": "Recife - Brazil (Pernambuco)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Roberto Pereira",
-        "title": "PhD",
+        "title": "PhD - Medical Sciences",
         "institution": "Faculdade de Medicina de Ribeir\u00e3o Preto (USP)",
-        "country": "Brazil/Ribeir\u00e3o Preto",
+        "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Salvador Mart\u00ednez Caire",
-        "title": "Rehabilitation Medicine, Teacher",
+        "title": "Teacher - Rehabilitation Medicine",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Sandra Guadalupe Oca\u00f1a Ferreyra",
-        "title": "Rehabilitation, Teacher",
+        "title": "Teacher - Rehabilitation",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Seyi Omotoso",
-        "title": "BSc",
+        "title": "Bachelor's Degree - General Studies",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
         "country": "Nigeria",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Socorro Patricia P\u00e9rez Amaya",
-        "title": "Rehabilitation Medicine Specialist",
+        "title": "Medical Specialist - Rehabilitation Medicine",
         "institution": "Sistema para el Desarrollo Integral de la Familia del Estado de M\u00e9xico (DIFEM)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
         "name": "Sofia Pompeu",
-        "title": "Undergraduate",
+        "title": "Undergraduate Student (Bachelor's)",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Victor Hugo Enes Malheiro",
-        "title": "Bachelor, Master",
+        "title": "Bachelor's & Master's Degree",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil/S\u00e3o Paulo",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Vin\u00edcius Ramiarina Brusdzensky",
-        "title": "Dentistry Student",
+        "title": "Undergraduate Student (Bachelor's) - Dentistry",
         "institution": "Universidade Federal Fluminense (UFF)",
-        "country": "Brazil",
+        "country": "Niter\u00f3i - Brazil (Rio de Janeiro)",
         "workshop": "2nd Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Vin\u00edcius Soares",
-        "title": "Master in Neuroscience",
+        "title": "Master's Degree - Neuroscience",
         "institution": "Universidade de S\u00e3o Paulo (USP)",
-        "country": "Brazil/S\u00e3o Paulo",
+        "country": "S\u00e3o Paulo - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Vitor Dalto",
-        "title": "PhD",
+        "title": "PhD - Medical Sciences",
         "institution": "Faculdade de Medicina de Ribeir\u00e3o Preto (USP)",
-        "country": "Brazil",
+        "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
     },
     {
         "name": "Yessica Bustos Cruz",
-        "title": "Rehabilitation, Resident",
+        "title": "Resident - Rehabilitation",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
-        "country": "Mexico",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "3rd Slicer Toluca Workshop"
     }
 ];
@@ -904,7 +825,345 @@
             updateView();
         });
 
+        // Statistics Calculation
+        function getInstitutionCountry(institution) {
+            // Common Brazilian institutions
+            const brazilianInstitutions = [
+                'Universidade de São Paulo', 'USP', 
+                'Faculdade de Medicina de Ribeirão Preto',
+                'Instituto Federal de Pernambuco', 'IFPE',
+                'Universidade Paulista', 'UNIP',
+                'Santa Casa de Misericórdia',
+                'Universidade Estadual Paulista', 'UNESP',
+                'Universidade Federal Fluminense', 'UFF',
+                'Universidade Federal de Pernambuco', 'UFPE',
+                'Universidade Federal do Rio de Janeiro', 'UFRJ',
+                'Universidade Federal do Triângulo Mineiro', 'UFTM',
+                'Hospital das Clínicas de Ribeirão Preto', 'HCRP',
+                'Hospital Israelita Albert Einstein', 'HIAE',
+                'Fundação de Apoio ao Ensino, Pesquisa e Assistência do Hospital das Clínicas', 'FAEPA',
+                'Faculdade de Filosofia, Ciências e Letras de Ribeirão Preto'
+            ];
+            
+            // Common Mexican institutions
+            const mexicanInstitutions = [
+                'Universidad Autónoma del Estado de México', 'UAEMéx', 'UAEMex',
+                'Centro de Rehabilitación y Educación Especial Toluca', 'CREE Toluca',
+                'Sistema para el Desarrollo Integral de la Familia del Estado de México', 'DIFEM',
+                'Sistema Nacional para el Desarrollo Integral de la Familia', 'DIF Nacional',
+                'Universidad Juárez Autónoma de Tabasco', 'UJAT',
+                'Facultad de Medicina', 'Facultad de Ingeniería', 'UAEM'
+            ];
+            
+            // Check Brazilian institutions
+            for (const keyword of brazilianInstitutions) {
+                if (institution.includes(keyword)) {
+                    return 'Brazil';
+                }
+            }
+            
+            // Check Mexican institutions
+            for (const keyword of mexicanInstitutions) {
+                if (institution.includes(keyword)) {
+                    return 'Mexico';
+                }
+            }
+            
+            return 'Other';
+        }
+
+        function getInstitutionParent(institution) {
+            // Group USP variants
+            if (institution.includes('(USP)') || 
+                institution.includes('Universidade de São Paulo') || 
+                institution.includes('HCRP') || 
+                institution.includes('Hospital das Clínicas de Ribeirão Preto') || 
+                institution.includes('FAEPA')) {
+                return 'Universidade de São Paulo (USP)';
+            }
+            
+            // Group UAEMéx variants
+            if (institution.includes('(UAEMéx)') || institution.includes('Universidad Autónoma del Estado de México')) {
+                return 'Universidad Autónoma del Estado de México (UAEMéx)';
+            }
+
+            return null;
+        }
+
+        function calculateStatistics() {
+            const stats = {
+                institutionsByCountry: {},
+                educationLevels: {
+                    bachelors: 0,
+                    masters: 0,
+                    phd: 0,
+                    undergraduateStudents: 0,
+                    graduateStudents: 0
+                },
+                professions: {}
+            };
+
+            participantsData.forEach(p => {
+
+                // Group institutions by the institution's country, not participant's country
+                const country = getInstitutionCountry(p.institution);
+                
+                if (!stats.institutionsByCountry[country]) {
+                    stats.institutionsByCountry[country] = {};
+                }
+                
+                // Determine Parent Institution
+                const parentInst = getInstitutionParent(p.institution);
+                const groupName = parentInst || p.institution;
+                
+                if (!stats.institutionsByCountry[country][groupName]) {
+                    stats.institutionsByCountry[country][groupName] = {
+                        total: 0,
+                        subtopics: {}
+                    };
+                }
+                
+                // Increment total for the group (Parent)
+                stats.institutionsByCountry[country][groupName].total++;
+                
+                // Track specific institution usage (Child)
+                if (!stats.institutionsByCountry[country][groupName].subtopics[p.institution]) {
+                    stats.institutionsByCountry[country][groupName].subtopics[p.institution] = 0;
+                }
+                stats.institutionsByCountry[country][groupName].subtopics[p.institution]++;
+
+                // Count by education level
+                const title = p.title;
+                
+                if (title.startsWith('PhD -')) {
+                    stats.educationLevels.phd++;
+                } else if (title.startsWith('Master\'s Degree')) {
+                    stats.educationLevels.masters++;
+                } else if (title.startsWith('Bachelor\'s Degree')) {
+                    stats.educationLevels.bachelors++;
+                } else if (title.startsWith('Graduate Student (PhD)')) {
+                    stats.educationLevels.graduateStudents++;
+                } else if (title.startsWith('Graduate Student (Master\'s)')) {
+                    stats.educationLevels.graduateStudents++;
+                } else if (title.startsWith('Undergraduate Student')) {
+                    stats.educationLevels.undergraduateStudents++;
+                }
+
+                // Extract professions
+                const professionalTitles = [
+                    'Physician', 'Teacher', 'Resident', 'Medical Specialist', 
+                    'Researcher', 'Radiology Technologist'
+                ];
+                
+                for (const profTitle of professionalTitles) {
+                    if (title.startsWith(profTitle)) {
+                        if (!stats.professions[profTitle]) {
+                            stats.professions[profTitle] = 0;
+                        }
+                        stats.professions[profTitle]++;
+                        break;
+                    }
+                }
+            });
+
+            return {
+                totalParticipants: participantsData.length,
+                institutionsByCountry: stats.institutionsByCountry,
+                educationLevels: stats.educationLevels,
+                professions: stats.professions
+            };
+        }
+
+        function renderStatistics() {
+            const stats = calculateStatistics();
+            const statsContainer = document.getElementById('statsContainer');
+            
+            // Build institutions HTML
+            let institutionsHTML = '';
+            Object.keys(stats.institutionsByCountry).sort().forEach(country => {
+                const institutions = stats.institutionsByCountry[country];
+                const countryTotal = Object.values(institutions).reduce((sum, inst) => sum + inst.total, 0);
+
+                institutionsHTML += `<div class="country-group">`;
+                institutionsHTML += `<div class="country-name">${country} (${countryTotal})</div>`;
+                institutionsHTML += `<div class="country-institution-list">`;
+                
+                const sortedGroups = Object.entries(institutions).sort((a, b) => b[1].total - a[1].total);
+                
+                sortedGroups.forEach(([groupName, data]) => {
+                    institutionsHTML += `
+                        <div class="stat-item">
+                            <span class="stat-label">${groupName}</span>
+                            <span class="stat-number">${data.total}</span>
+                        </div>
+                    `;
+
+                    let subtopicEntries = Object.entries(data.subtopics).sort((a, b) => b[1] - a[1]);
+                    
+                    // Move the parent-named entry to the end if it exists
+                    const parentIndex = subtopicEntries.findIndex(entry => entry[0] === groupName);
+                    if (parentIndex !== -1) {
+                        const parentEntry = subtopicEntries.splice(parentIndex, 1)[0];
+                        subtopicEntries.push(parentEntry);
+                    }
+
+                    const showSubtopics = subtopicEntries.length > 1 || (subtopicEntries.length === 1 && subtopicEntries[0][0] !== groupName);
+                    
+                    if (showSubtopics) {
+                        subtopicEntries.forEach(([subInst, count]) => {
+                            const displayName = subInst === groupName ? 'Not Specified' : subInst;
+                            institutionsHTML += `
+                                <div class="stat-item subtopic" style="padding-left: 12px; font-size: 0.9em; opacity: 0.85; margin-top: -1px;">
+                                    <span class="stat-label">- ${displayName}</span>
+                                    <span class="stat-number">${count}</span>
+                                </div>
+                            `;
+                        });
+                    }
+                });
+                
+                institutionsHTML += `</div>`; // Close country-institution-list
+                institutionsHTML += `</div>`; // Close country-group
+            });
+            
+            // Build professions HTML
+            let professionsHTML = '';
+            Object.entries(stats.professions).sort((a, b) => b[1] - a[1]).forEach(([profession, count]) => {
+                professionsHTML += `
+                    <div class="stat-item">
+                        <span class="stat-label">${profession}</span>
+                        <span class="stat-number">${count}</span>
+                    </div>
+                `;
+            });
+            
+            // Render all statistics cards in columns
+            const statsHTML = `
+                <div class="stats-column">
+                    <div class="stat-group" style="flex: 1;">
+                        <h3 class="stat-group-title">Institutions</h3>
+                        ${institutionsHTML}
+                    </div>
+                </div>
+                
+                <div class="stats-column">
+                    <div class="stat-group">
+                        <h3 class="stat-group-title">Education Level</h3>
+                        <div class="stat-item">
+                            <span class="stat-label">PhD</span>
+                            <span class="stat-number">${stats.educationLevels.phd}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Master's Degree</span>
+                            <span class="stat-number">${stats.educationLevels.masters}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Bachelor's Degree</span>
+                            <span class="stat-number">${stats.educationLevels.bachelors}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Graduate Students</span>
+                            <span class="stat-number">${stats.educationLevels.graduateStudents}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Undergraduate Students</span>
+                            <span class="stat-number">${stats.educationLevels.undergraduateStudents}</span>
+                        </div>
+                    </div>
+                
+                    <div class="stat-group">
+                        <h3 class="stat-group-title">Professionals</h3>
+                        ${professionsHTML}
+                    </div>
+                </div>
+            `;
+            
+            statsContainer.innerHTML = statsHTML;
+        }
+
+        // City coordinates database
+        const cityCoordinates = {
+            // Brazil
+            'São Paulo': [-23.5505, -46.6333],
+            'Ribeirão Preto': [-21.1704, -47.8103],
+            'Recife': [-8.0476, -34.8770],
+            'Niterói': [-22.8839, -43.1039],
+            'Uberaba': [-19.7479, -47.9319],
+            'Rio das Ostras': [-22.5264, -41.9456],
+            'Ituverava': [-20.3394, -47.7789],
+            
+            // Mexico
+            'Toluca': [19.2827, -99.6559],
+            'Mexico City': [19.4326, -99.1332],
+            'Villahermosa': [17.9892, -92.9281],
+            
+            // Other
+            'Nigeria': [9.0820, 8.6753]
+        };
+
+        function renderMap() {
+            // Initialize map
+            const map = L.map('map').setView([0, -50], 3);
+            
+            // Add tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 18
+            }).addTo(map);
+
+            // Count participants by location
+            const locationCounts = {};
+            participantsData.forEach(p => {
+                const city = p.country.split(' - ')[0];
+                if (!locationCounts[city]) {
+                    locationCounts[city] = {
+                        count: 0,
+                        participants: []
+                    };
+                }
+                locationCounts[city].count++;
+                locationCounts[city].participants.push(p.name);
+            });
+
+            // Add markers
+            Object.keys(locationCounts).forEach(city => {
+                const coords = cityCoordinates[city];
+                if (coords) {
+                    const data = locationCounts[city];
+                    const marker = L.circleMarker(coords, {
+                        radius: Math.min(8 + data.count * 2, 30),
+                        fillColor: '#0066cc',
+                        color: '#003d7a',
+                        weight: 2,
+                        opacity: 1,
+                        fillOpacity: 0.6
+                    }).addTo(map);
+
+                    // Create popup content
+                    const popupContent = `
+                        <div style="max-width: 200px;">
+                            <h6 style="margin-bottom: 8px; font-weight: bold;">${city}</h6>
+                            <p style="margin: 4px 0;"><strong>${data.count}</strong> participant${data.count > 1 ? 's' : ''}</p>
+                        </div>
+                    `;
+                    
+                    marker.bindPopup(popupContent);
+                }
+            });
+
+            // Fit bounds to show all markers
+            const bounds = Object.keys(locationCounts)
+                .filter(city => cityCoordinates[city])
+                .map(city => cityCoordinates[city]);
+            
+            if (bounds.length > 0) {
+                map.fitBounds(bounds, { padding: [50, 50] });
+            }
+        }
+
         // Initial Render
+        renderStatistics();
+        renderMap();
         updateView();
 
     </script>
