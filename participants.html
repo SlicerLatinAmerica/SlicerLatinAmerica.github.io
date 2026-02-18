@@ -161,7 +161,7 @@
     <script>
         const participantsData = [
     {
-        "name": "ALDO BARBOSA",
+        "name": "Aldo Barbosa",
         "title": "Undergraduate Student (Bachelor's)",
         "institution": "Santa Casa de Miseric\u00f3rdia de Ituverava",
         "country": "Ituverava - Brazil (S\u00e3o Paulo)",
@@ -336,6 +336,13 @@
         "workshop": "3rd Slicer Toluca Workshop"
     },
     {
+        "name": "Fausto \u00c1lvarez",
+        "title": "Master's Degree - Diagnostic Ultrasound",
+        "institution": "UltraTab Ultrasound",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
+        "workshop": "5th Slicer Toluca Workshop"
+    },
+    {
         "name": "Fernando Orozco Soto",
         "title": "Teacher - Internal Medicine",
         "institution": "Centro de Rehabilitaci\u00f3n y Educaci\u00f3n Especial Toluca (CREE Toluca)",
@@ -394,8 +401,8 @@
     {
         "name": "Jessica Emma Cort\u00e9s Garc\u00eda",
         "title": "Graduate Student (Master's) - Engineering",
-        "institution": "Independent",
-        "country": "Mexico",
+        "institution": "Universidad Aut\u00f3noma del Estado de M\u00e9xico (UAEM\u00e9x)",
+        "country": "Toluca - Mexico (Estado de M\u00e9xico)",
         "workshop": "4th Slicer Toluca Workshop"
     },
     {
@@ -474,6 +481,34 @@
         "institution": "Hospital das Cl\u00ednicas de Ribeir\u00e3o Preto (HCRP)",
         "country": "Ribeir\u00e3o Preto - Brazil (S\u00e3o Paulo)",
         "workshop": "1st Slicer Ribeir\u00e3o Preto Workshop"
+    },
+    {
+        "name": "Leidy Mora",
+        "title": "Graduate Student (Master's) - AI in Echocardiography",
+        "institution": "Universidad Militar Nueva Granada",
+        "country": "Colombia",
+        "workshop": "3rd Slicer Toluca Workshop"
+    },
+    {
+        "name": "Leidy Mora",
+        "title": "Graduate Student (Master's) - AI in Echocardiography",
+        "institution": "Universidad Militar Nueva Granada",
+        "country": "Colombia",
+        "workshop": "4th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Leidy Mora",
+        "title": "Graduate Student (Master's) - AI in Echocardiography",
+        "institution": "Universidad Militar Nueva Granada",
+        "country": "Colombia",
+        "workshop": "5th Slicer Toluca Workshop"
+    },
+    {
+        "name": "Leidy Mora",
+        "title": "Graduate Student (Master's) - AI in Echocardiography",
+        "institution": "Universidad Militar Nueva Granada",
+        "country": "Colombia",
+        "workshop": "6th Slicer Toluca Workshop"
     },
     {
         "name": "Leticia Wellingta Santos Costa",
@@ -730,6 +765,14 @@
         let currentMode = 'alphabetical'; // 'alphabetical' or 'workshop'
         let searchTerm = '';
 
+        function normalizeName(name) {
+            // If the name is all-uppercase, convert to title case
+            if (name === name.toUpperCase()) {
+                return name.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+            }
+            return name;
+        }
+
         function renderCard(p) {
             return `
             <div class="participant-card">
@@ -737,7 +780,7 @@
                     <div class="photo-placeholder">👤</div>
                 </div>
                 <div class="participant-info">
-                    <div class="participant-name">${p.name}</div>
+                    <div class="participant-name">${normalizeName(p.name)}</div>
                     <div class="participant-title">${p.title}</div>
                     <div class="participant-institution">${p.institution}</div>
                     <div class="participant-country">${p.country}</div>
@@ -745,6 +788,40 @@
                 </div>
             </div>
             `;
+        }
+
+        function renderMergedCard(merged) {
+            const workshopBadges = merged.workshops.map(ws =>
+                `<span class="participant-workshop-badge">${ws}</span>`
+            ).join('');
+            return `
+            <div class="participant-card">
+                <div class="photo-container">
+                    <div class="photo-placeholder">👤</div>
+                </div>
+                <div class="participant-info">
+                    <div class="participant-name">${normalizeName(merged.name)}</div>
+                    <div class="participant-title">${merged.title}</div>
+                    <div class="participant-institution">${merged.institution}</div>
+                    <div class="participant-country">${merged.country}</div>
+                    <div class="participant-workshops-list">${workshopBadges}</div>
+                </div>
+            </div>
+            `;
+        }
+
+        function mergeByName(data) {
+            const map = {};
+            data.forEach(p => {
+                const key = p.name.toLowerCase().trim();
+                if (!map[key]) {
+                    map[key] = { name: p.name, title: p.title, institution: p.institution, country: p.country, workshops: [] };
+                }
+                if (!map[key].workshops.includes(p.workshop)) {
+                    map[key].workshops.push(p.workshop);
+                }
+            });
+            return Object.values(map);
         }
 
         function filterParticipants(data) {
@@ -760,15 +837,20 @@
 
         function renderAlphabetical() {
             const filtered = filterParticipants(participantsData);
-            // Sort by name
-            filtered.sort((a, b) => a.name.localeCompare(b.name));
-            
-            const countLabel = filtered.length === 1 ? 'participant' : 'participants';
+            const merged = mergeByName(filtered);
+            merged.sort((a, b) => a.name.localeCompare(b.name));
+
+            const totalParticipations = filtered.length;
+            const uniquePeople = merged.length;
+            const peopleLabel = uniquePeople === 1 ? 'person' : 'people';
             container.innerHTML = `
                 <div class="workshop-section-title">
-                    All Participants <small class="fw-normal text-secondary">(${filtered.length} ${countLabel})</small>
+                    All
+                    <small class="fw-normal text-secondary">
+                        (${totalParticipations} participation${totalParticipations !== 1 ? 's' : ''} &mdash; ${uniquePeople} unique ${peopleLabel})
+                    </small>
                 </div>
-            ` + filtered.map(renderCard).join('');
+            ` + merged.map(renderMergedCard).join('');
         }
 
         function renderWorkshop() {
@@ -787,7 +869,7 @@
             let html = '';
             workshopNames.forEach(ws => {
                 const count = groups[ws].length;
-                const countLabel = count === 1 ? 'participant' : 'participants';
+                const countLabel = count === 1 ? 'participation' : 'participations';
                 html += `<div class="workshop-section-title">${ws} <small class="fw-normal text-secondary">(${count} ${countLabel})</small></div>`;
                 // Sort participants within workshop
                 groups[ws].sort((a, b) => a.name.localeCompare(b.name));
@@ -852,7 +934,8 @@
                 'Sistema para el Desarrollo Integral de la Familia del Estado de México', 'DIFEM',
                 'Sistema Nacional para el Desarrollo Integral de la Familia', 'DIF Nacional',
                 'Universidad Juárez Autónoma de Tabasco', 'UJAT',
-                'Facultad de Medicina', 'Facultad de Ingeniería', 'UAEM'
+                'Facultad de Medicina', 'Facultad de Ingeniería', 'UAEM',
+                'Universidad Militar Nueva Granada'
             ];
             
             // Check Brazilian institutions
@@ -891,6 +974,14 @@
         }
 
         function calculateStatistics() {
+            const seen = new Set();
+            const uniquePeople = participantsData.filter(p => {
+                const key = p.name.toLowerCase().trim();
+                if (seen.has(key)) return false;
+                seen.add(key);
+                return true;
+            });
+
             const stats = {
                 institutionsByCountry: {},
                 educationLevels: {
@@ -903,34 +994,38 @@
                 professions: {}
             };
 
-            participantsData.forEach(p => {
+            const excludedInstitutions = ['UltraTab Ultrasound'];
+
+            uniquePeople.forEach(p => {
 
                 // Group institutions by the institution's country, not participant's country
                 const country = getInstitutionCountry(p.institution);
-                
+
                 if (!stats.institutionsByCountry[country]) {
                     stats.institutionsByCountry[country] = {};
                 }
-                
-                // Determine Parent Institution
-                const parentInst = getInstitutionParent(p.institution);
-                const groupName = parentInst || p.institution;
-                
-                if (!stats.institutionsByCountry[country][groupName]) {
-                    stats.institutionsByCountry[country][groupName] = {
-                        total: 0,
-                        subtopics: {}
-                    };
+
+                if (!excludedInstitutions.includes(p.institution)) {
+                    // Determine Parent Institution
+                    const parentInst = getInstitutionParent(p.institution);
+                    const groupName = parentInst || p.institution;
+
+                    if (!stats.institutionsByCountry[country][groupName]) {
+                        stats.institutionsByCountry[country][groupName] = {
+                            total: 0,
+                            subtopics: {}
+                        };
+                    }
+
+                    // Increment total for the group (Parent)
+                    stats.institutionsByCountry[country][groupName].total++;
+
+                    // Track specific institution usage (Child)
+                    if (!stats.institutionsByCountry[country][groupName].subtopics[p.institution]) {
+                        stats.institutionsByCountry[country][groupName].subtopics[p.institution] = 0;
+                    }
+                    stats.institutionsByCountry[country][groupName].subtopics[p.institution]++;
                 }
-                
-                // Increment total for the group (Parent)
-                stats.institutionsByCountry[country][groupName].total++;
-                
-                // Track specific institution usage (Child)
-                if (!stats.institutionsByCountry[country][groupName].subtopics[p.institution]) {
-                    stats.institutionsByCountry[country][groupName].subtopics[p.institution] = 0;
-                }
-                stats.institutionsByCountry[country][groupName].subtopics[p.institution]++;
 
                 // Count by education level
                 const title = p.title;
