@@ -49,6 +49,13 @@ body {
   min-height: 80vh;
 }
 
+.hero-logo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: var(--border-radius-lg);
+}
+
 a {
   color: var(--secondary-color);
   text-decoration: none;
