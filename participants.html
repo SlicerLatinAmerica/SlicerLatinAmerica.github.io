@@ -952,7 +952,7 @@
                 }
             }
             
-            return 'Other';
+            return 'Other countries';
         }
 
         function getInstitutionParent(institution) {
@@ -1029,20 +1029,16 @@
 
                 // Count by education level
                 const title = p.title;
-                
-                if (title.startsWith('PhD -')) {
-                    stats.educationLevels.phd++;
-                } else if (title.startsWith('Master\'s Degree')) {
-                    stats.educationLevels.masters++;
-                } else if (title.startsWith('Bachelor\'s Degree')) {
-                    stats.educationLevels.bachelors++;
-                } else if (title.startsWith('Graduate Student (PhD)')) {
-                    stats.educationLevels.graduateStudents++;
-                } else if (title.startsWith('Graduate Student (Master\'s)')) {
-                    stats.educationLevels.graduateStudents++;
-                } else if (title.startsWith('Undergraduate Student')) {
-                    stats.educationLevels.undergraduateStudents++;
-                }
+                const eduMap = {
+                    'PhD -': 'phd',
+                    'Master\'s Degree': 'masters',
+                    'Bachelor\'s Degree': 'bachelors',
+                    'Graduate Student (PhD)': 'graduateStudents',
+                    'Graduate Student (Master\'s)': 'graduateStudents',
+                    'Undergraduate Student': 'undergraduateStudents'
+                };
+                const eduKey = Object.keys(eduMap).find(prefix => title.startsWith(prefix));
+                if (eduKey) stats.educationLevels[eduMap[eduKey]]++;
 
                 // Extract professions
                 const professionalTitles = [
@@ -1167,7 +1163,7 @@
                     </div>
                 
                     <div class="stat-group">
-                        <h3 class="stat-group-title">Professionals</h3>
+                        <h3 class="stat-group-title">Occupation</h3>
                         ${professionsHTML}
                     </div>
                 </div>
