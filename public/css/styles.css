@@ -1155,6 +1155,19 @@ div.workshop-speaker:hover {
     font-weight: bold;
 }
 
+.participant-specialty {
+    display: inline-block;
+    font-size: 0.75em;
+    font-weight: 600;
+    color: #1a7340;
+    background-color: rgba(26, 115, 64, 0.08);
+    border: 1px solid rgba(26, 115, 64, 0.25);
+    border-radius: 12px;
+    padding: 2px 9px;
+    margin-bottom: 6px;
+    align-self: flex-start;
+}
+
 .participant-workshops-list {
     display: flex;
     flex-wrap: wrap;
@@ -1178,18 +1191,19 @@ div.workshop-speaker:hover {
 .workshop-section-title {
     grid-column: 1 / -1;
     background: var(--bg-color-light);
-    padding: 15px 20px;
+    padding: 12px 20px;
     border-radius: 8px;
-    margin-top: 20px;
+    margin-top: 8px;
     margin-bottom: 10px;
     color: var(--primary-color);
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: 700;
     border-left: 4px solid var(--primary-color);
 }
 
 .controls-container {
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 16px;
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -1235,6 +1249,10 @@ div.workshop-speaker:hover {
     flex-direction: column;
     gap: 8px;
     min-width: 0;
+}
+
+.stats-column .stat-group:last-child {
+    flex: 1;
 }
 
 .stat-group {
@@ -1383,7 +1401,8 @@ div.workshop-speaker:hover {
     font-size: 1.5em;
     font-weight: 700;
     color: var(--primary-color);
-    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-bottom: 12px;
     padding-bottom: 8px;
     border-bottom: 2px solid var(--primary-color);
 }
@@ -1427,4 +1446,55 @@ div.workshop-speaker:hover {
     #map {
         min-height: 320px;
     }
+}
+
+.md-body {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 32px 60px;
+}
+
+.md-viewer-header {
+  background: linear-gradient(135deg, #002f5f 0%, #0055aa 100%);
+  color: #fff;
+  padding: 20px 0 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+.md-viewer-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.md-viewer-header a img {
+  height: 68px;
+  width: auto;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+}
+
+.md-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 6px;
+  padding: 6px 14px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.md-back-btn:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+.md-error {
+  text-align: center;
+  padding: 60px 20px;
+  color: #c0271a;
+  font-size: 1.1em;
 }
