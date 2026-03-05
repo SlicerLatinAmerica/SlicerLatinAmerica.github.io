@@ -160,7 +160,7 @@
 
 
 
-                <div class="tutorials-card">
+                <div class="tutorials-card" id="slicerIGTCard">
                   <img src="./public/assets/img/icon.png" alt="Icon">
                   <h3>SlicerIGT Tutorials</h3>
                   <p>Version</p>
@@ -168,11 +168,19 @@
                     <a href="https://www.slicerigt.org/wp/user-tutorials/" target="_blank">
                       English
                     </a>
+                    <a data-bs-toggle="collapse" data-bs-target="#slicerIGTPortuguese" aria-expanded="false" aria-controls="slicerIGTPortuguese" class="tutorial-btn-toggle">
+                      Portuguese
+                    </a>
                     <a data-bs-toggle="collapse" data-bs-target="#slicerIGTSpanish" aria-expanded="false" aria-controls="slicerIGTSpanish" class="tutorial-btn-toggle">
                       Spanish
                     </a>
                   </div>
-                  <div class="collapse mt-2" id="slicerIGTSpanish">
+                  <div class="collapse mt-2" id="slicerIGTPortuguese" data-bs-parent="#slicerIGTCard">
+                    <div>
+                      <a href="./public/assets/pdfs/Tutorials/SlicerIGT-U11_PivotCalibrationPT-BR.pptx" target="_blank">U11</a>
+                    </div>
+                  </div>
+                  <div class="collapse mt-2" id="slicerIGTSpanish" data-bs-parent="#slicerIGTCard">
                     <div>
                       <a href="./public/assets/ppt/IGT_AI_Tutoriales/Traducción%20SlicerIGT-U01_InstallingSoftware.pptx" target="_blank">U01</a>
                       <a href="./public/assets/ppt/IGT_AI_Tutoriales/Traducción%20SlicerIGT-U09_Models.pptx" target="_blank">U09</a>
