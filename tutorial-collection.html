@@ -163,7 +163,18 @@
                     <li>Ideal starting point for first-time users</li>
                   </ul>
                   <div>
-                    <a href="https://github.com/SoniaPujolLab/SlicerTutorialMakerCollection/tree/main/Tutorials/STC-GEN-101_WelcomeTutorial" target="_blank">GitHub</a>
+                    <!-- <a href="https://github.com/SoniaPujolLab/SlicerTutorialMakerCollection/tree/main/Tutorials/STC-GEN-101_WelcomeTutorial" target="_blank">GitHub</a> -->
+                    <a class="tutorial-btn-toggle"
+                       data-bs-toggle="collapse"
+                       data-bs-target="#langs-STC-GEN-101"
+                       aria-expanded="false"
+                       aria-controls="langs-STC-GEN-101"
+                       data-folder="STC-GEN-101_WelcomeTutorial"
+                       data-loaded="false"
+                       onclick="loadTutorialLanguages(this)">Open Tutorial</a>
+                  </div>
+                  <div class="collapse mt-2" id="langs-STC-GEN-101">
+                    <div id="langs-content-STC-GEN-101"></div>
                   </div>
                 </div>
 
@@ -179,7 +190,18 @@
                     <li>Get started in under 4 minutes</li>
                   </ul>
                   <div>
-                    <a href="https://github.com/SoniaPujolLab/SlicerTutorialMakerCollection/tree/main/Tutorials/STC-GEN-102_FourMinuteTutorial" target="_blank">GitHub</a>
+                    <!-- <a href="https://github.com/SoniaPujolLab/SlicerTutorialMakerCollection/tree/main/Tutorials/STC-GEN-102_FourMinuteTutorial" target="_blank">GitHub</a> -->
+                    <a class="tutorial-btn-toggle"
+                       data-bs-toggle="collapse"
+                       data-bs-target="#langs-STC-GEN-102"
+                       aria-expanded="false"
+                       aria-controls="langs-STC-GEN-102"
+                       data-folder="STC-GEN-102_FourMinuteTutorial"
+                       data-loaded="false"
+                       onclick="loadTutorialLanguages(this)">Open Tutorial</a>
+                  </div>
+                  <div class="collapse mt-2" id="langs-STC-GEN-102">
+                    <div id="langs-content-STC-GEN-102"></div>
                   </div>
                 </div>
 
@@ -195,7 +217,18 @@
                     <li>Full end-to-end workflow</li>
                   </ul>
                   <div>
-                    <a href="https://github.com/SoniaPujolLab/SlicerTutorialMakerCollection/tree/main/Tutorials/STC-SEG-103_AIBasedSegmentationIn3DSlicer" target="_blank">GitHub</a>
+                    <!-- <a href="https://github.com/SoniaPujolLab/SlicerTutorialMakerCollection/tree/main/Tutorials/STC-SEG-103_AIBasedSegmentationIn3DSlicer" target="_blank">GitHub</a> -->
+                    <a class="tutorial-btn-toggle"
+                       data-bs-toggle="collapse"
+                       data-bs-target="#langs-STC-SEG-103"
+                       aria-expanded="false"
+                       aria-controls="langs-STC-SEG-103"
+                       data-folder="STC-SEG-103_AIBasedSegmentationIn3DSlicer"
+                       data-loaded="false"
+                       onclick="loadTutorialLanguages(this)">Open Tutorial</a>
+                  </div>
+                  <div class="collapse mt-2" id="langs-STC-SEG-103">
+                    <div id="langs-content-STC-SEG-103"></div>
                   </div>
                 </div>
 
@@ -211,7 +244,18 @@
                     <li>Presenting medical imaging data</li>
                   </ul>
                   <div>
-                    <a href="https://github.com/SoniaPujolLab/SlicerTutorialMakerCollection/tree/main/Tutorials/STC-VIS-101_VisualizationTutorial" target="_blank">GitHub</a>
+                    <!-- <a href="https://github.com/SoniaPujolLab/SlicerTutorialMakerCollection/tree/main/Tutorials/STC-VIS-101_VisualizationTutorial" target="_blank">GitHub</a> -->
+                    <a class="tutorial-btn-toggle"
+                       data-bs-toggle="collapse"
+                       data-bs-target="#langs-STC-VIS-101"
+                       aria-expanded="false"
+                       aria-controls="langs-STC-VIS-101"
+                       data-folder="STC-VIS-101_VisualizationTutorial"
+                       data-loaded="false"
+                       onclick="loadTutorialLanguages(this)">Open Tutorial</a>
+                  </div>
+                  <div class="collapse mt-2" id="langs-STC-VIS-101">
+                    <div id="langs-content-STC-VIS-101"></div>
                   </div>
                 </div>
 
@@ -281,5 +325,67 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const LANG_NAMES = {
+        'en-US': 'English', 'en_US': 'English',
+        'pt-BR': 'Portuguese (BR)', 'pt_BR': 'Portuguese (BR)',
+        'pt_PT': 'Portuguese (PT)', 'pt-PT': 'Portuguese (PT)',
+        'es': 'Spanish', 'es-419': 'Spanish', 'es_419': 'Spanish',
+        'fr': 'French', 'fr-FR': 'French', 'fr_FR': 'French',
+        'de': 'German', 'de-DE': 'German', 'de_DE': 'German',
+        'it': 'Italian', 'it-IT': 'Italian',
+        'zh-CN': 'Chinese (Simplified)', 'zh_CN': 'Chinese (Simplified)',
+        'ja-JP': 'Japanese', 'ko-KR': 'Korean',
+        'ar-SA': 'Arabic', 'ar_SA': 'Arabic'
+      };
+
+      function getLangLabel(code) {
+        return LANG_NAMES[code] || LANG_NAMES[code.replace('-', '_')] || code;
+      }
+
+      async function loadTutorialLanguages(btn) {
+        const folder = btn.dataset.folder;
+        const tutCode = folder.split('_')[0];
+        const contentEl = document.getElementById('langs-content-' + tutCode);
+
+        if (btn.dataset.loaded === 'true') return;
+        btn.dataset.loaded = 'true';
+
+        contentEl.innerHTML = '<small class="text-muted">Loading\u2026</small>';
+
+        const BASE = 'https://api.github.com/repos/SoniaPujolLab/SlicerTutorialMakerCollection/contents/Tutorials/';
+
+        try {
+          // List language folders under Files/
+          const langResp = await fetch(BASE + folder + '/Files');
+          if (!langResp.ok) throw new Error('API error ' + langResp.status);
+          const langDirs = (await langResp.json()).filter(f => f.type === 'dir');
+
+          if (langDirs.length === 0) {
+            contentEl.innerHTML = '<small class="text-muted">No languages found.</small>';
+            return;
+          }
+
+          // For each language folder, find the .md file inside
+          const results = await Promise.all(langDirs.map(async dir => {
+            const filesResp = await fetch(BASE + folder + '/Files/' + dir.name);
+            if (!filesResp.ok) return null;
+            const mdFile = (await filesResp.json()).find(f => f.type === 'file' && f.name.endsWith('.md'));
+            if (!mdFile) return null;
+            const rawUrl = 'https://raw.githubusercontent.com/SoniaPujolLab/SlicerTutorialMakerCollection/main/Tutorials/'
+              + folder + '/Files/' + dir.name + '/' + mdFile.name;
+            const viewerUrl = 'md-viewer.html?file=' + encodeURIComponent(rawUrl);
+            return '<a href="' + viewerUrl + '" target="_blank">' + getLangLabel(dir.name) + '</a>';
+          }));
+
+          const buttons = results.filter(Boolean);
+          contentEl.innerHTML = buttons.length
+            ? buttons.join('')
+            : '<small class="text-muted">No tutorials found.</small>';
+        } catch (e) {
+          contentEl.innerHTML = '<small class="text-muted">Could not load. <a href="https://github.com/SoniaPujolLab/SlicerTutorialMakerCollection/tree/main/Tutorials/' + folder + '" target="_blank" class="hyperlink">View on GitHub</a></small>';
+        }
+      }
+    </script>
   </body>
 </html>

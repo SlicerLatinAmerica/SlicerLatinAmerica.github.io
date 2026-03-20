@@ -1496,3 +1496,13 @@ div.workshop-speaker:hover {
   color: #c0271a;
   font-size: 1.1em;
 }
+
+/* Let inline styles on parent containers (color:white on blue divs) be inherited */
+.md-body h1, .md-body h2, .md-body h3,
+.md-body h4, .md-body h5, .md-body h6 {
+  color: inherit;
+}
+
+/* Prevent images and blocks from overflowing the viewport */
+.md-body { overflow-x: hidden; }
+.md-body img { max-width: 100% !important; height: auto !important; }
