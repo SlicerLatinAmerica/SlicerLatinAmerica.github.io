@@ -24,9 +24,7 @@
         /></a>
         <div class="md-header-actions">
           <a href="javascript:history.back()" class="md-back-btn">← Back</a>
-          <span id="md-short-url" class="md-short-url md-short-url--loading"
-            >Loading...</span
-          >
+          <span id="md-short-url" class="md-short-url md-short-url--loading">Loading…</span>
         </div>
       </div>
     </header>
@@ -119,30 +117,20 @@
 
       (async function () {
         const el = document.getElementById("md-short-url");
-        const LOCAL = /^https?:\/\/(localhost|127\.\d+\.\d+\.\d+)(:\d+)?/;
-        const isLocal = LOCAL.test(window.location.href);
         const fullUrl = window.location.href;
         let shortUrl = fullUrl;
-        let shortened = false;
-        if (!isLocal) {
-          try {
-            const resp = await fetch(
-              "https://is.gd/create.php?format=simple&url=" +
-                encodeURIComponent(fullUrl),
-            );
-            if (!resp.ok) throw new Error("is.gd error " + resp.status);
-            const short = (await resp.text()).trim();
-            if (!short.startsWith("http"))
-              throw new Error("Unexpected response: " + short);
-            shortUrl = short;
-            shortened = true;
-          } catch (_) {
-            // fall back to full URL
-          }
+        try {
+          const resp = await fetch(
+            "https://tinyurl.com/api-create.php?url=" + encodeURIComponent(fullUrl)
+          );
+          if (!resp.ok) throw new Error("TinyURL error " + resp.status);
+          const short = (await resp.text()).trim();
+          if (!short.startsWith("http")) throw new Error("Bad response");
+          shortUrl = short;
+          el.textContent = shortUrl.replace(/^https?:\/\//, "");
+        } catch (_) {
+          el.textContent = "Copy URL";
         }
-        el.textContent = shortened
-          ? shortUrl.replace(/^https?:\/\//, "")
-          : "Copy URL";
         el.classList.remove("md-short-url--loading");
         el.addEventListener("click", async function () {
           const original = el.textContent;
@@ -152,9 +140,7 @@
           } catch (_) {
             el.textContent = "Copy failed";
           }
-          setTimeout(function () {
-            el.textContent = original;
-          }, 2000);
+          setTimeout(function () { el.textContent = original; }, 2000);
         });
       })();
     </script>
