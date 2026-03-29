@@ -308,21 +308,14 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      const LANG_NAMES = {
-        'en-US': 'English', 'en_US': 'English',
-        'pt-BR': 'Portuguese (BR)', 'pt_BR': 'Portuguese (BR)',
-        'pt_PT': 'Portuguese (PT)', 'pt-PT': 'Portuguese (PT)',
-        'es': 'Spanish', 'es-419': 'Spanish (Latin American)', 'es_419': 'Spanish (Latin American)',
-        'fr': 'French', 'fr-FR': 'French', 'fr_FR': 'French',
-        'de': 'German', 'de-DE': 'German', 'de_DE': 'German',
-        'it': 'Italian', 'it-IT': 'Italian',
-        'zh-CN': 'Chinese (Simplified)', 'zh_CN': 'Chinese (Simplified)',
-        'ja-JP': 'Japanese', 'ko-KR': 'Korean',
-        'ar-SA': 'Arabic', 'ar_SA': 'Arabic'
-      };
+      let _tutorialsData = null;
 
-      function getLangLabel(code) {
-        return LANG_NAMES[code] || LANG_NAMES[code.replace('-', '_')] || code;
+      async function getTutorialsData() {
+        if (_tutorialsData) return _tutorialsData;
+        const resp = await fetch('public/assets/data/tutorials.json');
+        if (!resp.ok) throw new Error('Could not load tutorials data (' + resp.status + ')');
+        _tutorialsData = await resp.json();
+        return _tutorialsData;
       }
 
       async function loadTutorialLanguages(btn) {
@@ -335,37 +328,20 @@
 
         contentEl.innerHTML = '<small class="text-muted">Loading\u2026</small>';
 
-        const BASE = 'https://api.github.com/repos/SoniaPujolLab/SlicerTutorialMakerCollection/contents/Tutorials/';
-
         try {
-          // List language folders under Files/
-          const langResp = await fetch(BASE + folder + '/Files');
-          if (!langResp.ok) throw new Error('API error ' + langResp.status);
-          const langDirs = (await langResp.json()).filter(f => f.type === 'dir');
+          const data = await getTutorialsData();
+          const languages = data[folder];
 
-          if (langDirs.length === 0) {
+          if (!languages || languages.length === 0) {
             contentEl.innerHTML = '<small class="text-muted">No languages found.</small>';
             return;
           }
 
-          // For each language folder, find the .md file inside
-          const results = await Promise.all(langDirs.map(async dir => {
-            const filesResp = await fetch(BASE + folder + '/Files/' + dir.name);
-            if (!filesResp.ok) return null;
-            const mdFile = (await filesResp.json()).find(f => f.type === 'file' && f.name.endsWith('.md'));
-            if (!mdFile) return null;
-            const rawUrl = 'https://raw.githubusercontent.com/SoniaPujolLab/SlicerTutorialMakerCollection/main/Tutorials/'
-              + folder + '/Files/' + dir.name + '/' + mdFile.name;
-            const viewerUrl = 'md-viewer.html?file=' + encodeURIComponent(rawUrl);
-            return '<a href="' + viewerUrl + '" target="_blank">' + getLangLabel(dir.name) + '</a>';
-          }));
-
-          const buttons = results.filter(Boolean);
-          contentEl.innerHTML = buttons.length
-            ? buttons.join('')
-            : '<small class="text-muted">No tutorials found.</small>';
+          contentEl.innerHTML = languages
+            .map(l => '<a href="' + l.url + '" target="_blank">' + l.label + '</a>')
+            .join('');
         } catch (e) {
-          contentEl.innerHTML = '<small class="text-muted">Could not load. <a href="https://github.com/SoniaPujolLab/SlicerTutorialMakerCollection/tree/main/Tutorials/' + folder + '" target="_blank" class="hyperlink">View on GitHub</a></small>';
+          contentEl.innerHTML = '<small class="text-muted">Could not load tutorials.</small>';
         }
       }
     </script>
