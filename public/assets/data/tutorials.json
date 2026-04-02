@@ -19,6 +19,10 @@
     {
       "label": "Portuguese (BR)",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fpt-BR%2FSlicer_Welcome.md"
+    },
+    {
+      "label": "Portuguese (PT)",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fpt_PT%2FSlicer_Welcome.md"
     }
   ],
   "STC-GEN-102_FourMinuteTutorial": [
