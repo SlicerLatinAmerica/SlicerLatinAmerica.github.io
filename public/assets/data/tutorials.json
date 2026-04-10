@@ -83,6 +83,10 @@
   ],
   "STC-VIS-101_VisualizationTutorial": [
     {
+      "label": "English",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-VIS-101_VisualizationTutorial%2FFiles%2Fen-US%2FVisualizationTutorial.md"
+    },
+    {
       "label": "Spanish (Latin America)",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-VIS-101_VisualizationTutorial%2FFiles%2Fes-419%2FVisualizationTutorial.md"
     },
