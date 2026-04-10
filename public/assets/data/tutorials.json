@@ -1,6 +1,10 @@
 {
   "STC-GEN-101_WelcomeTutorial": [
     {
+      "label": "Arabic",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Far_SA%2FSlicer_Welcome.md"
+    },
+    {
       "label": "English",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fen-US%2FSlicer_Welcome.md"
     },
