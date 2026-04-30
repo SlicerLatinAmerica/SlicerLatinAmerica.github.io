@@ -277,14 +277,24 @@
           return;
         }
 
+        const ALLOWED_LANGS = new Set([
+          'English',
+          'Spanish (Latin America)',
+          'Spanish',
+          'French',
+          'Portuguese (BR)',
+          'Portuguese (PT)',
+        ]);
+
         for (const [folder, languages] of Object.entries(data)) {
           const el = document.getElementById('langs-' + folder);
           if (!el) continue;
-          if (!languages || languages.length === 0) {
+          const filtered = (languages || []).filter(function (l) { return ALLOWED_LANGS.has(l.label); });
+          if (filtered.length === 0) {
             el.innerHTML = '<small class="text-muted">No languages available.</small>';
             continue;
           }
-          el.innerHTML = languages
+          el.innerHTML = filtered
             .map(function (l) { return '<a href="' + l.url + '" target="_blank">' + l.label + '</a>'; })
             .join('');
         }
