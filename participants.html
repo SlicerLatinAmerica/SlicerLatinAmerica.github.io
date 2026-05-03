@@ -342,7 +342,7 @@
     },
     {
         "name": "Fausto C. \u00c1lvarez",
-        "title": "PhD - Ultrasound Specialist",
+        "title": "MD - Ultrasound Specialist",
         "institution": "Ultrasonidos Tabasco",
         "country": "Villahermosa - Mexico (Tabasco)",
         "workshop": "Slicer Toluca Workshop (Oct. 27, 2025)"
@@ -755,7 +755,7 @@
     },
     {
         "name": "Fausto C. \u00c1lvarez",
-        "title": "PhD - Ultrasound Specialist",
+        "title": "MD - Ultrasound Specialist",
         "institution": "Ultrasonidos Tabasco",
         "country": "Villahermosa - Mexico (Tabasco)",
         "workshop": "Slicer Toluca Workshop (Nov. 2025)"
@@ -1766,7 +1766,8 @@
                 'Sistema para el Desarrollo Integral de la Familia del Estado de México', 'DIFEM',
                 'Sistema Nacional para el Desarrollo Integral de la Familia', 'DIF Nacional',
                 'Universidad Juárez Autónoma de Tabasco', 'UJAT',
-                'Facultad de Medicina', 'Facultad de Ingeniería', 'UAEM'
+                'Facultad de Medicina', 'Facultad de Ingeniería', 'UAEM',
+                'Universidad del Valle de México', 'UVM'
             ];
 
             // Colombian institutions
@@ -1948,26 +1949,37 @@
             const stats = calculateStatistics();
             const statsContainer = document.getElementById('statsContainer');
             
-            // Build institutions HTML
-            let institutionsHTML = '';
+            // Build institutions HTML - single box, two internal columns (Brazil left, Mexico right, others distributed)
+            let leftInstitutionsHTML = '';
+            let rightInstitutionsHTML = '';
             const sortedCountries = Object.keys(stats.institutionsByCountry).sort((a, b) => {
                 const totalA = Object.values(stats.institutionsByCountry[a]).reduce((sum, inst) => sum + inst.total, 0);
                 const totalB = Object.values(stats.institutionsByCountry[b]).reduce((sum, inst) => sum + inst.total, 0);
                 return totalB - totalA;
             });
+
+            // Separate Brazil, Mexico, and others
+            const otherCountries = [];
             sortedCountries.forEach(country => {
                 const institutions = stats.institutionsByCountry[country];
-                const countryTotal = Object.values(institutions).reduce((sum, inst) => sum + inst.total, 0);
+                const countryTotal = Object.entries(institutions)
+                    .filter(([name]) => name !== 'N/A')
+                    .reduce((sum, [, inst]) => sum + inst.total, 0);
                 if (countryTotal === 0) return;
 
-                institutionsHTML += `<div class="country-group">`;
-                institutionsHTML += `<div class="country-name">${country} (${countryTotal})</div>`;
-                institutionsHTML += `<div class="country-institution-list">`;
+                let countryHTML = `<div class="country-group">`;
+                countryHTML += `<div class="country-name">${country} (${countryTotal})</div>`;
+                countryHTML += `<div class="country-institution-list">`;
                 
-                const sortedGroups = Object.entries(institutions).sort((a, b) => b[1].total - a[1].total);
+                // Sort groups: N/A last, others by count descending
+                const sortedGroups = Object.entries(institutions).sort((a, b) => {
+                    if (a[0] === 'N/A') return 1;
+                    if (b[0] === 'N/A') return -1;
+                    return b[1].total - a[1].total;
+                });
                 
                 sortedGroups.forEach(([groupName, data]) => {
-                    institutionsHTML += `
+                    countryHTML += `
                         <div class="stat-item">
                             <span class="stat-label">${groupName}</span>
                             <span class="stat-number">${data.total}</span>
@@ -1988,7 +2000,7 @@
                     if (showSubtopics) {
                         subtopicEntries.forEach(([subInst, count]) => {
                             const displayName = subInst === groupName ? 'N/A' : subInst;
-                            institutionsHTML += `
+                            countryHTML += `
                                 <div class="stat-item subtopic" style="padding-left: 12px; font-size: 0.9em; opacity: 0.85; margin-top: -1px;">
                                     <span class="stat-label">- ${displayName}</span>
                                     <span class="stat-number">${count}</span>
@@ -1998,58 +2010,33 @@
                     }
                 });
                 
-                institutionsHTML += `</div>`; // Close country-institution-list
-                institutionsHTML += `</div>`; // Close country-group
+                countryHTML += `</div>`; // Close country-institution-list
+                countryHTML += `</div>`; // Close country-group
+
+                if (country === 'Brazil') {
+                    leftInstitutionsHTML = countryHTML + leftInstitutionsHTML;
+                } else if (country === 'Mexico' || country === 'USA' || country === 'Canada') {
+                    rightInstitutionsHTML += countryHTML;
+                } else {
+                    otherCountries.push(countryHTML);
+                }
+            });
+
+            // Distribute other countries alternately between left and right
+            otherCountries.forEach((html, i) => {
+                if (i % 2 === 0) leftInstitutionsHTML += html;
+                else rightInstitutionsHTML += html;
             });
             
-            // Build professions HTML
-            let professionsHTML = '';
-            Object.entries(stats.professions).sort((a, b) => b[1] - a[1]).forEach(([profession, count]) => {
-                professionsHTML += `
-                    <div class="stat-item">
-                        <span class="stat-label">${profession}</span>
-                        <span class="stat-number">${count}</span>
-                    </div>
-                `;
-            });
-            
-            // Render all statistics cards in columns
+            // Render as a single box with two internal columns, no visible divider
             const statsHTML = `
                 <div class="stats-column">
                     <div class="stat-group" style="flex: 1;">
                         <h3 class="stat-group-title">Institutions</h3>
-                        ${institutionsHTML}
-                    </div>
-                </div>
-                
-                <div class="stats-column">
-                    <div class="stat-group">
-                        <h3 class="stat-group-title">Education Level</h3>
-                        <div class="stat-item">
-                            <span class="stat-label">PhD</span>
-                            <span class="stat-number">${stats.educationLevels.phd}</span>
+                        <div style="display: flex; gap: 20px; align-items: flex-start;">
+                            <div style="flex: 1;">${leftInstitutionsHTML}</div>
+                            <div style="flex: 1;">${rightInstitutionsHTML}</div>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Master's Degree</span>
-                            <span class="stat-number">${stats.educationLevels.masters}</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Bachelor's Degree</span>
-                            <span class="stat-number">${stats.educationLevels.bachelors}</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Graduate Students</span>
-                            <span class="stat-number">${stats.educationLevels.graduateStudents}</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Undergraduate Students</span>
-                            <span class="stat-number">${stats.educationLevels.undergraduateStudents}</span>
-                        </div>
-                    </div>
-                
-                    <div class="stat-group">
-                        <h3 class="stat-group-title">Occupation</h3>
-                        ${professionsHTML}
                     </div>
                 </div>
             `;

@@ -1379,33 +1379,11 @@ div.workshop-speaker:hover {
 /* Removed institutions-scroll-wrapper styles */
 
 .country-institution-list {
-  max-height: 110px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 .country-institution-list .stat-item {
   padding: 2px 4px;
-}
-
-/* Scrollbar styles for inner country lists */
-.country-institution-list::-webkit-scrollbar {
-  width: 4px;
-}
-
-.country-institution-list::-webkit-scrollbar-track {
-  background: #f5f5f5;
-  border-radius: 3px;
-  margin: 2px 0;
-}
-
-.country-institution-list::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 3px;
-}
-
-.country-institution-list::-webkit-scrollbar-thumb:hover {
-  background: #999;
 }
 
 #map {
