@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting…</title>
+  <script>
+    (function () {
+      var path = window.location.pathname;
+
+      // Redirect legacy /media/Tutorials/ paths to /public/assets/pdfs/Tutorials/
+      if (path.startsWith('/media/Tutorials/')) {
+        var filename = path.slice('/media/Tutorials/'.length);
+        window.location.replace('/public/assets/pdfs/Tutorials/' + filename);
+        return;
+      }
+
+      // Default 404 — redirect to home
+      window.location.replace('/');
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/" />
+  </noscript>
+</head>
+<body>
+  <p>Redirecting…</p>
+</body>
+</html>
