@@ -2023,18 +2023,13 @@
             // Group Instituto de Salud del Estado de México (ISEM)
             // CMLAIM is a hospital owned by ISEM, so all CMLAIM entries go here
             // Sub-institutions: Centro Médico Lic. Adolfo López Mateos (CMLAIM),
-            //                   ISEM / IMSS Bienestar
+            //                   ISEM / IMSS Bienestar, IMSS Bienestar / CMLAIM
             // Note: CMLAIM / UAEMéx → counted under UAEMéx (above)
             if (institution === 'Centro Médico Lic. Adolfo López Mateos' ||
                 institution === 'Instituto de Salud del Estado de México (ISEM)' ||
-                institution === 'Instituto de Salud del Estado de México (ISEM) / IMSS Bienestar') {
+                institution === 'Instituto de Salud del Estado de México (ISEM) / IMSS Bienestar' ||
+                institution === 'IMSS Bienestar / Centro Médico Lic. Adolfo López Mateos') {
                 return 'Instituto de Salud del Estado de México (ISEM)';
-            }
-
-            // IMSS Bienestar / CMLAIM: dual affiliation — counted under IMSS Bienestar
-            // (CMLAIM is the workplace but IMSS Bienestar is the employing body here)
-            if (institution === 'IMSS Bienestar / Centro Médico Lic. Adolfo López Mateos') {
-                return 'IMSS Bienestar';
             }
 
             // Group UVM variants (including campus sub-institutions)
@@ -2112,7 +2107,7 @@
                         'Centro Médico Lic. Adolfo López Mateos': 'Centro Médico Lic. Adolfo López Mateos (CMLAIM)',
                         // ISEM / IMSS Bienestar: shows as IMSS Bienestar subtopic under ISEM
                         'Instituto de Salud del Estado de México (ISEM) / IMSS Bienestar': 'IMSS Bienestar',
-                        // IMSS Bienestar / CMLAIM: merges silently under IMSS Bienestar
+                        // IMSS Bienestar / CMLAIM: show as IMSS Bienestar subtopic under ISEM
                         'IMSS Bienestar / Centro Médico Lic. Adolfo López Mateos': 'IMSS Bienestar',
                     };
                     const subtopicKey = subtopicAliases[p.institution] || p.institution;
