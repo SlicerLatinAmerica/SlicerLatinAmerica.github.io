@@ -1240,66 +1240,74 @@ div.workshop-speaker:hover {
   color: white;
 }
 
+/* ─── Statistics Section ───────────────────────────────────────── */
+
 .statistics-section {
   margin-bottom: 40px;
 }
 
-.stats-row {
+/* Two-column grid: institutions | map */
+.stats-layout {
   display: grid;
-  grid-template-columns: 1fr 1.8fr;
-  gap: 12px;
-  margin-bottom: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: stretch;
 }
 
-.stats-left {
+/* Shared card shell */
+.stat-card {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-
-.stats-container {
-  display: flex;
-  gap: 8px;
-}
-
-.stats-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
   min-width: 0;
 }
 
-.stats-column .stat-group:last-child {
-  flex: 1;
-}
-
-.stat-group {
-  background: var(--bg-color-light);
-  border-radius: 8px;
-  padding: 8px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #eee;
-  display: flex;
-  flex-direction: column;
-}
-
-.stat-group.map-container {
-  min-height: 100%;
-}
-
-.stat-group.map-container #map {
-  flex: 1;
-}
-
-.stat-group-title {
-  font-size: 0.85em;
+.stat-card-title {
+  font-size: 0.9em;
   font-weight: 700;
   color: var(--primary-color);
-  margin-bottom: 6px;
-  padding-bottom: 4px;
+  margin: 0 0 8px;
+  padding-bottom: 6px;
   border-bottom: 2px solid #e0e0e0;
+  flex-shrink: 0;
 }
+
+/* Institutions card: two scrollable columns side by side */
+.institutions-card {
+  /* flex column already set by .stat-card */
+}
+
+.institutions-columns {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+  min-height: 0; /* required so flex children can scroll */
+}
+
+.institutions-col {
+  flex: 1;
+  min-width: 0;
+  height: 70vh;   /* explicit height so SimpleBar can scroll */
+  padding-right: 14px;
+}
+
+/* Map card */
+.map-card {
+  /* height is set by grid row stretch */
+}
+
+#map {
+  flex: 1;
+  min-height: 400px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Institution list items ──────────────────────────────────── */
 
 .stat-item {
   display: flex;
@@ -1327,34 +1335,6 @@ div.workshop-speaker:hover {
   flex-shrink: 0;
 }
 
-.stat-group.total-participants {
-  background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-}
-
-.stat-group.total-participants .stat-number {
-  font-size: 2.2em;
-  color: white;
-  font-weight: 700;
-  margin-bottom: 0px;
-}
-
-.stat-group.total-participants .stat-label {
-  font-size: 0.9em;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 500;
-}
-
-.stat-group.total-participants .stat-group-title {
-  color: white;
-  border-bottom-color: rgba(255, 255, 255, 0.3);
-}
-
 .country-group {
   margin-bottom: 6px;
   padding-bottom: 4px;
@@ -1376,22 +1356,12 @@ div.workshop-speaker:hover {
   border-bottom: 1px solid #e0e0e0;
 }
 
-/* Removed institutions-scroll-wrapper styles */
-
 .country-institution-list {
   overflow: visible;
 }
 
 .country-institution-list .stat-item {
   padding: 2px 4px;
-}
-
-#map {
-  height: 100%;
-  min-height: 350px;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 5px;
 }
 
 .section-title {
@@ -1420,7 +1390,7 @@ div.workshop-speaker:hover {
   }
 
   .stats-container {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 10px;
   }
 
@@ -1436,8 +1406,22 @@ div.workshop-speaker:hover {
     font-size: 2em;
   }
 
+  /* Statistics responsive */
+  .stats-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .institutions-columns {
+    flex-direction: column;
+  }
+
+  .institutions-col {
+    height: auto;
+    max-height: 60vh;
+  }
+
   .country-institution-list {
-    max-height: 90px;
+    max-height: none;
   }
 
   #map {

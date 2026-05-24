@@ -81,15 +81,15 @@
           <div class="statistics-section">
             <h2 class="section-title">Statistics</h2>
             
-            <div class="stats-row">
-              <div class="stats-left">
-                <div class="stats-container" id="statsContainer">
+            <div class="stats-layout">
+              <div class="stat-card institutions-card">
+                <div id="statsContainer">
                   <!-- Stats will be injected by JS -->
                 </div>
               </div>
               
-              <div class="stat-group map-container">
-                <h3 class="stat-group-title">Geographic Distribution</h3>
+              <div class="stat-card map-card">
+                <h3 class="stat-card-title">Geographic Distribution</h3>
                 <div id="map"></div>
               </div>
             </div>
@@ -7732,14 +7732,10 @@
             
             // Render as a single box with two internal columns, no visible divider
             const statsHTML = `
-                <div class="stats-column">
-                    <div class="stat-group" style="flex: 1;">
-                        <h3 class="stat-group-title">Institutions</h3>
-                        <div class="institutions-columns">
-                            <div id="inst-col-left" class="institutions-col">${leftInstitutionsHTML}</div>
-                            <div id="inst-col-right" class="institutions-col">${rightInstitutionsHTML}</div>
-                        </div>
-                    </div>
+                <h3 class="stat-card-title">Institutions</h3>
+                <div class="institutions-columns">
+                    <div id="inst-col-left" class="institutions-col">${leftInstitutionsHTML}</div>
+                    <div id="inst-col-right" class="institutions-col">${rightInstitutionsHTML}</div>
                 </div>
             `;
 
@@ -7872,6 +7868,9 @@
             if (bounds.length > 0) {
                 map.fitBounds(bounds, { padding: [50, 50] });
             }
+
+            // Ensure Leaflet recomputes size after layout is settled
+            setTimeout(() => map.invalidateSize(), 100);
         }
 
         // Initial Render
