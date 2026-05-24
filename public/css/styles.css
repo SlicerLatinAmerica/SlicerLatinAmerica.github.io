@@ -1113,7 +1113,7 @@ div.workshop-speaker:hover {
    ========================================= */
 .participants-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: 20px;
   margin-bottom: 40px;
 }
@@ -1204,7 +1204,8 @@ div.workshop-speaker:hover {
   border-radius: 4px;
   padding: 2px 7px;
   line-height: 1.6;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .workshop-section-title {
