@@ -7853,7 +7853,7 @@
                 if (coords) {
                     const data = locationCounts[country];
                     const marker = L.circleMarker(coords, {
-                        radius: Math.min(8 + data.count * 2, 30),
+                        radius: Math.min(Math.sqrt(data.count) * 2.5, 70),
                         fillColor: '#0066cc',
                         color: '#003d7a',
                         weight: 2,
