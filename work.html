@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     
@@ -55,28 +55,28 @@
         <div class="collapse navbar-collapse justify-content-end" id="homeNavbar">
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link titulo-navbar" href="index.html">The Project</a>
+              <a class="nav-link titulo-navbar" href="index.html" data-i18n="nav.project">The Project</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link titulo-navbar" href="events.html">Events</a>
+              <a class="nav-link titulo-navbar" href="events.html" data-i18n="nav.events">Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link titulo-navbar" href="team.html">Our Team</a>
+              <a class="nav-link titulo-navbar" href="team.html" data-i18n="nav.team">Our Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link titulo-navbar active" href="work.html">Our Work</a>
+              <a class="nav-link titulo-navbar active" href="work.html" data-i18n="nav.work">Our Work</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link titulo-navbar" href="localization.html">Localization</a>
+                <a class="nav-link titulo-navbar" href="localization.html" data-i18n="nav.localization">Localization</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link titulo-navbar" href="tutorial-collection.html">Slicer Tutorial Maker Collection</a>
+                <a class="nav-link titulo-navbar" href="tutorial-collection.html" data-i18n="nav.tutorialCollection">Slicer Tutorial Maker Collection</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link titulo-navbar" href="sponsors.html">Acknowledgment</a>
+              <a class="nav-link titulo-navbar" href="sponsors.html" data-i18n="nav.acknowledgment">Acknowledgment</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link titulo-navbar" href="contact.html">Contact</a>
+              <a class="nav-link titulo-navbar" href="contact.html" data-i18n="nav.contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -86,44 +86,44 @@
     <main class="container main-content">
       <div class="row justify-content-center">
         <div class="col-lg-10">
-            <h1 class="titulo mb-5">Tutorial Maker Tool</h1>
+            <h1 class="titulo mb-5" data-i18n="work.pageTitle">Tutorial Maker Tool</h1>
         
             <section class="mb-5">
-                <h2 class="titulo">Description</h2>
-                <p class="paragrafo">
+                <h2 class="titulo" data-i18n="work.description.title">Description</h2>
+                <p class="paragrafo" data-i18n="work.description.p1">
                     The Tutorial Maker is a tool to automate the creation of tutorials within the 3D Slicer environment. To achieve this goal, a project management methodology has been implemented, combining weekly virtual meetings and using the GitHub platform as a code development and collaboration system version control.
                 </p>
-                <p class="paragrafo">
+                <p class="paragrafo" data-i18n-html="work.description.p2">
                     This tool was developed by <b>The 3D Slicer Latin America team</b>, whose members have made significant progress in developing the Tutorial Maker Module, focusing on improving its functionality, usability, and accessibility.
                 </p>
             </section>
         
             <section class="mb-5">
-                <h2 class="titulo">Objectives</h2>
-                <p class="paragrafo">Among the objectives of the tutorial maker tool are the following:</p>
+                <h2 class="titulo" data-i18n="work.objectives.title">Objectives</h2>
+                <p class="paragrafo" data-i18n="work.objectives.intro">Among the objectives of the tutorial maker tool are the following:</p>
                 <ul class="paragrafo custom-list">
-                    <li class="mb-2"><strong>Internationalization:</strong> The strings of the module's user interface were marked, enabling easy translation into multiple languages. The module's installation steps in Spanish, Portuguese, and English are documented.</li>
-                    <li class="mb-2"><strong>Accessibility:</strong> A simplified installation and use of the module allows a broader range of users to benefit from the tool.</li>
-                    <li class="mb-2"><strong>Flexibility in Content Creation:</strong> The possibility to generate tutorials in multiple formats broadens the possibilities for distributing and utilizing the created content.</li>
-                    <li class="mb-2"><strong>Improved User Experience:</strong> Interface optimizations and new features make the process of creating tutorials more intuitive and efficient.</li>
-                    <li class="mb-2"><strong>Project Sustainability:</strong> Process automation and improved project management ensure the module's continuous development and long-term maintenance.</li>
+                    <li class="mb-2"><strong data-i18n="work.objectives.internationalization">Internationalization:</strong> <span data-i18n="work.objectives.internationalizationDesc">The strings of the module's user interface were marked, enabling easy translation into multiple languages. The module's installation steps in Spanish, Portuguese, and English are documented.</span></li>
+                    <li class="mb-2"><strong data-i18n="work.objectives.accessibility">Accessibility:</strong> <span data-i18n="work.objectives.accessibilityDesc">A simplified installation and use of the module allows a broader range of users to benefit from the tool.</span></li>
+                    <li class="mb-2"><strong data-i18n="work.objectives.flexibility">Flexibility in Content Creation:</strong> <span data-i18n="work.objectives.flexibilityDesc">The possibility to generate tutorials in multiple formats broadens the possibilities for distributing and utilizing the created content.</span></li>
+                    <li class="mb-2"><strong data-i18n="work.objectives.userExperience">Improved User Experience:</strong> <span data-i18n="work.objectives.userExperienceDesc">Interface optimizations and new features make the process of creating tutorials more intuitive and efficient.</span></li>
+                    <li class="mb-2"><strong data-i18n="work.objectives.sustainability">Project Sustainability:</strong> <span data-i18n="work.objectives.sustainabilityDesc">Process automation and improved project management ensure the module's continuous development and long-term maintenance.</span></li>
                 </ul>
             </section>
 
             <section class="mb-5">
-                <h2 class="titulo">Features</h2>
+                <h2 class="titulo" data-i18n="work.features.title">Features</h2>
                 
                 <div class="row">
                     <div class="col-md-6 text-center mb-4">
                         <img src="./public/assets/img/TutorialMaker/GUIdeveloped.png" alt="Automated Tutorial Generation" class="img-fluid rounded shadow-sm mb-2 feature-screenshot">
-                        <h3 class="h5 fw-bold">Automated Tutorial Generation</h3>
-                        <p class="paragrafo small mb-0">Streamlines the creation of 3D Slicer tutorials by automatically running workflows and capturing screenshots for each step, reducing manual effort.</p>
+                        <h3 class="h5 fw-bold" data-i18n="work.features.automatedTitle">Automated Tutorial Generation</h3>
+                        <p class="paragrafo small mb-0" data-i18n="work.features.automatedDesc">Streamlines the creation of 3D Slicer tutorials by automatically running workflows and capturing screenshots for each step, reducing manual effort.</p>
                     </div>
             
                     <div class="col-md-6 text-center mb-4">
                         <img src="./public/assets/img/TutorialMaker/annotations.png" alt="Integrated Annotation Tools" class="img-fluid rounded shadow-sm mb-2 feature-screenshot">
-                        <h3 class="h5 fw-bold">Integrated Annotation Tools</h3>
-                        <p class="paragrafo small mb-0">Includes a built-in editor to add arrows, text boxes, highlights, and other visual cues directly onto your tutorial screenshots to improve clarity.</p>
+                        <h3 class="h5 fw-bold" data-i18n="work.features.annotationTitle">Integrated Annotation Tools</h3>
+                        <p class="paragrafo small mb-0" data-i18n="work.features.annotationDesc">Includes a built-in editor to add arrows, text boxes, highlights, and other visual cues directly onto your tutorial screenshots to improve clarity.</p>
                     </div>
             
                     <div class="col-md-6 text-center mb-4">
@@ -132,16 +132,16 @@
                             <img src="./public/assets/img/TutorialMaker/pdf.png" alt="PDF" class="format-icon">
                             <img src="./public/assets/img/TutorialMaker/md.png" alt="Markdown" class="format-icon">
                          </div>
-                        <h3 class="h5 fw-bold">Flexible Export Options</h3>
-                        <p class="paragrafo small mb-0">Allows users to save annotated screenshots and generate content suitable for various documentation formats (HTML, PDF, Markdown).</p>
+                        <h3 class="h5 fw-bold" data-i18n="work.features.exportTitle">Flexible Export Options</h3>
+                        <p class="paragrafo small mb-0" data-i18n="work.features.exportDesc">Allows users to save annotated screenshots and generate content suitable for various documentation formats (HTML, PDF, Markdown).</p>
                     </div>
                 
                     <div class="col-md-6 text-center mb-4">
                         <div class="d-flex justify-content-center mb-2 feature-img-container">
                             <img src="./public/assets/img/icon.png" alt="Multi-Language Support" class="img-fluid feature-icon-large">
                         </div>
-                        <h3 class="h5 fw-bold">Multi-Language Support</h3>
-                        <p class="paragrafo small mb-0">Designed to facilitate the creation and localization of tutorials in multiple languages (including English, Spanish, Portuguese and French), making Slicer accessible to a wider audience.</p>
+                        <h3 class="h5 fw-bold" data-i18n="work.features.multiLangTitle">Multi-Language Support</h3>
+                        <p class="paragrafo small mb-0" data-i18n="work.features.multiLangDesc">Designed to facilitate the creation and localization of tutorials in multiple languages (including English, Spanish, Portuguese and French), making Slicer accessible to a wider audience.</p>
                     </div>
                 </div>
             </section>
@@ -156,27 +156,27 @@
             -->
 
             <section class="mb-5">
-                <h2 class="titulo">Repository</h2>
+                <h2 class="titulo" data-i18n="work.repository.title">Repository</h2>
                 <div class="alert alert-light border shadow-sm p-4">
-                    <p class="paragrafo mb-0">
+                    <p class="paragrafo mb-0" data-i18n-html="work.repository.description">
                         <a href="https://github.com/SoniaPujolLab/SlicerTutorialMaker" class="hyperlink" target="_blank">The Tutorial Maker tool repository</a> contains a step-by-step installation process and is constantly updated according to the improvements introduced by the team.
                     </p>
                 </div>
             </section>
 
             <section class="mb-5">
-                <h2 class="titulo">Slicer Tutorial Maker Collection</h2>
+                <h2 class="titulo" data-i18n="work.collection.title">Slicer Tutorial Maker Collection</h2>
                 <div class="alert alert-light border shadow-sm p-4">
-                    <p class="paragrafo mb-0">
+                    <p class="paragrafo mb-0" data-i18n-html="work.collection.description">
                         The <a href="tutorial-collection.html" class="hyperlink">Slicer Tutorial Maker Collection</a> showcases tutorials created with the Tutorial Maker extension, covering topics from basic 3D Slicer navigation to AI-based segmentation.
                     </p>
                 </div>
             </section>
 
             <section class="mb-5">
-                <h2 class="titulo">Localization</h2>
+                <h2 class="titulo" data-i18n="work.localization.title">Localization</h2>
                 <div class="alert alert-light border shadow-sm p-4">
-                    <p class="paragrafo mb-0">
+                    <p class="paragrafo mb-0" data-i18n-html="work.localization.description">
                         The <a href="localization.html" class="hyperlink">Localization page</a> contains the translated tutorials (Portuguese and Spanish) and the original English versions.
                     </p>
                 </div>
@@ -197,28 +197,28 @@
           <div class="col-12">
             <ul class="nav justify-content-center pb-3 mb-3">
               <li class="nav-item">
-                <a href="index.html" class="nav-link px-2">The Project</a>
+                <a href="index.html" class="nav-link px-2" data-i18n="footer.project">The Project</a>
               </li>
               <li class="nav-item">
-                <a href="events.html" class="nav-link px-2">Events</a>
+                <a href="events.html" class="nav-link px-2" data-i18n="footer.events">Events</a>
               </li>
               <li class="nav-item">
-                <a href="team.html" class="nav-link px-2">Our Team</a>
+                <a href="team.html" class="nav-link px-2" data-i18n="footer.team">Our Team</a>
               </li>
               <li class="nav-item">
-                <a href="work.html" class="nav-link px-2">Our Work</a>
+                <a href="work.html" class="nav-link px-2" data-i18n="footer.work">Our Work</a>
               </li>
               <li class="nav-item">
-                <a href="localization.html" class="nav-link px-2">Localization</a>
+                <a href="localization.html" class="nav-link px-2" data-i18n="footer.localization">Localization</a>
               </li>
               <li class="nav-item">
-                <a href="tutorial-collection.html" class="nav-link px-2">Slicer Tutorial Maker Collection</a>
+                <a href="tutorial-collection.html" class="nav-link px-2" data-i18n="footer.tutorialCollection">Slicer Tutorial Maker Collection</a>
               </li>
               <li class="nav-item">
-                <a href="sponsors.html" class="nav-link px-2">Acknowledgment</a>
+                <a href="sponsors.html" class="nav-link px-2" data-i18n="footer.acknowledgment">Acknowledgment</a>
               </li>
               <li class="nav-item">
-                <a href="contact.html" class="nav-link px-2">Contact</a>
+                <a href="contact.html" class="nav-link px-2" data-i18n="footer.contact">Contact</a>
               </li>
             </ul>
           </div>
@@ -230,5 +230,6 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script src="./public/js/i18n.js"></script>
   </body>
 </html>

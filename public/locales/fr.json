@@ -1,0 +1,240 @@
+{
+  "nav": {
+    "project": "Le Projet",
+    "events": "Événements",
+    "team": "Notre Équipe",
+    "work": "Nos Travaux",
+    "localization": "Localisation",
+    "tutorialCollection": "Collection Slicer Tutorial Maker",
+    "acknowledgment": "Remerciements",
+    "contact": "Contact"
+  },
+  "footer": {
+    "project": "Le Projet",
+    "events": "Événements",
+    "team": "Notre Équipe",
+    "work": "Nos Travaux",
+    "localization": "Localisation",
+    "tutorialCollection": "Collection Slicer Tutorial Maker",
+    "acknowledgment": "Remerciements",
+    "contact": "Contact"
+  },
+  "index": {
+    "title": "3D Slicer pour l'Amérique Latine",
+    "imageCaption": "Atelier Slicer Toluca 2025, Facultad de Ingeniería, Universidad Autónoma del Estado de México",
+    "heroTitle": "3D Slicer pour l'Amérique Latine",
+    "heroParagraph": "Bienvenue dans l'initiative 3D Slicer pour l'Amérique Latine. Notre mission est de combler le fossé entre la technologie avancée d'imagerie médicale et la communauté régionale à travers trois objectifs fondamentaux. Nous localisons la plateforme 3D Slicer en espagnol latino-américain et en portugais brésilien afin d'en améliorer l'accessibilité. Parallèlement, nous développons une nouvelle extension Slicer pour automatiser la localisation, les tests et la gestion des versions des flux de travail des tutoriels. Au-delà du développement technique, nous organisons des ateliers pratiques de formation sur Slicer et des événements de sensibilisation en utilisant des versions localisées du 3D Slicer, afin de renforcer les capacités de la prochaine génération de chercheurs et de cliniciens en Amérique Latine."
+  },
+  "events": {
+    "pageTitle": "Événements de Sensibilisation du 3D Slicer pour l'Amérique Latine",
+    "items": {
+      "soniaPujolIEEE2026": {
+        "title": "Conférence invitée de la Dre Sonia Pujol à l'IEEE EMBS, 13 juin 2026, Montevideo, Uruguay",
+        "description": "La Dre Sonia Pujol a donné une <a href=\"SoniaPujol_IEEEEMBS_June2026.html\" class=\"hyperlink\">conférence magistrale invitée</a> au Chapitre Étudiant IEEE EMBS, Universidad de la República (UdelaR), Montevideo, Uruguay, le 13 juin 2026. Sa présentation était axée sur le 3D Slicer en tant que plateforme open source de référence pour l'imagerie médicale et la modélisation numérique 3D, dans le cadre du programme Introduction à l'Ingénierie 3D en Médecine. Il s'agit du premier événement officiel du projet Slicer pour l'Amérique Latine en Uruguay."
+      },
+      "workshopTolucaAINov2025": {
+        "title": "Atelier Slicer Toluca, 12-14 nov. 2025, Toluca, Mexique",
+        "description": "L'<a href=\"WorkshopToluca_AI_Nov2025.html\" class=\"hyperlink\">Atelier Slicer Toluca</a>, tenu du 12 au 14 novembre 2025 à Toluca, Mexique, était consacré à la technologie basée sur l'intelligence artificielle."
+      },
+      "workshopRPAIOct2025": {
+        "title": "Atelier Slicer Ribeirão Preto, 31 oct. 2025, Ribeirão Preto, Brésil",
+        "description": "L'<a href=\"WorkshopRP_AI2025.html\" class=\"hyperlink\">Atelier Slicer Ribeirão Preto</a>, tenu le 31 octobre 2025 à Ribeirão Preto, Brésil, était consacré à la technologie pilotée par l'IA pour les radiologues."
+      },
+      "workshopTolucaUSoct2025": {
+        "title": "Atelier Slicer Toluca, 27 oct. 2025, Toluca, Mexique",
+        "description": "L'<a href=\"WorkshopToluca_Ultrasound_Oct2025.html\" class=\"hyperlink\">Atelier Slicer Toluca</a>, tenu le 27 octobre 2025 à Toluca, Mexique, était consacré à Slicer pour l'Échographie en Amérique Latine."
+      },
+      "cziOpenScience2025": {
+        "title": "CZI Open Science 2025, 19-22 oct. 2025, Carlsbad, Californie",
+        "description": "Sonia Pujol a présenté le projet 3D Slicer pour l'Amérique Latine lors de la session Showcase de la réunion annuelle du <a href=\"CZI_OpenScience_2025.html\" class=\"hyperlink\">CZI Open Science 2025</a>, tenue du 19 au 22 octobre 2025 à Carlsbad, Californie."
+      },
+      "workshopTolucaPhysio2025": {
+        "title": "Atelier Slicer Toluca, 8 et 10 oct. 2025, Toluca, Mexique",
+        "description": "L'<a href=\"WorkshopToluca_Physio_Oct2025.html\" class=\"hyperlink\">Atelier Slicer Toluca</a>, tenu les 8 et 10 octobre 2025 à Toluca, Mexique, était consacré à la technologie basée sur l'IA pour les médecins spécialisés en Médecine de Réadaptation."
+      },
+      "workshopRPAIJune2025": {
+        "title": "Atelier Slicer Ribeirão Preto, 30 juin 2025, Ribeirão Preto, Brésil",
+        "description": "L'<a href=\"WorkshopRP_AI2025_june.html\" class=\"hyperlink\">Atelier Slicer Ribeirão Preto</a>, tenu le 30 juin 2025 à Ribeirão Preto, Brésil, était consacré à la technologie pilotée par l'IA pour les radiologues."
+      },
+      "workshopTolucaUSJune2025": {
+        "title": "Atelier Slicer Toluca, 6 juin 2025, Toluca, Mexique",
+        "description": "L'<a href=\"WorkshopToluca_Ultrasound_June2025.html\" class=\"hyperlink\">Atelier Slicer Toluca</a>, tenu le 6 juin 2025 à l'Universidad del Valle de México (UVM), Toluca, était consacré aux Images Échographiques."
+      },
+      "pw42": {
+        "title": "42e Semaine de Projets Slicer (PW42), 27-31 jan. 2025, Las Palmas, Gran Canaria, Espagne",
+        "description": "La <a href=\"PW42_2025_GranCanaria.html\" class=\"hyperlink\">42e Semaine de Projets Slicer</a> s'est tenue en présentiel à Las Palmas, Gran Canaria, Espagne. Douglas Samuel Gonçalves, Lucas Sanchez Silva et Victor Manuel Montaño Serrano y ont participé en personne. L'équipe a travaillé sur le <a href=\"https://projectweek.na-mic.org/PW42_2025_GranCanaria/Projects/3DSlicerForLatinAmerica/\" class=\"hyperlink\">projet 3D Slicer pour l'Amérique Latine</a>, faisant avancer Tutorial Maker avec des corrections de bogues, de nouvelles fonctionnalités, une infrastructure de tests automatisés et des traductions de tutoriels en portugais et en espagnol."
+      },
+      "cziOpenScience2024": {
+        "title": "CZI Open Science 2024",
+        "description": "Sonia Pujol a présenté le projet 3D Slicer pour l'Amérique Latine lors de la session Science Ouverte en Amérique Latine de la réunion annuelle du <a href=\"CZI_OpenScience_2024.html\" class=\"hyperlink\">CZI Open Science 2024</a>."
+      },
+      "cbeb2024": {
+        "title": "Congrès Brésilien d'Ingénierie Biomédicale (CBEB2024), 2-6 sept. 2024, Ribeirão Preto, Brésil",
+        "description": "L'équipe Slicer pour l'Amérique Latine a présenté une affiche intitulée « Résultats Préliminaires de la Localisation du 3D Slicer en Portugais et en Espagnol pour la Communauté d'Ingénierie Biomédicale Latino-Américaine » au <a href=\"https://sbeb.org.br/cbeb2024/\" class=\"hyperlink\">XIX Congrès Brésilien d'Ingénierie Biomédicale (CBEB2024)</a>, du 2 au 6 septembre 2024, Ribeirão Preto, Brésil."
+      },
+      "pw41": {
+        "title": "41e Semaine de Projets Slicer (PW41), 24-28 juin 2024, Cambridge, MA, États-Unis",
+        "description": "La <a href=\"PW41_2024_MIT.html\" class=\"hyperlink\">41e Semaine de Projets Slicer</a> s'est tenue du 24 au 28 juin 2024, au MIT, Cambridge, MA. Le module Tutorial Maker a été <a href=\"https://projectweek.na-mic.org/PW41_2024_MIT/Projects/3DSlicerForLatinAmerica/\" class=\"hyperlink\">présenté dans le cadre du projet 3D Slicer pour l'Amérique Latine</a> et est en cours de test par la communauté."
+      },
+      "workshopTolucaSegJune2024": {
+        "title": "Atelier Slicer Toluca, 10 juin 2024, Toluca, Mexique",
+        "description": "L'<a href=\"WorkshopToluca_Segmentation_June2024.html\" class=\"hyperlink\">Atelier Slicer Toluca</a>, tenu le 10 juin 2024 à Toluca, Mexique, était consacré à la Segmentation et à la Reconstruction 3D."
+      },
+      "workshopTolucaKidneysMay2024": {
+        "title": "Atelier Slicer Toluca, 7 et 14 mai 2024, Toluca, Mexique",
+        "description": "L'<a href=\"WorkshopToluca_Kidneys_May2024.html\" class=\"hyperlink\">Atelier Slicer Toluca</a>, tenu les 7 et 14 mai 2024 à Toluca, Mexique, était consacré à l'obtention de modèles 3D des reins à partir d'images de tomodensitométrie."
+      },
+      "pw40": {
+        "title": "40e Semaine de Projets Slicer (PW40), 29 jan. - 2 fév. 2024, Las Palmas, Gran Canaria, Espagne",
+        "description": "La <a href=\"PW40_2024_GranCanaria.html\" class=\"hyperlink\">40e Semaine de Projets Slicer</a> s'est tenue du 29 janvier au 2 février 2024 à Las Palmas, Gran Canaria, Espagne, et a constitué le premier événement en présentiel pour l'équipe latino-américaine, qui a contribué au <a href=\"https://projectweek.na-mic.org/PW40_2024_GranCanaria/Projects/3DSlicerForLatinAmerica/\" class=\"hyperlink\">projet 3D Slicer pour l'Amérique Latine</a>."
+      },
+      "hackathonRP2023": {
+        "title": "Hackathon 3D Slicer de trois jours, 8-10 oct. 2023, Ribeirão Preto, Brésil",
+        "description": "L'équipe brésilienne a organisé un Hackathon 3D Slicer de trois jours dans le cadre du programme du <a href=\"https://www.xisiim2023.com/\" class=\"hyperlink\">XI Symposium sur l'Imagerie et l'Instrumentation Médicales</a>, tenu du 8 au 10 octobre 2023 à l'Université de São Paulo, campus de Ribeirão Preto."
+      },
+      "pw39": {
+        "title": "39e Semaine de Projets Slicer (PW39), 12-16 juin 2023, Montréal, Canada",
+        "description": "La <a href=\"PW39_2023_Montreal.html\" class=\"hyperlink\">39e Semaine de Projets Slicer</a> s'est tenue du 12 au 16 juin 2023 à l'École de Technologie Supérieure, Montréal, Canada. L'équipe a participé avec le <a href=\"https://projectweek.na-mic.org/PW39_2023_Montreal/Projects/3DSlicerForLatinAmerica/\" class=\"hyperlink\">projet 3D Slicer pour l'Amérique Latine</a>, faisant progresser le développement de Tutorial Maker et la localisation de Slicer."
+      },
+      "pw38": {
+        "title": "38e Semaine de Projets Slicer (PW38), 30 jan. - 3 fév. 2023, Las Palmas, Gran Canaria, Espagne",
+        "description": "La <a href=\"PW38_2023_GranCanaria.html\" class=\"hyperlink\">38e Semaine de Projets Slicer</a> s'est tenue du 30 janvier au 3 février 2023 à Las Palmas, Gran Canaria, Espagne. La Dre Sonia Pujol a animé des sessions en ligne quotidiennes sur l'internationalisation du 3D Slicer et a présenté le projet « 3D Slicer pour l'Amérique Latine : Localisation et Sensibilisation » à la communauté 3D Slicer lors de l'événement. La Dre Adriana Vilchis González et le Dr Luiz Murta ont participé aux sessions quotidiennes qui ont réuni 23 participants du Mexique, du Brésil, du Sénégal, de Hongrie, de Mauritanie, des États-Unis et du Canada. La Dre Pujol a donné un tutoriel de formation sur l'utilisation de l'infrastructure d'internationalisation du 3D Slicer pour traduire le logiciel en plusieurs langues. Les membres de l'équipe latino-américaine ont contribué au <a href=\"https://projectweek.na-mic.org/PW38_2023_GranCanaria/Projects/3DSlicerInternationalization/\" class=\"hyperlink\">projet d'Internationalisation du 3D Slicer</a>."
+      },
+      "rsna2022": {
+        "title": "108e Réunion Annuelle de la Radiological Society of North America (RSNA 2022), 27 nov. - 1er déc. 2022, Chicago, IL, États-Unis",
+        "description": "Nous avons présenté le projet « 3D Slicer pour l'Amérique Latine : Localisation et Sensibilisation » dans notre exposition éducative intitulée « La plateforme logicielle open source 3D Slicer pour le traitement d'images médicales, la visualisation 3D et la thérapie guidée par l'image » (Sonia Pujol, PhD, Steve Pieper, PhD, Andras Lasso, PhD, Andriy Fedorov, PhD, Ron Kikinis, MD) lors de la 108e Réunion Annuelle de la RSNA 2022."
+      },
+      "claib2022": {
+        "title": "IXe Congrès Latino-Américain de Génie Biomédical (CLAIB 2022) et XXVIIIe Congrès Brésilien de Génie Biomédical (CBEB 2022), 24-28 oct. 2022, Santa Catarina, Brésil",
+        "description": "Le projet a été présenté à la conférence <a href=\"CLAIB_CBEB_2022.html\" class=\"hyperlink\">CLAIB 2022 / CBEB 2022</a>, tenue du 24 au 28 octobre 2022 à Santa Catarina, Brésil."
+      }
+    }
+  },
+  "team": {
+    "pageTitle": "Notre Équipe",
+    "principalInvestigator": "Chercheuse Principale",
+    "coreTeam": "Équipe Centrale",
+    "brazilianTeam": "Équipe Brésilienne",
+    "mexicanTeam": "Équipe Mexicaine",
+    "projectAlumni": "Anciens Membres du Projet",
+    "roles": {
+      "principalInvestigator": "Chercheuse Principale",
+      "slicerArchitect": "Architecte du 3D Slicer",
+      "coreDeveloper": "Développeur Principal du 3D Slicer",
+      "associateProfessor": "Professeur Associé",
+      "softwareEngineer": "Ingénieur Logiciel",
+      "developer": "Développeur",
+      "translator": "Traducteur",
+      "translatorSupervisor": "Superviseur de Traduction",
+      "workshopSupervisor": "Superviseur d'Atelier",
+      "developerSupervisor": "Superviseur de Développement",
+      "translationReviewer": "Réviseur de Traduction",
+      "medicalBioengineer": "Bioingenieeur Médical",
+      "softwareDeveloper": "Développeur Logiciel"
+    }
+  },
+  "work": {
+    "pageTitle": "Tutorial Maker",
+    "description": {
+      "title": "Description",
+      "p1": "Le Tutorial Maker est un outil permettant d'automatiser la création de tutoriels au sein de l'environnement 3D Slicer. Pour atteindre cet objectif, une méthodologie de gestion de projet a été mise en place, combinant des réunions virtuelles hebdomadaires et l'utilisation de la plateforme GitHub comme système de contrôle de version pour le développement de code et la collaboration.",
+      "p2": "Cet outil a été développé par <b>l'équipe du 3D Slicer pour l'Amérique Latine</b>, dont les membres ont réalisé des progrès significatifs dans le développement du Module Tutorial Maker, en se concentrant sur l'amélioration de ses fonctionnalités, de sa convivialité et de son accessibilité."
+    },
+    "objectives": {
+      "title": "Objectifs",
+      "intro": "Parmi les objectifs de l'outil Tutorial Maker figurent les suivants :",
+      "internationalization": "Internationalisation :",
+      "internationalizationDesc": "Les chaînes de l'interface utilisateur du module ont été balisées, permettant une traduction facile en plusieurs langues. Les étapes d'installation du module en espagnol, en portugais et en anglais sont documentées.",
+      "accessibility": "Accessibilité :",
+      "accessibilityDesc": "Une installation et une utilisation simplifiées du module permettent à un plus grand nombre d'utilisateurs de bénéficier de l'outil.",
+      "flexibility": "Flexibilité dans la Création de Contenu :",
+      "flexibilityDesc": "La possibilité de générer des tutoriels dans plusieurs formats élargit les possibilités de distribution et d'utilisation du contenu créé.",
+      "userExperience": "Expérience Utilisateur Améliorée :",
+      "userExperienceDesc": "Les optimisations de l'interface et les nouvelles fonctionnalités rendent le processus de création de tutoriels plus intuitif et efficace.",
+      "sustainability": "Durabilité du Projet :",
+      "sustainabilityDesc": "L'automatisation des processus et l'amélioration de la gestion du projet garantissent le développement continu et la maintenance à long terme du module."
+    },
+    "features": {
+      "title": "Fonctionnalités",
+      "automatedTitle": "Génération Automatisée de Tutoriels",
+      "automatedDesc": "Simplifie la création de tutoriels 3D Slicer en exécutant automatiquement les flux de travail et en capturant des captures d'écran pour chaque étape, réduisant ainsi l'effort manuel.",
+      "annotationTitle": "Outils d'Annotation Intégrés",
+      "annotationDesc": "Comprend un éditeur intégré pour ajouter des flèches, des zones de texte, des surlignages et d'autres repères visuels directement sur les captures d'écran du tutoriel afin d'améliorer la clarté.",
+      "exportTitle": "Options d'Exportation Flexibles",
+      "exportDesc": "Permet aux utilisateurs de sauvegarder des captures d'écran annotées et de générer du contenu adapté à divers formats de documentation (HTML, PDF, Markdown).",
+      "multiLangTitle": "Support Multilingue",
+      "multiLangDesc": "Conçu pour faciliter la création et la localisation de tutoriels en plusieurs langues (dont l'anglais, l'espagnol, le portugais et le français), rendant Slicer accessible à un public plus large."
+    },
+    "repository": {
+      "title": "Dépôt",
+      "description": "<a href=\"https://github.com/SoniaPujolLab/SlicerTutorialMaker\" class=\"hyperlink\" target=\"_blank\">Le dépôt de l'outil Tutorial Maker</a> contient un processus d'installation étape par étape et est constamment mis à jour en fonction des améliorations apportées par l'équipe."
+    },
+    "collection": {
+      "title": "Collection Slicer Tutorial Maker",
+      "description": "La <a href=\"tutorial-collection.html\" class=\"hyperlink\">Collection Slicer Tutorial Maker</a> présente des tutoriels créés avec l'extension Tutorial Maker, couvrant des sujets allant de la navigation de base dans 3D Slicer à la segmentation basée sur l'IA."
+    },
+    "localization": {
+      "title": "Localisation",
+      "description": "La <a href=\"localization.html\" class=\"hyperlink\">page de Localisation</a> contient les tutoriels traduits (portugais et espagnol) ainsi que les versions originales en anglais."
+    }
+  },
+  "localization": {
+    "pageTitle": "Localisation",
+    "intro": "Dans le cadre du projet 3D Slicer pour l'Amérique Latine, 14 tutoriels ont été localisés manuellement en espagnol latino-américain et en portugais brésilien. Les tutoriels sont présentés ci-dessous, y compris les versions originales en anglais pour référence.",
+    "versionLabel": "Version",
+    "glossary": {
+      "title": "Glossaire Localisé",
+      "intro": "Les glossaires suivants fournissent la terminologie localisée pour le 3D Slicer en espagnol latino-américain et en portugais brésilien.",
+      "viewGlossary": "Voir le Glossaire"
+    },
+    "langs": {
+      "english": "Anglais",
+      "portugueseBR": "Portugais (BR)",
+      "spanishLA": "Espagnol (Amérique Latine)"
+    }
+  },
+  "tutorialCollection": {
+    "pageTitle": "Collection Slicer Tutorial Maker",
+    "intro": "La <strong>Collection Slicer Tutorial Maker</strong> est un ensemble sélectionné de tutoriels créés avec l'extension <a href=\"https://github.com/SoniaPujolLab/SlicerTutorialMaker\" class=\"hyperlink\" target=\"_blank\">Slicer Tutorial Maker</a>. Chaque tutoriel est généré automatiquement en exécutant un script Python dans le 3D Slicer, qui capture des captures d'écran annotées et produit des résultats aux formats HTML, PDF et Markdown. Les tutoriels sont disponibles en plusieurs langues et servent à la fois de ressources d'apprentissage et d'implémentations de référence pour les auteurs créant de nouveaux tutoriels.",
+    "loading": "Chargement…",
+    "noLanguages": "Aucune langue disponible.",
+    "viewOnGitHub": "Voir sur GitHub",
+    "cards": {
+      "welcome": {
+        "title": "Tutoriel de Bienvenue",
+        "li1": "Introduction à l'interface 3D Slicer",
+        "li2": "Chargement et exploration de données d'exemple",
+        "li3": "Navigation dans les vues 3D et 2D",
+        "li4": "Point de départ idéal pour les nouveaux utilisateurs"
+      },
+      "fourMinute": {
+        "title": "Tutoriel de Quatre Minutes",
+        "li1": "Aperçu rapide des fonctionnalités principales de Slicer",
+        "li2": "Chargement de données et visualisation de base",
+        "li3": "Interaction de base avec l'utilisateur",
+        "li4": "Démarrez en moins de 4 minutes"
+      },
+      "aiSegmentation": {
+        "title": "Segmentation Basée sur l'IA dans 3D Slicer",
+        "li1": "Segmentation anatomique assistée par l'IA",
+        "li2": "Chargement et traitement des données DICOM",
+        "li3": "Génération de modèles de segmentation 3D",
+        "li4": "Flux de travail complet de bout en bout"
+      },
+      "visualization": {
+        "title": "Tutoriel de Chargement de Données et de Visualisation 3D",
+        "li1": "Visualisation 3D interactive",
+        "li2": "Recadrage interactif des données",
+        "li3": "Manipulation interactive du viewport",
+        "li4": "Présentation des données d'imagerie médicale"
+      }
+    }
+  },
+  "sponsors": {
+    "pageTitle": "Remerciements",
+    "description": "Le projet « 3D Slicer pour l'Amérique Latine » a été rendu possible grâce à une subvention du programme Essential Open Source Software for Science (EOSS cycle 5) de la Chan Zuckerberg Initiative."
+  },
+  "contact": {
+    "pageTitle": "Contact"
+  }
+}
