@@ -25,8 +25,16 @@
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fpt-BR%2FSlicer_Welcome.md"
     },
     {
+      "label": "pt",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fpt%2FSlicer_Welcome.md"
+    },
+    {
       "label": "Portuguese (PT)",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fpt_PT%2FSlicer_Welcome.md"
+    },
+    {
+      "label": "ta",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fta%2FSlicer_Welcome.md"
     }
   ],
   "STC-GEN-102_FourMinuteTutorial": [
@@ -51,8 +59,16 @@
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fpt-BR%2FFourMinuteTutorial.md"
     },
     {
+      "label": "pt",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fpt%2FFourMinuteTutorial.md"
+    },
+    {
       "label": "Portuguese (PT)",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fpt_PT%2FFourMinuteTutorial.md"
+    },
+    {
+      "label": "ta",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fta%2FFourMinuteTutorial.md"
     }
   ],
   "STC-SEG-103_AIBasedSegmentationIn3DSlicer": [
@@ -79,6 +95,10 @@
     {
       "label": "Portuguese (PT)",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-SEG-103_AIBasedSegmentationIn3DSlicer%2FFiles%2Fpt_PT%2FAIBasedSegmentationIn3DSlicer.md"
+    },
+    {
+      "label": "ta",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-SEG-103_AIBasedSegmentationIn3DSlicer%2FFiles%2Fta%2FAIBasedSegmentationIn3DSlicer.md"
     }
   ],
   "STC-VIS-101_VisualizationTutorial": [
