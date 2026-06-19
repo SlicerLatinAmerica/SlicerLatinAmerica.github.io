@@ -93,6 +93,10 @@
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-SEG-103_AIBasedSegmentationIn3DSlicer%2FFiles%2Fpt-BR%2FAIBasedSegmentationIn3DSlicer.md"
     },
     {
+      "label": "pt",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-SEG-103_AIBasedSegmentationIn3DSlicer%2FFiles%2Fpt%2FAIBasedSegmentationIn3DSlicer.md"
+    },
+    {
       "label": "Portuguese (PT)",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-SEG-103_AIBasedSegmentationIn3DSlicer%2FFiles%2Fpt_PT%2FAIBasedSegmentationIn3DSlicer.md"
     },
@@ -121,6 +125,18 @@
     {
       "label": "Portuguese (BR)",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-VIS-101_VisualizationTutorial%2FFiles%2Fpt-BR%2FVisualizationTutorial.md"
+    },
+    {
+      "label": "pt",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-VIS-101_VisualizationTutorial%2FFiles%2Fpt%2FVisualizationTutorial.md"
+    },
+    {
+      "label": "Portuguese (PT)",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-VIS-101_VisualizationTutorial%2FFiles%2Fpt_PT%2FVisualizationTutorial.md"
+    },
+    {
+      "label": "ta",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-VIS-101_VisualizationTutorial%2FFiles%2Fta%2FVisualizationTutorial.md"
     }
   ]
 }
