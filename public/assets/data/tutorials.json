@@ -5,6 +5,10 @@
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Far_SA%2FSlicer_Welcome.md"
     },
     {
+      "label": "German",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fde%2FSlicer_Welcome.md"
+    },
+    {
       "label": "English",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fen-US%2FSlicer_Welcome.md"
     },
@@ -21,6 +25,10 @@
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Ffr%2FSlicer_Welcome.md"
     },
     {
+      "label": "hu",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fhu%2FSlicer_Welcome.md"
+    },
+    {
       "label": "Portuguese (BR)",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fpt-BR%2FSlicer_Welcome.md"
     },
@@ -35,9 +43,17 @@
     {
       "label": "ta",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fta%2FSlicer_Welcome.md"
+    },
+    {
+      "label": "zh_Hans",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fzh_Hans%2FSlicer_Welcome.md"
     }
   ],
   "STC-GEN-102_FourMinuteTutorial": [
+    {
+      "label": "German",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fde%2FFourMinuteTutorial.md"
+    },
     {
       "label": "English",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fen-US%2FFourMinuteTutorial.md"
@@ -55,6 +71,10 @@
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Ffr%2FFourMinuteTutorial.md"
     },
     {
+      "label": "hu",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fhu%2FFourMinuteTutorial.md"
+    },
+    {
       "label": "Portuguese (BR)",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fpt-BR%2FFourMinuteTutorial.md"
     },
@@ -69,6 +89,10 @@
     {
       "label": "ta",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fta%2FFourMinuteTutorial.md"
+    },
+    {
+      "label": "zh_Hans",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fzh_Hans%2FFourMinuteTutorial.md"
     }
   ],
   "STC-SEG-103_AIBasedSegmentationIn3DSlicer": [
