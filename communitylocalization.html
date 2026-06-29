@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
 
@@ -98,31 +98,32 @@
         <div class="collapse navbar-collapse justify-content-end" id="homeNavbar">
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link titulo-navbar" href="index.html">The Project</a>
+              <a class="nav-link titulo-navbar" href="index.html" data-i18n="nav.project">The Project</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link titulo-navbar" href="events.html">Events</a>
+              <a class="nav-link titulo-navbar" href="events.html" data-i18n="nav.events">Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link titulo-navbar" href="team.html">Our Team</a>
+              <a class="nav-link titulo-navbar" href="team.html" data-i18n="nav.team">Our Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link titulo-navbar" href="work.html">Our Work</a>
+              <a class="nav-link titulo-navbar" href="work.html" data-i18n="nav.work">Our Work</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link titulo-navbar" href="localization.html">Localization</a>
+                <a class="nav-link titulo-navbar" href="localization.html" data-i18n="nav.localization">Localization</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link titulo-navbar" href="tutorial-collection.html">Slicer Tutorial Maker Collection</a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link titulo-navbar active" href="communitylocalization.html">Community Localization</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link titulo-navbar" href="tutorial-collection.html" data-i18n="nav.tutorialCollection">Slicer Tutorial Maker Collection</a>
             </li>
             <li class="nav-item">
               <a class="nav-link titulo-navbar" href="sponsors.html">Acknowledgment</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link titulo-navbar" href="contact.html">Contact</a>
+              <a class="nav-link titulo-navbar" href="contact.html" data-i18n="nav.contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -231,31 +232,31 @@
           <div class="col-12">
             <ul class="nav justify-content-center pb-3 mb-3">
               <li class="nav-item">
-                <a href="index.html" class="nav-link px-2">The Project</a>
+                <a href="index.html" class="nav-link px-2" data-i18n="footer.project">The Project</a>
               </li>
               <li class="nav-item">
-                <a href="events.html" class="nav-link px-2">Events</a>
+                <a href="events.html" class="nav-link px-2" data-i18n="footer.events">Events</a>
               </li>
               <li class="nav-item">
-                <a href="team.html" class="nav-link px-2">Our Team</a>
+                <a href="team.html" class="nav-link px-2" data-i18n="footer.team">Our Team</a>
               </li>
               <li class="nav-item">
-                <a href="work.html" class="nav-link px-2">Our Work</a>
+                <a href="work.html" class="nav-link px-2" data-i18n="footer.work">Our Work</a>
               </li>
               <li class="nav-item">
-                <a href="localization.html" class="nav-link px-2">Localization</a>
-              </li>
-              <li class="nav-item">
-                <a href="tutorial-collection.html" class="nav-link px-2">Slicer Tutorial Maker Collection</a>
+                <a href="localization.html" class="nav-link px-2" data-i18n="footer.localization">Localization</a>
               </li>
               <li class="nav-item">
                 <a href="communitylocalization.html" class="nav-link px-2">Community Localization</a>
               </li>
               <li class="nav-item">
+                <a href="tutorial-collection.html" class="nav-link px-2" data-i18n="footer.tutorialCollection">Slicer Tutorial Maker Collection</a>
+              </li>
+              <li class="nav-item">
                 <a href="sponsors.html" class="nav-link px-2">Acknowledgment</a>
               </li>
               <li class="nav-item">
-                <a href="contact.html" class="nav-link px-2">Contact</a>
+                <a href="contact.html" class="nav-link px-2" data-i18n="footer.contact">Contact</a>
               </li>
             </ul>
           </div>
@@ -267,6 +268,7 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script src="./public/js/i18n.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', async function () {
         let data;

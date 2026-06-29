@@ -324,21 +324,22 @@
 
   /** Inject language selector dropdown into the navbar. */
   function injectSelector() {
-    var navList = document.querySelector(".navbar-collapse .navbar-nav");
-    if (!navList) return;
+    var toggler = document.querySelector("#homeNavBar .navbar-toggler");
+    var navbarCollapse = document.querySelector("#homeNavBar .navbar-collapse");
+    if (!navbarCollapse) return;
 
     var active = currentLang();
     var activeMeta = LANG_META[active] || LANG_META[DEFAULT_LANG];
 
-    var li = document.createElement("li");
-    li.className = "nav-item lang-selector-item";
+    var wrapper = document.createElement("div");
+    wrapper.className = "lang-selector-item d-flex align-items-center";
 
     var html = '<div class="lang-dropdown">'
-      + '<button class="lang-dropdown-toggle" id="langDropdownBtn" aria-expanded="false">'
-      +   '<span class="lang-flag">' + activeMeta.flag + '</span>'
-      +   '<span class="lang-label">' + activeMeta.label + '</span>'
-      +   '<svg class="lang-chevron" viewBox="0 0 10 6" width="10" height="6">'
-      +     '<path d="M0 0l5 6 5-6z" fill="currentColor"/>'
+      + '<button class="lang-dropdown-toggle" id="langDropdownBtn" aria-expanded="false" title="Change language">'
+      +   '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" viewBox="0 0 24 24">'
+      +     '<circle cx="12" cy="12" r="9"/>'
+      +     '<path d="M3.6 9h16.8M3.6 15h16.8"/>'
+      +     '<path d="M12 3c-2.4 2.8-3.8 5.7-3.8 9s1.4 6.2 3.8 9M12 3c2.4 2.8 3.8 5.7 3.8 9s-1.4 6.2-3.8 9"/>'
       +   '</svg>'
       + '</button>'
       + '<ul class="lang-dropdown-menu" id="langDropdownMenu" role="listbox">';
@@ -352,11 +353,17 @@
     });
 
     html += '</ul></div>';
-    li.innerHTML = html;
-    navList.appendChild(li);
+    wrapper.innerHTML = html;
+    // Insert before the toggler so on mobile it sits left of the hamburger.
+    // On desktop, CSS order:10 moves it after the collapse.
+    if (toggler) {
+      toggler.parentNode.insertBefore(wrapper, toggler);
+    } else {
+      navbarCollapse.appendChild(wrapper);
+    }
 
-    var toggleBtn = li.querySelector("#langDropdownBtn");
-    var menu = li.querySelector("#langDropdownMenu");
+    var toggleBtn = wrapper.querySelector("#langDropdownBtn");
+    var menu = wrapper.querySelector("#langDropdownMenu");
 
     toggleBtn.addEventListener("click", function (e) {
       e.stopPropagation();
@@ -369,14 +376,11 @@
       toggleBtn.setAttribute("aria-expanded", "false");
     });
 
-    li.querySelectorAll(".lang-btn").forEach(function (btn) {
+    wrapper.querySelectorAll(".lang-btn").forEach(function (btn) {
       btn.addEventListener("click", function (e) {
         e.stopPropagation();
         var lang = btn.dataset.lang;
         window.setLanguage(lang);
-        var meta = LANG_META[lang];
-        toggleBtn.querySelector(".lang-flag").textContent = meta.flag;
-        toggleBtn.querySelector(".lang-label").textContent = meta.label;
         menu.classList.remove("open");
         toggleBtn.setAttribute("aria-expanded", "false");
       });

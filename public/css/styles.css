@@ -83,9 +83,9 @@ a:hover {
 .titulo-navbar {
   font-weight: 500;
   color: var(--text-color-main) !important;
-  margin: 0 0.75rem;
+  margin: 0 0.3rem;
   position: relative;
-  font-size: 1.05rem;
+  font-size: 0.85rem;
   padding-bottom: 4px;
 }
 
@@ -1591,7 +1591,7 @@ div.workshop-speaker:hover {
 .lang-selector-item {
   display: flex;
   align-items: center;
-  margin-left: 0.5rem;
+  margin-left: auto;
 }
 
 .lang-dropdown {
@@ -1601,18 +1601,15 @@ div.workshop-speaker:hover {
 .lang-dropdown-toggle {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  justify-content: center;
   background: none;
   border: 1.5px solid rgba(0, 91, 187, 0.25);
-  border-radius: 6px;
-  padding: 0.3rem 0.65rem;
-  font-family: var(--font-family-base);
-  font-size: 0.9rem;
-  font-weight: 500;
+  border-radius: 50%;
+  padding: 0.3rem;
   color: var(--text-color-main);
   cursor: pointer;
   transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
-  white-space: nowrap;
+  line-height: 0;
 }
 
 .lang-dropdown-toggle:hover {
@@ -1699,19 +1696,17 @@ div.workshop-speaker:hover {
   background: rgba(0, 91, 187, 0.05);
 }
 
-/* Mobile: stack the selector below nav items */
+/* Desktop: push lang selector after the collapse via flex order */
+@media (min-width: 992px) {
+  .lang-selector-item {
+    order: 10;
+    margin-left: 0.75rem;
+  }
+}
+
+/* Mobile: lang selector sits left of the hamburger via margin-left:auto above */
 @media (max-width: 991px) {
   .lang-selector-item {
-    margin-left: 0;
-    margin-top: 0.5rem;
-    padding-left: 0.75rem;
-  }
-
-  .lang-dropdown-menu {
-    position: static;
-    box-shadow: none;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: var(--border-radius-sm);
-    margin-top: 0.3rem;
+    margin-right: 0.4rem;
   }
 }
