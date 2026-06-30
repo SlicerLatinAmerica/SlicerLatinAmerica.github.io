@@ -286,12 +286,18 @@
         const ALLOWED_LANGS = new Set([
           'Portuguese (BR)',
           'Portuguese (PT)',
-          'Spanish (Latin America)',
           'Spanish',
+          'Spanish (Latin America)',
           'German',
-          'Chinese',
-          'Hungarian',
+          'hu',
+          'zh_Hans',
+          
         ]);
+
+        const DISPLAY_NAMES = {
+          'hu': 'Hungarian',
+          'zh_Hans': 'Chinese',
+        };
 
         for (const [folder, languages] of Object.entries(data)) {
           const el = document.getElementById('langs-' + folder);
@@ -302,7 +308,10 @@
             continue;
           }
           el.innerHTML = filtered
-            .map(function (l) { return '<a href="' + l.url + '" target="_blank">' + l.label + '</a>'; })
+            .map(function (l) {
+              const displayLabel = DISPLAY_NAMES[l.label] || l.label;
+              return '<a href="' + l.url + '" target="_blank">' + displayLabel + '</a>';
+            })
             .join('');
         }
       });
