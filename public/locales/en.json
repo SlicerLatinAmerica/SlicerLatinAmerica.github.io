@@ -184,13 +184,14 @@
     "versionLabel": "Version",
     "glossary": {
       "title": "Localized Glossary",
-      "intro": "The following glossaries provide localized terminology for 3D Slicer in Latin American Spanish and Brazilian Portuguese.",
+      "intro": "The following glossaries provide localized terminology for 3D Slicer in Latin American Spanish, Brazilian Portuguese and French.",
       "viewGlossary": "View Glossary"
     },
     "langs": {
       "english": "English",
       "portugueseBR": "Portuguese (BR)",
-      "spanishLA": "Spanish (Latin America)"
+      "spanishLA": "Spanish (Latin America)",
+      "french": "French"
     }
   },
   "tutorialCollection": {

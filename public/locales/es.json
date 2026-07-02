@@ -184,13 +184,14 @@
     "versionLabel": "Versión",
     "glossary": {
       "title": "Glosario Localizado",
-      "intro": "Los siguientes glosarios proporcionan terminología localizada para el 3D Slicer en español latinoamericano y portugués brasileño.",
+      "intro": "Los siguientes glosarios proporcionan terminología localizada para el 3D Slicer en español latinoamericano, portugués brasileño y francés.",
       "viewGlossary": "Ver Glosario"
     },
     "langs": {
       "english": "Inglés",
       "portugueseBR": "Portugués (BR)",
-      "spanishLA": "Español (América Latina)"
+      "spanishLA": "Español (América Latina)",
+      "french": "Francés"
     }
   },
   "tutorialCollection": {
