@@ -1,10 +1,6 @@
 {
   "STC-GEN-101_WelcomeTutorial": [
     {
-      "label": "Arabic",
-      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Far_SA%2FSlicer_Welcome.md"
-    },
-    {
       "label": "German",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fde%2FSlicer_Welcome.md"
     },
@@ -117,10 +113,6 @@
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-SEG-103_AIBasedSegmentationIn3DSlicer%2FFiles%2Ffr%2FAIBasedSegmentationIn3DSlicer.md"
     },
     {
-      "label": "hu",
-      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-SEG-103_AIBasedSegmentationIn3DSlicer%2FFiles%2Fhu%2FAIBasedSegmentationIn3DSlicer.md"
-    },
-    {
       "label": "Portuguese (BR)",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-SEG-103_AIBasedSegmentationIn3DSlicer%2FFiles%2Fpt-BR%2FAIBasedSegmentationIn3DSlicer.md"
     },
@@ -177,6 +169,10 @@
     {
       "label": "Portuguese (PT)",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-VIS-101_VisualizationTutorial%2FFiles%2Fpt_PT%2FVisualizationTutorial.md"
+    },
+    {
+      "label": "ta",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-VIS-101_VisualizationTutorial%2FFiles%2Fta%2FVisualizationTutorial.md"
     },
     {
       "label": "zh_Hans",
