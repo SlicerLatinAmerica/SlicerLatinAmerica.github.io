@@ -71,10 +71,6 @@
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Ffr%2FFourMinuteTutorial.md"
     },
     {
-      "label": "hu",
-      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fhu%2FFourMinuteTutorial.md"
-    },
-    {
       "label": "Portuguese (BR)",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fpt-BR%2FFourMinuteTutorial.md"
     },
@@ -103,6 +99,10 @@
     {
       "label": "English",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-SEG-103_AIBasedSegmentationIn3DSlicer%2FFiles%2Fen-US%2FAIBasedSegmentationIn3DSlicer.md"
+    },
+    {
+      "label": "Spanish (Latin America)",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-SEG-103_AIBasedSegmentationIn3DSlicer%2FFiles%2Fes-419%2FAIBasedSegmentationIn3DSlicer.md"
     },
     {
       "label": "Spanish",
@@ -145,6 +145,10 @@
     {
       "label": "English",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-VIS-101_VisualizationTutorial%2FFiles%2Fen-US%2FVisualizationTutorial.md"
+    },
+    {
+      "label": "Spanish (Latin America)",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-VIS-101_VisualizationTutorial%2FFiles%2Fes-419%2FVisualizationTutorial.md"
     },
     {
       "label": "Spanish",
