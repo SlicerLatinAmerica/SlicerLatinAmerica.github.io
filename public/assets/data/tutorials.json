@@ -47,6 +47,10 @@
     {
       "label": "zh_Hans",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fzh_Hans%2FSlicer_Welcome.md"
+    },
+    {
+      "label": "zh_Hant",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-101_WelcomeTutorial%2FFiles%2Fzh_Hant%2FSlicer_Welcome.md"
     }
   ],
   "STC-GEN-102_FourMinuteTutorial": [
@@ -93,6 +97,10 @@
     {
       "label": "zh_Hans",
       "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fzh_Hans%2FFourMinuteTutorial.md"
+    },
+    {
+      "label": "zh_Hant",
+      "url": "md-viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2FSoniaPujolLab%2FSlicerTutorialMakerCollection%2Fmain%2FTutorials%2FSTC-GEN-102_FourMinuteTutorial%2FFiles%2Fzh_Hant%2FFourMinuteTutorial.md"
     }
   ],
   "STC-SEG-103_AIBasedSegmentationIn3DSlicer": [
