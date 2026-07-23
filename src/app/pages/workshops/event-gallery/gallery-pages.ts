@@ -1,4 +1,4 @@
-import { GalleryImage } from '../../../shared/workshop/gallery';
+import { GalleryImage } from '../../../shared/workshop/gallery/gallery';
 
 export interface GalleryPageData {
     title: string;

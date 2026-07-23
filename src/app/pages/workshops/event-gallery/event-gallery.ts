@@ -1,8 +1,11 @@
 import { Component, input } from '@angular/core';
 
-import { Gallery } from '../../../shared/workshop/gallery';
-import { WORKSHOP_FOOTER_SHORT, WorkshopFooter } from '../../../shared/workshop/workshop-footer';
-import { WorkshopHeader } from '../../../shared/workshop/workshop-header';
+import { Gallery } from '../../../shared/workshop/gallery/gallery';
+import {
+    WORKSHOP_FOOTER_SHORT,
+    WorkshopFooter,
+} from '../../../shared/workshop/workshop-footer/workshop-footer';
+import { WorkshopHeader } from '../../../shared/workshop/workshop-header/workshop-header';
 import { GalleryPageData } from './gallery-pages';
 
 @Component({

@@ -5,11 +5,7 @@ import { GALLERY_PAGES } from './pages/workshops/event-gallery/gallery-pages';
 
 const workshop: PageHead = { bodyClass: 'workshop-body' };
 const workshopPt: PageHead = { bodyClass: 'workshop-body', htmlLang: 'pt-BR' };
-const site = (fontWeights: string, extra: PageHead = {}): PageHead => ({
-    bootstrap: true,
-    fontWeights,
-    ...extra,
-});
+const site: PageHead = { bootstrap: true, fontWeights: '300;400;500;700' };
 
 function page(
     path: string,
@@ -28,32 +24,32 @@ export const routes: Routes = [
         path: '',
         title: '3D Slicer for Latin America',
         loadComponent: loadHome,
-        data: { head: site('400;500;700') },
+        data: { head: site },
     },
-    page('index.html', '3D Slicer for Latin America', loadHome, site('400;500;700')),
+    page('index.html', '3D Slicer for Latin America', loadHome, site),
     page(
         'events.html',
         '3D Slicer for Latin America - Events',
         () => import('./pages/events/events').then((m) => m.EventsPage),
-        site('400;500;700'),
+        site,
     ),
     page(
         'team.html',
         '3D Slicer for Latin America - Team',
         () => import('./pages/team/team').then((m) => m.TeamPage),
-        site('400;500;700'),
+        site,
     ),
     page(
         'work.html',
         'Our Work - 3D Slicer for Latin America',
         () => import('./pages/work/work').then((m) => m.WorkPage),
-        site('300;400;500;700'),
+        site,
     ),
     page(
         'localization.html',
         'Localization - 3D Slicer for Latin America',
         () => import('./pages/localization/localization').then((m) => m.LocalizationPage),
-        site('300;400;500;700'),
+        site,
     ),
     page(
         'community-localization.html',
@@ -62,7 +58,7 @@ export const routes: Routes = [
             import('./pages/community-localization/community-localization').then(
                 (m) => m.CommunityLocalizationPage,
             ),
-        site('300;400;500;700'),
+        site,
     ),
     page(
         'tutorial-collection.html',
@@ -71,25 +67,25 @@ export const routes: Routes = [
             import('./pages/tutorial-collection/tutorial-collection').then(
                 (m) => m.TutorialCollectionPage,
             ),
-        site('300;400;500;700'),
+        site,
     ),
     page(
         'sponsors.html',
         '3D Slicer',
         () => import('./pages/sponsors/sponsors').then((m) => m.SponsorsPage),
-        site('400;700'),
+        site,
     ),
     page(
         'contact.html',
         '3D Slicer',
         () => import('./pages/contact/contact').then((m) => m.ContactPage),
-        site('400;700', { bootstrapIcons: true }),
+        { ...site, bootstrapIcons: true },
     ),
     page(
         'participants.html',
         '3D Slicer for Latin America: Outreach Events Participants',
         () => import('./pages/participants/participants').then((m) => m.ParticipantsPage),
-        site('400;700', { leaflet: true, simplebar: true }),
+        { ...site, leaflet: true, simplebar: true },
     ),
     page(
         'md-viewer.html',

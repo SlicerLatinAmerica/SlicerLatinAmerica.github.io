@@ -3,14 +3,13 @@
 </header>
 
 <main class="workshop-main with-fixed-header">
-    <div class="workshop-buttons">
-        <a href="index.html">🏠 Home</a>
+    <app-workshop-buttons>
         @if (june()) {
             <a href="WorkshopRP_AI2025_june.html">Workshop Details</a>
         } @else {
             <a href="WorkshopRP_AI2025.html">Workshop Details</a>
         }
-    </div>
+    </app-workshop-buttons>
     <section class="workshop-section">
         <h2>Instructions</h2>
         @if (june()) {

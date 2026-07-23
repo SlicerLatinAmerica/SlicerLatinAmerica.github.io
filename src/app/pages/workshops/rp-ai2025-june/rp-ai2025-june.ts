@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 
-import { Speaker, Speakers } from '../../../shared/workshop/speakers';
-import { WORKSHOP_FOOTER_SHORT, WorkshopFooter } from '../../../shared/workshop/workshop-footer';
-import { WorkshopHeader } from '../../../shared/workshop/workshop-header';
+import { Speaker, Speakers } from '../../../shared/workshop/speakers/speakers';
+import {
+    WORKSHOP_FOOTER_SHORT,
+    WorkshopFooter,
+} from '../../../shared/workshop/workshop-footer/workshop-footer';
+import { WorkshopButtons } from '../../../shared/workshop/workshop-buttons/workshop-buttons';
+import { WorkshopHeader } from '../../../shared/workshop/workshop-header/workshop-header';
 
 @Component({
     selector: 'app-rp-ai2025-june-page',
-    imports: [WorkshopHeader, WorkshopFooter, Speakers],
+    imports: [WorkshopButtons, WorkshopHeader, WorkshopFooter, Speakers],
     templateUrl: './rp-ai2025-june.html',
     styles: ':host { display: contents }',
 })

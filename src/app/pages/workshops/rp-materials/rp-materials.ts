@@ -1,10 +1,14 @@
 import { Component, input } from '@angular/core';
 
-import { WORKSHOP_FOOTER_SHORT, WorkshopFooter } from '../../../shared/workshop/workshop-footer';
+import { WorkshopButtons } from '../../../shared/workshop/workshop-buttons/workshop-buttons';
+import {
+    WORKSHOP_FOOTER_SHORT,
+    WorkshopFooter,
+} from '../../../shared/workshop/workshop-footer/workshop-footer';
 
 @Component({
     selector: 'app-rp-materials-page',
-    imports: [WorkshopFooter],
+    imports: [WorkshopButtons, WorkshopFooter],
     templateUrl: './rp-materials.html',
     styles: ':host { display: contents }',
 })

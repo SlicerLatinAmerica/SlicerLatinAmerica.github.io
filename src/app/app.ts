@@ -8,7 +8,7 @@ import { HeadService, PageHead } from './core/head.service';
 @Component({
     selector: 'app-root',
     imports: [RouterOutlet],
-    template: '<router-outlet />',
+    templateUrl: './app.html',
     styles: ':host { display: contents }',
 })
 export class App {
