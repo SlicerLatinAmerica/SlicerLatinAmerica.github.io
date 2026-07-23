@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { HeadService } from '../../core/head.service';
 import { TranslateHtmlPipe, TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Navbar } from '../../shared/navbar/navbar';
 import { SiteFooter } from '../../shared/site-footer/site-footer';
@@ -39,8 +38,4 @@ export class EventsPage {
         { key: 'rsna2022', tag: 'div' },
         { key: 'claib2022', tag: 'div' },
     ];
-
-    constructor() {
-        inject(HeadService).apply({ bootstrap: true, fontWeights: '400;500;700' });
-    }
 }

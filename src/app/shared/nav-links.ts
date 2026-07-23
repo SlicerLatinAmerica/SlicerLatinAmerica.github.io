@@ -4,7 +4,7 @@ export interface NavLink {
     label: string;
 }
 
-export const NAV_LINKS: readonly NavLink[] = [
+export const NAV_LINKS = [
     { key: 'project', href: 'index.html', label: 'The Project' },
     { key: 'events', href: 'events.html', label: 'Events' },
     { key: 'team', href: 'team.html', label: 'Our Team' },
@@ -22,6 +22,6 @@ export const NAV_LINKS: readonly NavLink[] = [
     },
     { key: 'acknowledgment', href: 'sponsors.html', label: 'Acknowledgment' },
     { key: 'contact', href: 'contact.html', label: 'Contact' },
-];
+] as const satisfies readonly NavLink[];
 
 export type NavKey = (typeof NAV_LINKS)[number]['key'];

@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { HeadService } from '../../../core/head.service';
 import { Speaker, Speakers } from '../../../shared/workshop/speakers';
 import { WORKSHOP_FOOTER_SHORT, WorkshopFooter } from '../../../shared/workshop/workshop-footer';
 import { WorkshopHeader } from '../../../shared/workshop/workshop-header';
@@ -32,8 +31,4 @@ export class TolucaKidneysMay2024Page {
             bio: 'Medical Bioengineer. Member of the Mexican Team for the 3D Slicer for Latin America project.',
         },
     ];
-
-    constructor() {
-        inject(HeadService).apply({ bodyClass: 'workshop-body' });
-    }
 }

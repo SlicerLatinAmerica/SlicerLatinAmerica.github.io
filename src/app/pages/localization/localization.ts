@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { HeadService } from '../../core/head.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Navbar } from '../../shared/navbar/navbar';
 import { SiteFooter } from '../../shared/site-footer/site-footer';
@@ -17,8 +16,4 @@ export class LocalizationPage {
     protected readonly igtGroups = IGT_GROUPS;
     protected readonly igtUnits = IGT_UNITS;
     protected readonly glossaries = GLOSSARY_CARDS;
-
-    constructor() {
-        inject(HeadService).apply({ bootstrap: true, fontWeights: '300;400;500;700' });
-    }
 }

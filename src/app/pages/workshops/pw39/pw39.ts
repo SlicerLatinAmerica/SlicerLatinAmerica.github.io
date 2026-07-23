@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { HeadService } from '../../../core/head.service';
 import { Speaker, Speakers } from '../../../shared/workshop/speakers';
 import { WorkshopFooter } from '../../../shared/workshop/workshop-footer';
 import { WorkshopHeader } from '../../../shared/workshop/workshop-header';
@@ -59,8 +58,4 @@ export class Pw39Page {
             img: 'public/assets/img/members/steve_pieper.jpeg',
         },
     ];
-
-    constructor() {
-        inject(HeadService).apply({ bodyClass: 'workshop-body' });
-    }
 }

@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { HeadService } from '../../../core/head.service';
 import { Speaker, Speakers } from '../../../shared/workshop/speakers';
 import { WorkshopFooter } from '../../../shared/workshop/workshop-footer';
 import { WorkshopHeader } from '../../../shared/workshop/workshop-header';
@@ -50,8 +49,4 @@ export class Pw42Page {
         'Steve Pieper — Isomics Inc., USA',
         'Jean-Christophe Fillion-Robin — Kitware Inc., USA',
     ];
-
-    constructor() {
-        inject(HeadService).apply({ bodyClass: 'workshop-body' });
-    }
 }

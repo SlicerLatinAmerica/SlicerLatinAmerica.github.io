@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { HeadService } from '../../../core/head.service';
 import { Speaker, Speakers } from '../../../shared/workshop/speakers';
 import { WorkshopFooter } from '../../../shared/workshop/workshop-footer';
 import { WorkshopHeader } from '../../../shared/workshop/workshop-header';
@@ -21,8 +20,4 @@ export class Czi2024Page {
             bio: 'Director of Training, Education, and Internationalization, 3D Slicer | Principal Investigator, 3D Slicer for Latin America',
         },
     ];
-
-    constructor() {
-        inject(HeadService).apply({ bodyClass: 'workshop-body' });
-    }
 }

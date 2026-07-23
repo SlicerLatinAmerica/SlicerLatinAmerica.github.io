@@ -2,8 +2,6 @@ import { Component, ElementRef, afterNextRender, inject, signal, viewChild } fro
 import { Title } from '@angular/platform-browser';
 import { marked } from 'marked';
 
-import { HeadService } from '../../core/head.service';
-
 @Component({
     selector: 'app-md-viewer-page',
     templateUrl: './md-viewer.html',
@@ -18,7 +16,6 @@ export class MdViewerPage {
     private readonly content = viewChild.required<ElementRef<HTMLDivElement>>('content');
 
     constructor() {
-        inject(HeadService).apply({ bootstrap: 'css-only' });
         afterNextRender(() => {
             this.copyLabel.set('Copy URL');
             this.ready.set(true);

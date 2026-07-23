@@ -1,6 +1,5 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
-import { HeadService } from '../../../core/head.service';
 import { WORKSHOP_FOOTER_SHORT, WorkshopFooter } from '../../../shared/workshop/workshop-footer';
 
 @Component({
@@ -13,8 +12,4 @@ export class RpMaterialsPage {
     readonly june = input(false);
 
     protected readonly footerLinks = WORKSHOP_FOOTER_SHORT;
-
-    constructor() {
-        inject(HeadService).apply({ bodyClass: 'workshop-body', htmlLang: 'pt-BR' });
-    }
 }

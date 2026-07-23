@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { HeadService } from '../../../core/head.service';
 import { Speaker, Speakers } from '../../../shared/workshop/speakers';
 import { WORKSHOP_FOOTER_SHORT, WorkshopFooter } from '../../../shared/workshop/workshop-footer';
 import { WorkshopHeader } from '../../../shared/workshop/workshop-header';
@@ -75,8 +74,4 @@ export class RpAi2025Page {
             href: 'https://www.linkedin.com/in/paulo-eduardo-de-barros-veiga-85a174321/',
         },
     ];
-
-    constructor() {
-        inject(HeadService).apply({ bodyClass: 'workshop-body', htmlLang: 'pt-BR' });
-    }
 }

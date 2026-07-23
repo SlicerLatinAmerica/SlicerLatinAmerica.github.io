@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { HeadService } from '../../../core/head.service';
 import { Speaker, Speakers } from '../../../shared/workshop/speakers';
 import { WORKSHOP_FOOTER_SHORT, WorkshopFooter } from '../../../shared/workshop/workshop-footer';
 import { WorkshopHeader } from '../../../shared/workshop/workshop-header';
@@ -47,8 +46,4 @@ export class TolucaUltrasoundOct2025Page {
             bio: "Biomedical engineer from Nueva Granada Military University, currently pursuing a Master's degree focused on AI in echocardiography. She has experience in ultrasound-guided procedures and 3D reconstruction of anatomical structures using 3D Slicer.",
         },
     ];
-
-    constructor() {
-        inject(HeadService).apply({ bodyClass: 'workshop-body' });
-    }
 }

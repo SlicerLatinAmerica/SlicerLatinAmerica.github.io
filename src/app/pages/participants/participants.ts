@@ -1,15 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common';
-import {
-    Component,
-    ElementRef,
-    afterNextRender,
-    computed,
-    inject,
-    signal,
-    viewChild,
-} from '@angular/core';
+import { Component, ElementRef, afterNextRender, computed, signal, viewChild } from '@angular/core';
 
-import { HeadService } from '../../core/head.service';
 import { Navbar } from '../../shared/navbar/navbar';
 import { SiteFooter } from '../../shared/site-footer/site-footer';
 import PARTICIPANTS from './participants-data.json';
@@ -100,12 +91,6 @@ export class ParticipantsPage {
     protected readonly countLabel = countLabel;
 
     constructor() {
-        inject(HeadService).apply({
-            bootstrap: true,
-            fontWeights: '400;700',
-            leaflet: true,
-            simplebar: true,
-        });
         afterNextRender(() => {
             void this.initMap();
             void this.initScrollbars();
