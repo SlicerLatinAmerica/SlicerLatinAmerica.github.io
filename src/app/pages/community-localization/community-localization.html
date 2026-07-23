@@ -1,0 +1,19 @@
+<app-navbar active="communityLocalization" />
+
+<main class="container main-content">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <h1 class="titulo mb-4">{{ 'communityLocalization.pageTitle' | t }}</h1>
+
+            <section class="mb-5">
+                <p class="paragrafo" [innerHTML]="'communityLocalization.intro' | tHtml"></p>
+            </section>
+
+            <section class="mb-5">
+                <app-tutorial-cards mode="community" />
+            </section>
+        </div>
+    </div>
+</main>
+
+<app-site-footer />

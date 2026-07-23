@@ -1,0 +1,22 @@
+<app-navbar active="project" />
+
+<main class="container main-content">
+    <section class="row justify-content-center align-items-center mb-5">
+        <div class="col-12 col-md-5 d-flex flex-column align-items-center mb-4 mb-md-0">
+            <img
+                src="./public/assets/img/logo_with_people.png"
+                class="img-fluid hero-logo border rounded"
+                alt="3D Slicer Logo"
+            />
+            <p class="text-muted text-center mt-2" style="font-size: 0.72rem">
+                {{ 'index.imageCaption' | t }}
+            </p>
+        </div>
+        <div class="col-12 col-md-7">
+            <h1 class="titulo">{{ 'index.heroTitle' | t }}</h1>
+            <p class="paragrafo">{{ 'index.heroParagraph' | t }}</p>
+        </div>
+    </section>
+</main>
+
+<app-site-footer />

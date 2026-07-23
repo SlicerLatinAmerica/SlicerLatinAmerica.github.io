@@ -1,0 +1,46 @@
+{
+  "name": "slicer-latin-america",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "postbuild": "node tools/flatten-html-routes.mjs",
+    "watch": "ng build --watch --configuration development",
+    "lint": "ng lint && npm run lint:styles",
+    "lint:styles": "stylelint \"src/**/*.css\"",
+    "format": "prettier --write \"src/**/*.{ts,html,css,json}\" \"tools/**/*.mjs\""
+  },
+  "dependencies": {
+    "@angular/common": "^21.2.0",
+    "@angular/compiler": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0",
+    "@angular/platform-browser": "^21.2.0",
+    "@angular/platform-server": "^21.2.0",
+    "@angular/router": "^21.2.0",
+    "@angular/ssr": "^21.2.7",
+    "leaflet": "1.9.4",
+    "marked": "^12.0.2",
+    "rxjs": "~7.8.0",
+    "simplebar": "^6.3.2",
+    "tslib": "^2.3.0",
+    "vanilla-tilt": "^1.8.1"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.2.7",
+    "@angular/cli": "^21.2.7",
+    "@angular/compiler-cli": "^21.2.0",
+    "@types/leaflet": "^1.9.20",
+    "@types/node": "^20.17.19",
+    "angular-eslint": "^21.4.0",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^9.1.2",
+    "prettier": "^3.8.1",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^36.0.1",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "^8.65.0"
+  }
+}

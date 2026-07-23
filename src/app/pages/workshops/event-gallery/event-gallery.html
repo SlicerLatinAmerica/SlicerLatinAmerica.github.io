@@ -1,0 +1,23 @@
+<app-workshop-header>
+    <h1>{{ gallery().heading }}</h1>
+    <p>{{ gallery().subtitle }}</p>
+</app-workshop-header>
+
+<main class="workshop-main">
+    <section class="workshop-section">
+        <h2>{{ gallery().sectionTitle }}</h2>
+        @for (paragraph of gallery().intro; track $index) {
+            <p>{{ paragraph }}</p>
+        }
+
+        <app-gallery
+            [images]="gallery().images"
+            [decodingAsync]="gallery().decodingAsync ?? false"
+        />
+
+        <a [href]="gallery().backHref" class="back-link">Back to Workshop Main Page</a>
+        <a href="index.html" class="back-link">Back to Home</a>
+    </section>
+</main>
+
+<app-workshop-footer [linkKeys]="footerLinks" />

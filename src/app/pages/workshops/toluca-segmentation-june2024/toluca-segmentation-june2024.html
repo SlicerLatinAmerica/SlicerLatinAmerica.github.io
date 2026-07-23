@@ -1,0 +1,90 @@
+<app-workshop-header>
+    <h1>Slicer Toluca Workshop: Segmentation and 3D Reconstruction</h1>
+    <p>
+        Intensive training in the use of 3D Slicer for medical image segmentation and 3D
+        visualization.
+    </p>
+    <p><strong>June 10, 2024</strong></p>
+    <p><strong>Location: Facultad de Ingeniería, UAEMex, Toluca, Mexico</strong></p>
+</app-workshop-header>
+
+<main class="workshop-main">
+    <div class="workshop-buttons">
+        <a href="index.html">🏠 Home</a>
+        <a
+            href="https://www.dropbox.com/scl/fo/8hz3suhibjgz9a4qoxjos/AHhVqWHecLWMzybXX1Nd9DA?rlkey=5ra1kj19wmd6070l5oxb9zwf9&amp;e=1&amp;st=rioowvr2&amp;dl=0"
+            target="_blank"
+            >📂 Workshop Materials</a
+        >
+        <a href="WorkshopToluca_Segmentation_June2024_ending.html" target="_blank"
+            >📸 Event Photo Gallery</a
+        >
+        <a href="https://vmms.github.io/WorkshopSlicerMexico/programa.html" target="_blank"
+            >🌐 Event Website</a
+        >
+    </div>
+
+    <section class="workshop-section">
+        <h2>Description</h2>
+        <p>
+            The workshop focused on 3D Slicer's segmentation capabilities, guiding participants
+            through workflows for processing medical images. Topics covered ranged from basic data
+            loading to advanced segmentation techniques and model creation for 3D printing.
+        </p>
+        <p>
+            A workshop was organized by the Mexican team at the Faculty of Engineering UAEM and the
+            PhD. Joel Zagoya López (collaborator on the project), his area of expertise is design
+            with experience in segmentation and reconstruction of 3D models for 3D printing. This
+            6-hour workshop was carried out as part of the dissemination activities. This
+            educational event was specifically designed for the students interested in medical
+            imaging. The session had an outstanding attendance of 4 teachers and 17 students eager
+            to acquire knowledge in this cutting-edge area.
+        </p>
+    </section>
+
+    <section class="workshop-section">
+        <h2>Agenda</h2>
+        <ul class="agenda-list">
+            <li>
+                <span class="agenda-time">11:00-11:10</span>
+                <span class="agenda-desc"
+                    >Inauguration: Welcome speech and opening remarks (Dr. Adriana Herlinda Vilchis
+                    González)</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">11:10-13:00</span>
+                <span class="agenda-desc"
+                    >Hands-on Session 1: Segmentation (Dr. Joel Zagoya López)</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">13:00-13:20</span>
+                <span class="agenda-desc">Coffee break</span>
+            </li>
+            <li>
+                <span class="agenda-time">13:20-16:00</span>
+                <span class="agenda-desc"
+                    >Hands-on Session 2: Save and Export models to 3D printer (Dr. Joel Zagoya
+                    López)</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">16:00</span>
+                <span class="agenda-desc">Closing remarks and networking</span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="workshop-section">
+        <h2>Speakers</h2>
+        <app-speakers [speakers]="speakers" />
+    </section>
+
+    <section class="workshop-section">
+        <h2>Organizers</h2>
+        <app-speakers [speakers]="organizers" />
+    </section>
+</main>
+
+<app-workshop-footer [linkKeys]="footerLinks" />

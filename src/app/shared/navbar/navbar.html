@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg custom-navbar" id="homeNavBar">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="./public/assets/img/icon.png" alt="3D Slicer" />
+        </a>
+        @if (translated()) {
+            <div class="lang-selector-item d-flex align-items-center">
+                <div class="lang-dropdown">
+                    <button
+                        class="lang-dropdown-toggle"
+                        id="langDropdownBtn"
+                        [attr.aria-expanded]="menuOpen()"
+                        title="Change language"
+                        (click)="toggleMenu($event)"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                            stroke-linecap="round"
+                            viewBox="0 0 24 24"
+                        >
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M3.6 9h16.8M3.6 15h16.8" />
+                            <path
+                                d="M12 3c-2.4 2.8-3.8 5.7-3.8 9s1.4 6.2 3.8 9M12 3c2.4 2.8 3.8 5.7 3.8 9s-1.4 6.2-3.8 9"
+                            />
+                        </svg>
+                    </button>
+                    <ul
+                        class="lang-dropdown-menu"
+                        [class.open]="menuOpen()"
+                        id="langDropdownMenu"
+                        role="listbox"
+                    >
+                        @for (lang of langs; track lang.code) {
+                            <li role="option" [attr.aria-selected]="lang.code === i18n.lang()">
+                                <button
+                                    class="lang-btn"
+                                    [class.active]="lang.code === i18n.lang()"
+                                    (click)="selectLang(lang.code, $event)"
+                                >
+                                    <span class="lang-flag">{{ lang.flag }}</span>
+                                    <span>{{ lang.label }}</span>
+                                </button>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#homeNavbar"
+            aria-controls="homeNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="homeNavbar">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                @for (link of links; track link.key) {
+                    <li class="nav-item">
+                        <a
+                            class="nav-link titulo-navbar"
+                            [class.active]="link.key === active()"
+                            [href]="link.href"
+                            >{{ translated() ? ('nav.' + link.key | t) : link.label }}</a
+                        >
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,120 @@
+<app-navbar active="work" />
+
+<main class="container main-content">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <h1 class="titulo mb-5">{{ 'work.pageTitle' | t }}</h1>
+
+            <section class="mb-5">
+                <h2 class="titulo">{{ 'work.description.title' | t }}</h2>
+                <p class="paragrafo">{{ 'work.description.p1' | t }}</p>
+                <p class="paragrafo" [innerHTML]="'work.description.p2' | tHtml"></p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="titulo">{{ 'work.objectives.title' | t }}</h2>
+                <p class="paragrafo">{{ 'work.objectives.intro' | t }}</p>
+                <ul class="paragrafo custom-list">
+                    @for (objective of objectives; track objective) {
+                        <li class="mb-2">
+                            <strong>{{ 'work.objectives.' + objective | t }}</strong>
+                            <span>{{ 'work.objectives.' + objective + 'Desc' | t }}</span>
+                        </li>
+                    }
+                </ul>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="titulo">{{ 'work.features.title' | t }}</h2>
+
+                <div class="row">
+                    <div class="col-md-6 text-center mb-4">
+                        <img
+                            src="./public/assets/img/TutorialMaker/GUIdeveloped.png"
+                            alt="Automated Tutorial Generation"
+                            class="img-fluid rounded shadow-sm mb-2 feature-screenshot"
+                        />
+                        <h3 class="h5 fw-bold">{{ 'work.features.automatedTitle' | t }}</h3>
+                        <p class="paragrafo small mb-0">{{ 'work.features.automatedDesc' | t }}</p>
+                    </div>
+
+                    <div class="col-md-6 text-center mb-4">
+                        <img
+                            src="./public/assets/img/TutorialMaker/annotations.png"
+                            alt="Integrated Annotation Tools"
+                            class="img-fluid rounded shadow-sm mb-2 feature-screenshot"
+                        />
+                        <h3 class="h5 fw-bold">{{ 'work.features.annotationTitle' | t }}</h3>
+                        <p class="paragrafo small mb-0">{{ 'work.features.annotationDesc' | t }}</p>
+                    </div>
+
+                    <div class="col-md-6 text-center mb-4">
+                        <div class="d-flex justify-content-center gap-3 mb-2 feature-img-container">
+                            <img
+                                src="./public/assets/img/TutorialMaker/html.png"
+                                alt="HTML"
+                                class="format-icon"
+                            />
+                            <img
+                                src="./public/assets/img/TutorialMaker/pdf.png"
+                                alt="PDF"
+                                class="format-icon"
+                            />
+                            <img
+                                src="./public/assets/img/TutorialMaker/md.png"
+                                alt="Markdown"
+                                class="format-icon"
+                            />
+                        </div>
+                        <h3 class="h5 fw-bold">{{ 'work.features.exportTitle' | t }}</h3>
+                        <p class="paragrafo small mb-0">{{ 'work.features.exportDesc' | t }}</p>
+                    </div>
+
+                    <div class="col-md-6 text-center mb-4">
+                        <div class="d-flex justify-content-center mb-2 feature-img-container">
+                            <img
+                                src="./public/assets/img/icon.png"
+                                alt="Multi-Language Support"
+                                class="img-fluid feature-icon-large"
+                            />
+                        </div>
+                        <h3 class="h5 fw-bold">{{ 'work.features.multiLangTitle' | t }}</h3>
+                        <p class="paragrafo small mb-0">{{ 'work.features.multiLangDesc' | t }}</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="titulo">{{ 'work.repository.title' | t }}</h2>
+                <div class="alert alert-light border shadow-sm p-4">
+                    <p
+                        class="paragrafo mb-0"
+                        [innerHTML]="'work.repository.description' | tHtml"
+                    ></p>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="titulo">{{ 'work.collection.title' | t }}</h2>
+                <div class="alert alert-light border shadow-sm p-4">
+                    <p
+                        class="paragrafo mb-0"
+                        [innerHTML]="'work.collection.description' | tHtml"
+                    ></p>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="titulo">{{ 'work.localization.title' | t }}</h2>
+                <div class="alert alert-light border shadow-sm p-4">
+                    <p
+                        class="paragrafo mb-0"
+                        [innerHTML]="'work.localization.description' | tHtml"
+                    ></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<app-site-footer />

@@ -1,0 +1,22 @@
+<div class="gallery">
+    @for (image of images(); track image.src) {
+        <div
+            class="gallery-item"
+            [class.tall]="image.variant === 'tall'"
+            [class.wide]="image.variant === 'wide'"
+            (click)="openLightbox(image.src)"
+        >
+            <img
+                [src]="image.src"
+                [alt]="image.alt"
+                loading="lazy"
+                [attr.decoding]="decodingAsync() ? 'async' : null"
+            />
+        </div>
+    }
+</div>
+
+<div #lightbox id="lightbox" class="lightbox" (click)="closeLightbox()">
+    <span class="close-lightbox">&times;</span>
+    <img #lightboxImg id="lightbox-img" src="" alt="Full screen image" />
+</div>

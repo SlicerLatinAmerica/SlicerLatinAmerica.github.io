@@ -1,0 +1,45 @@
+<header class="workshop-header fixed">
+    <h1>Workshop Materials</h1>
+</header>
+
+<main class="workshop-main with-fixed-header">
+    <div class="workshop-buttons">
+        <a href="index.html">🏠 Home</a>
+        @if (june()) {
+            <a href="WorkshopRP_AI2025_june.html">Workshop Details</a>
+        } @else {
+            <a href="WorkshopRP_AI2025.html">Workshop Details</a>
+        }
+    </div>
+    <section class="workshop-section">
+        <h2>Instructions</h2>
+        @if (june()) {
+            <p>
+                Please complete the steps outlined in the attached guide prior to the event. For
+                those requiring technical assistance or software setup help, we are hosting a Google
+                Meet preparation session on Friday, June 27, 2025, between 4:30 and 5:30 PM.
+            </p>
+            <a
+                class="workshop-download"
+                href="md-viewer.html?file=events/WorkshopRP_AI2025/Instructions_june.md"
+                >Instructions Guide</a
+            >
+            <div class="workshop-buttons">
+                <a href="https://meet.google.com/vpk-wjgh-fip">Google Meet</a>
+            </div>
+        } @else {
+            <p>
+                Please, for the online attendee, follow the instructions contained in the guide
+                below; it's extremely important to do all the steps <strong>before</strong> the
+                event.
+            </p>
+            <a
+                class="workshop-download"
+                href="md-viewer.html?file=events/WorkshopRP_AI2025/Instructions.md"
+                >Instructions Guide</a
+            >
+        }
+    </section>
+</main>
+
+<app-workshop-footer [linkKeys]="footerLinks" />

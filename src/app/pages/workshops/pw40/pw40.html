@@ -1,0 +1,78 @@
+<app-workshop-header>
+    <h1>40th NA-MIC Project Week (PW40)</h1>
+    <p>3D Slicer for Latin America — Tutorial Maker &amp; Localization</p>
+    <p><strong>January 29 – February 2, 2024</strong></p>
+    <p><strong>Location: Las Palmas, Gran Canaria, Spain</strong></p>
+</app-workshop-header>
+
+<main class="workshop-main">
+    <div class="workshop-buttons">
+        <a href="index.html">🏠 Home</a>
+        <a
+            href="https://projectweek.na-mic.org/PW40_2024_GranCanaria/Projects/3DSlicerForLatinAmerica/"
+            target="_blank"
+            >🔗 Slicer for LA Project Page</a
+        >
+        <a href="https://projectweek.na-mic.org/PW40_2024_GranCanaria/" target="_blank"
+            >🌐 PW40 Website</a
+        >
+    </div>
+
+    <section class="workshop-section">
+        <h2>Description</h2>
+        <p>
+            The 40th NA-MIC Project Week was a hybrid event held in person at Las Palmas, Gran
+            Canaria, Spain, from January 29 to February 2, 2024. This was the
+            <strong>first in-person Project Week for Latin American team members</strong>: Lucas
+            Sanchez Silva and Prof. Luiz Otávio Murta Junior from Brazil, and Enrique Hernández
+            Laredo from Mexico attended in person.
+        </p>
+        <p>
+            The team worked on the <strong>3D Slicer for Latin America</strong> project, presenting
+            a functional prototype for creating tutorials within 3D Slicer (Tutorial Maker), divided
+            into three main stages: tutorial generation via Python scripts, annotation creation, and
+            a Painter module for reconstruction.
+        </p>
+    </section>
+
+    <section class="workshop-section">
+        <h2>Key Achievements</h2>
+        <ul class="agenda-list">
+            <li>
+                <span class="agenda-time">Tutorial Generation</span>
+                <span class="agenda-desc"
+                    >Development of Python scripts to create and modify screenshots and Slicer
+                    environment metadata in a language-independent format using the Slicer self-test
+                    infrastructure.</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">Annotation Generation</span>
+                <span class="agenda-desc"
+                    >A graphical interface integrated into 3D Slicer for placing arrows, circles,
+                    rectangles, and text annotations directly onto screenshots.</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">Painter Module</span>
+                <span class="agenda-desc"
+                    >A final stage that retrieves data from the previous steps to accurately
+                    reconstruct annotations, addressing challenges with dimensions and button
+                    positions across different languages.</span
+                >
+            </li>
+        </ul>
+    </section>
+
+    <section class="workshop-section">
+        <h2>In-Person Attendees (Latin America Team)</h2>
+        <app-speakers [speakers]="attendees" />
+    </section>
+
+    <section class="workshop-section">
+        <h2>Project Team</h2>
+        <app-speakers [speakers]="team" />
+    </section>
+</main>
+
+<app-workshop-footer />
