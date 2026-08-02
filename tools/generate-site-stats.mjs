@@ -49,7 +49,12 @@ writeFileSync(
     events: number;
 }
 
-export const SITE_STATS: SiteStats = ${JSON.stringify(stats, null, 4)};
+export const SITE_STATS: SiteStats = {
+    participants: ${stats.participants},
+    countries: ${stats.countries},
+    institutions: ${stats.institutions},
+    events: ${stats.events},
+};
 `,
 );
 

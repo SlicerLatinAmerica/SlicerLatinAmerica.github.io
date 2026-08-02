@@ -97,15 +97,17 @@
                 </label>
             </div>
 
-            <div class="participants-grid">
+            <ul class="roster roster--divided participants-list">
                 @if (mode() === 'alphabetical') {
-                    <h3 class="participants-group">
-                        {{ alphabetical().title }}
-                        <small
-                            >({{ alphabetical().count }}
-                            {{ countLabel(alphabetical().count, 'participant') }})</small
-                        >
-                    </h3>
+                    <li class="participants-group">
+                        <h3>
+                            {{ alphabetical().title }}
+                            <small
+                                >({{ alphabetical().count }}
+                                {{ countLabel(alphabetical().count, 'participant') }})</small
+                            >
+                        </h3>
+                    </li>
                     @for (card of alphabetical().cards; track card.name) {
                         <ng-container
                             [ngTemplateOutlet]="cardTpl"
@@ -114,13 +116,15 @@
                     }
                 } @else {
                     @for (section of workshopSections(); track section.title) {
-                        <h3 class="participants-group">
-                            {{ section.title }}
-                            <small
-                                >({{ section.count }}
-                                {{ countLabel(section.count, 'participant') }})</small
-                            >
-                        </h3>
+                        <li class="participants-group">
+                            <h3>
+                                {{ section.title }}
+                                <small
+                                    >({{ section.count }}
+                                    {{ countLabel(section.count, 'participant') }})</small
+                                >
+                            </h3>
+                        </li>
                         @for (card of section.cards; track $index) {
                             <ng-container
                                 [ngTemplateOutlet]="cardTpl"
@@ -129,7 +133,7 @@
                         }
                     }
                 }
-            </div>
+            </ul>
         </section>
     </div>
 </main>
@@ -151,20 +155,28 @@
 </ng-template>
 
 <ng-template #cardTpl let-card>
-    <article class="participant-card">
-        <h4 class="participant-card__name">{{ card.name }}</h4>
-        <p class="participant-card__role">{{ card.role }}</p>
-        @if (card.specialty) {
-            <p class="participant-card__specialty">{{ card.specialty }}</p>
-        }
-        <p class="participant-card__institution">{{ card.institution }}</p>
-        <p class="participant-card__country">{{ card.country }}</p>
-        @if (card.workshopBadges) {
-            <ul class="participant-card__badges">
-                @for (badge of card.workshopBadges; track badge) {
-                    <li>{{ badge }}</li>
+    <li>
+        <div class="roster__item">
+            <span class="roster__text">
+                <span class="roster__name">{{ card.name }}</span>
+                <span class="roster__role">{{ card.role }}</span>
+                @if (card.specialty) {
+                    <span class="roster__tag">{{ card.specialty }}</span>
                 }
-            </ul>
-        }
-    </article>
+                <span class="roster__org">{{ card.institution }} · {{ card.country }}</span>
+                @if (card.workshopBadges) {
+                    <ul class="roster__badges">
+                        @for (badge of card.workshopBadges.slice(0, 3); track badge) {
+                            <li>{{ badge }}</li>
+                        }
+                        @if (card.workshopBadges.length > 3) {
+                            <li class="roster__badges-more">
+                                +{{ card.workshopBadges.length - 3 }} more
+                            </li>
+                        }
+                    </ul>
+                }
+            </span>
+        </div>
+    </li>
 </ng-template>

@@ -12,8 +12,12 @@ import { CITY_COORDINATES, Participant, resolveCountry } from './participants-lo
             display: contents;
         }
         .leaflet-map {
+            position: relative;
+            z-index: 0;
+            isolation: isolate;
             flex: 1;
             min-height: 400px;
+            overflow: hidden;
             border-radius: var(--radius-md);
             background-color: var(--color-bg-subtle);
         }

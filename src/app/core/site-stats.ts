@@ -6,8 +6,8 @@ export interface SiteStats {
 }
 
 export const SITE_STATS: SiteStats = {
-    "participants": 679,
-    "countries": 41,
-    "institutions": 231,
-    "events": 13
+    participants: 679,
+    countries: 41,
+    institutions: 231,
+    events: 13,
 };

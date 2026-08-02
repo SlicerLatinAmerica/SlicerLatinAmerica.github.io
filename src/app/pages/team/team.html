@@ -15,58 +15,55 @@
                 <div class="section__head">
                     <h2 class="section__title">{{ 'team.' + section.titleKey | t }}</h2>
                 </div>
-                <div class="grid grid--4">
+                <ul class="roster">
                     @for (member of section.members; track member.name) {
-                        @if (member.href) {
-                            <a class="card" [href]="member.href" target="_blank" rel="noopener">
-                                <img
-                                    class="card__media"
-                                    [src]="member.img"
-                                    [alt]="member.alt"
-                                    loading="lazy"
-                                    width="300"
-                                    height="375"
-                                />
-                                <div class="card__body">
-                                    <h3 class="card__title">{{ member.name }}</h3>
-                                    <p class="card__meta">
-                                        <span class="card__role">{{
-                                            'team.roles.' + member.role | t
-                                        }}</span>
-                                        @for (line of member.lines; track $index) {
-                                            <span>{{ line }}</span>
-                                        }
-                                    </p>
-                                </div>
-                            </a>
-                        } @else {
-                            <div class="card">
-                                <img
-                                    class="card__media"
-                                    [src]="member.img"
-                                    [alt]="member.alt"
-                                    loading="lazy"
-                                    width="300"
-                                    height="375"
-                                />
-                                <div class="card__body">
-                                    <h3 class="card__title">{{ member.name }}</h3>
-                                    <p class="card__meta">
-                                        <span class="card__role">{{
-                                            'team.roles.' + member.role | t
-                                        }}</span>
-                                        @for (line of member.lines; track $index) {
-                                            <span>{{ line }}</span>
-                                        }
-                                    </p>
-                                </div>
-                            </div>
-                        }
+                        <li>
+                            <ng-container
+                                [ngTemplateOutlet]="personTpl"
+                                [ngTemplateOutletContext]="{ $implicit: member }"
+                            />
+                        </li>
                     }
-                </div>
+                </ul>
             </section>
         }
     </div>
 </main>
 
 <app-site-footer />
+
+<ng-template #personTpl let-member>
+    @if (member.href) {
+        <a class="roster__item" [href]="member.href" target="_blank" rel="noopener">
+            <img
+                class="roster__avatar"
+                [src]="member.img"
+                [alt]="member.alt"
+                width="46"
+                height="46"
+                loading="lazy"
+            />
+            <span class="roster__text">
+                <span class="roster__name">{{ member.name }}</span>
+                <span class="roster__role">{{ 'team.roles.' + member.role | t }}</span>
+                <span class="roster__org">{{ member.lines.join(' · ') }}</span>
+            </span>
+        </a>
+    } @else {
+        <div class="roster__item">
+            <img
+                class="roster__avatar"
+                [src]="member.img"
+                [alt]="member.alt"
+                width="46"
+                height="46"
+                loading="lazy"
+            />
+            <span class="roster__text">
+                <span class="roster__name">{{ member.name }}</span>
+                <span class="roster__role">{{ 'team.roles.' + member.role | t }}</span>
+                <span class="roster__org">{{ member.lines.join(' · ') }}</span>
+            </span>
+        </div>
+    }
+</ng-template>

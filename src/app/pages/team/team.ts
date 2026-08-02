@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Navbar } from '../../shared/navbar/navbar';
@@ -7,7 +8,7 @@ import { TEAM_SECTIONS } from './team-data';
 
 @Component({
     selector: 'app-team-page',
-    imports: [Navbar, SiteFooter, TranslatePipe],
+    imports: [Navbar, SiteFooter, TranslatePipe, NgTemplateOutlet],
     templateUrl: './team.html',
     styles: ':host { display: contents }',
 })

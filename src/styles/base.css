@@ -32,6 +32,40 @@ app-root {
     min-width: 0;
 }
 
+.app-scroll {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    min-width: 0;
+}
+
+body.has-overlay-scroll {
+    height: 100svh;
+    overflow: hidden;
+}
+
+body.has-overlay-scroll .app-scroll {
+    height: 100svh;
+}
+
+.app-scroll .simplebar-content-wrapper {
+    scroll-padding-top: calc(var(--navbar-height) + var(--space-4));
+}
+
+.app-scroll .simplebar-content-wrapper:focus-visible {
+    outline: none;
+}
+
+.app-scroll .simplebar-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.app-scroll .simplebar-scrollbar::before {
+    background-color: var(--color-text-muted);
+}
+
 h1,
 h2,
 h3,
@@ -242,34 +276,10 @@ button {
     }
 }
 
-@view-transition {
-    navigation: auto;
-}
-
-::view-transition-old(root) {
-    animation: vt-fade-out var(--duration-base) var(--ease-out) both;
-}
-
+::view-transition-old(root),
 ::view-transition-new(root) {
-    animation: vt-fade-in var(--duration-slow) var(--ease-out) both;
-}
-
-@keyframes vt-fade-out {
-    to {
-        opacity: 0;
-    }
-}
-
-@keyframes vt-fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: none;
-    }
+    animation-duration: var(--duration-fast);
+    animation-timing-function: var(--ease-out);
 }
 
 @media (prefers-reduced-motion: reduce) {

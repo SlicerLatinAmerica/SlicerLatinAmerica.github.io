@@ -1,30 +1,40 @@
-<header class="md-header">
-    <div class="container md-header__inner">
-        <a routerLink="/index.html" class="md-header__brand">
-            <img
-                src="public/assets/img/icon.svg"
-                alt="3D Slicer for Latin America"
-                width="56"
-                height="56"
-            />
-        </a>
-        <div class="md-header__actions">
-            <a href="#" class="md-header__button" (click)="goBack($event)">&larr; Back</a>
-            <button
-                type="button"
-                class="md-header__button"
-                [disabled]="!ready()"
-                (click)="copyUrl()"
-            >
-                {{ copyLabel() }}
-            </button>
+<app-navbar [translated]="false" />
+
+<main id="main" class="page">
+    <div class="page-header">
+        <div class="container md-header">
+            <div>
+                <p class="page-header__eyebrow">Workshop materials</p>
+                <h1 class="page-header__title">{{ heading() }}</h1>
+            </div>
+            <div class="md-actions">
+                <button type="button" class="btn-ghost" (click)="goBack()">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <path d="M19 12H5M11 18l-6-6 6-6" />
+                    </svg>
+                    Back
+                </button>
+                <button type="button" class="btn-ghost" [disabled]="!ready()" (click)="copyUrl()">
+                    {{ copyLabel() }}
+                </button>
+            </div>
         </div>
     </div>
-</header>
 
-<main id="main" class="md-body">
-    @if (error()) {
-        <p class="md-error">{{ error() }}</p>
-    }
-    <div #content class="md-content"></div>
+    <div class="container container--narrow md-shell">
+        @if (error()) {
+            <p class="md-error">{{ error() }}</p>
+        }
+        <div #content class="md-content"></div>
+    </div>
 </main>
+
+<app-site-footer [translated]="false" />

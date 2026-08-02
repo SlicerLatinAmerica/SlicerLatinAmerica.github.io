@@ -8,12 +8,15 @@ import {
     viewChild,
 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { marked } from 'marked';
+
+import { Navbar } from '../../shared/navbar/navbar';
+import { SiteFooter } from '../../shared/site-footer/site-footer';
 
 @Component({
     selector: 'app-md-viewer-page',
-    imports: [RouterLink],
+    imports: [Navbar, SiteFooter],
     templateUrl: './md-viewer.html',
     styleUrl: './md-viewer.css',
     encapsulation: ViewEncapsulation.None,
@@ -22,8 +25,10 @@ export class MdViewerPage {
     protected readonly error = signal<string | null>(null);
     protected readonly copyLabel = signal('Loading…');
     protected readonly ready = signal(false);
+    protected readonly heading = signal('Workshop instructions');
 
     private readonly title = inject(Title);
+    private readonly router = inject(Router);
     private readonly content = viewChild.required<ElementRef<HTMLDivElement>>('content');
 
     constructor() {
@@ -34,9 +39,12 @@ export class MdViewerPage {
         });
     }
 
-    protected goBack(event: Event): void {
-        event.preventDefault();
-        history.back();
+    protected goBack(): void {
+        if (history.length > 1) {
+            history.back();
+            return;
+        }
+        void this.router.navigateByUrl('/index.html');
     }
 
     protected async copyUrl(): Promise<void> {
@@ -59,7 +67,9 @@ export class MdViewerPage {
             return;
         }
 
-        this.title.setTitle(filePath.split('/').pop()!.replace('.md', '').replace(/_/g, ' '));
+        const name = filePath.split('/').pop()!.replace('.md', '').replace(/[_-]/g, ' ').trim();
+        this.heading.set(name);
+        this.title.setTitle(`${name} - 3D Slicer for Latin America`);
 
         try {
             const resp = await fetch(filePath);
