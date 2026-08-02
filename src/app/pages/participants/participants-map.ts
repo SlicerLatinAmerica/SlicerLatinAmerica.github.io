@@ -6,8 +6,18 @@ import { CITY_COORDINATES, Participant, resolveCountry } from './participants-lo
 
 @Component({
     selector: 'app-participants-map',
-    template: '<div #map id="map"></div>',
-    styles: ':host { display: contents }',
+    template: '<div #map class="leaflet-map"></div>',
+    styles: `
+        :host {
+            display: contents;
+        }
+        .leaflet-map {
+            flex: 1;
+            min-height: 400px;
+            border-radius: var(--radius-md);
+            background-color: var(--color-bg-subtle);
+        }
+    `,
 })
 export class ParticipantsMap {
     private readonly data = PARTICIPANTS as Participant[];

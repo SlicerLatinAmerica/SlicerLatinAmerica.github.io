@@ -1,4 +1,5 @@
 import { DOCUMENT, Component, afterNextRender, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Navbar } from '../../shared/navbar/navbar';
@@ -9,7 +10,7 @@ const TUTORIALS_PREFIX = '/public/assets/pdfs/Tutorials/';
 
 @Component({
     selector: 'app-not-found-page',
-    imports: [Navbar, SiteFooter, TranslatePipe],
+    imports: [Navbar, SiteFooter, TranslatePipe, RouterLink],
     templateUrl: './not-found.html',
     styles: ':host { display: contents }',
 })

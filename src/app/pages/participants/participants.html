@@ -1,191 +1,170 @@
-<app-navbar [translated]="false" />
+<app-navbar active="participants" [translated]="false" />
 
-<div class="container main-content">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="titulo">3D Slicer for Latin America: Outreach Events Participants</h1>
-
-            <div class="statistics-section">
-                <h2 class="section-title">Statistics</h2>
-
-                <div class="stats-layout">
-                    <div class="stat-card institutions-card">
-                        <div id="statsContainer">
-                            <h3 class="stat-card-title">Institutions</h3>
-                            <div class="institutions-columns">
-                                <div #leftCol id="inst-col-left" class="institutions-col">
-                                    @for (col of leftColumns(); track col.country) {
-                                        <ng-container
-                                            [ngTemplateOutlet]="countryTpl"
-                                            [ngTemplateOutletContext]="{ $implicit: col }"
-                                        />
-                                    }
-                                </div>
-                                <div #rightCol id="inst-col-right" class="institutions-col">
-                                    @for (col of rightColumns(); track col.country) {
-                                        <ng-container
-                                            [ngTemplateOutlet]="countryTpl"
-                                            [ngTemplateOutletContext]="{ $implicit: col }"
-                                        />
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="stat-card map-card">
-                        <h3 class="stat-card-title">Geographic Distribution</h3>
-                        @defer (on immediate) {
-                            <app-participants-map />
-                        } @placeholder {
-                            <div id="map"></div>
-                        }
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="section-title">Participants</h2>
-
-            <div class="controls-container">
-                <div class="btn-group" role="group" aria-label="View Mode">
-                    <input
-                        type="radio"
-                        class="btn-check"
-                        name="viewMode"
-                        id="btnAlphabetical"
-                        autocomplete="off"
-                        [checked]="mode() === 'alphabetical'"
-                        (change)="setMode('alphabetical')"
-                    />
-                    <label class="btn btn-outline-primary" for="btnAlphabetical"
-                        >Alphabetical View</label
-                    >
-
-                    <input
-                        type="radio"
-                        class="btn-check"
-                        name="viewMode"
-                        id="btnWorkshop"
-                        autocomplete="off"
-                        [checked]="mode() === 'workshop'"
-                        (change)="setMode('workshop')"
-                    />
-                    <label class="btn btn-outline-primary" for="btnWorkshop">Workshop View</label>
-                </div>
-            </div>
-
-            <div class="row justify-content-center mb-3 mt-3">
-                <div class="col-md-6">
-                    <input
-                        type="text"
-                        id="searchInput"
-                        class="form-control"
-                        placeholder="Search participants, institutions, or workshops..."
-                        [value]="searchTerm()"
-                        (input)="onSearch($event)"
-                    />
-                </div>
-            </div>
+<main id="main" class="page">
+    <div class="page-header">
+        <div class="container">
+            <p class="page-header__eyebrow">Community</p>
+            <h1 class="page-header__title">Outreach Events Participants</h1>
+            <p class="page-header__lead">
+                Researchers, clinicians and students who have taken part in 3D Slicer outreach
+                events across Latin America and beyond.
+            </p>
         </div>
     </div>
 
-    <div id="participantsContainer" class="participants-grid">
-        @if (mode() === 'alphabetical') {
-            <div class="workshop-section-title">
-                {{ alphabetical().title }}
-                <small class="fw-normal text-secondary">
-                    ({{ alphabetical().count }}
-                    {{ countLabel(alphabetical().count, 'participant') }})
-                </small>
+    <div class="container">
+        <section class="section">
+            <div class="section__head">
+                <h2 class="section__title">Statistics</h2>
             </div>
-            @for (card of alphabetical().cards; track card.name) {
-                <ng-container
-                    [ngTemplateOutlet]="cardTpl"
-                    [ngTemplateOutletContext]="{ $implicit: card }"
-                />
-            }
-        } @else {
-            @for (section of workshopSections(); track section.title) {
-                <div class="workshop-section-title">
-                    {{ section.title }}
-                    <small class="fw-normal text-secondary"
-                        >({{ section.count }} {{ countLabel(section.count, 'participant') }})</small
-                    >
+
+            <div class="stats-layout">
+                <div class="surface stat-panel">
+                    <h3 class="stat-panel__title">Institutions</h3>
+                    <div class="institutions-columns">
+                        <div #leftCol class="institutions-col">
+                            @for (col of leftColumns(); track col.country) {
+                                <ng-container
+                                    [ngTemplateOutlet]="countryTpl"
+                                    [ngTemplateOutletContext]="{ $implicit: col }"
+                                />
+                            }
+                        </div>
+                        <div #rightCol class="institutions-col">
+                            @for (col of rightColumns(); track col.country) {
+                                <ng-container
+                                    [ngTemplateOutlet]="countryTpl"
+                                    [ngTemplateOutletContext]="{ $implicit: col }"
+                                />
+                            }
+                        </div>
+                    </div>
                 </div>
-                @for (card of section.cards; track $index) {
-                    <ng-container
-                        [ngTemplateOutlet]="cardTpl"
-                        [ngTemplateOutletContext]="{ $implicit: card }"
+
+                <div class="surface stat-panel">
+                    <h3 class="stat-panel__title">Geographic Distribution</h3>
+                    @defer (on immediate) {
+                        <app-participants-map />
+                    } @placeholder {
+                        <div class="map-placeholder"></div>
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section__head">
+                <h2 class="section__title">Participants</h2>
+            </div>
+
+            <div class="participants-controls">
+                <div class="segmented" role="group" aria-label="View mode">
+                    <button
+                        type="button"
+                        [attr.aria-pressed]="mode() === 'alphabetical'"
+                        (click)="setMode('alphabetical')"
+                    >
+                        Alphabetical
+                    </button>
+                    <button
+                        type="button"
+                        [attr.aria-pressed]="mode() === 'workshop'"
+                        (click)="setMode('workshop')"
+                    >
+                        By workshop
+                    </button>
+                </div>
+
+                <label class="search-field">
+                    <span class="visually-hidden">Search participants</span>
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        aria-hidden="true"
+                    >
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-3.5-3.5" />
+                    </svg>
+                    <input
+                        type="search"
+                        placeholder="Search participants, institutions, or workshops…"
+                        [value]="searchTerm()"
+                        (input)="onSearch($event)"
                     />
+                </label>
+            </div>
+
+            <div class="participants-grid">
+                @if (mode() === 'alphabetical') {
+                    <h3 class="participants-group">
+                        {{ alphabetical().title }}
+                        <small
+                            >({{ alphabetical().count }}
+                            {{ countLabel(alphabetical().count, 'participant') }})</small
+                        >
+                    </h3>
+                    @for (card of alphabetical().cards; track card.name) {
+                        <ng-container
+                            [ngTemplateOutlet]="cardTpl"
+                            [ngTemplateOutletContext]="{ $implicit: card }"
+                        />
+                    }
+                } @else {
+                    @for (section of workshopSections(); track section.title) {
+                        <h3 class="participants-group">
+                            {{ section.title }}
+                            <small
+                                >({{ section.count }}
+                                {{ countLabel(section.count, 'participant') }})</small
+                            >
+                        </h3>
+                        @for (card of section.cards; track $index) {
+                            <ng-container
+                                [ngTemplateOutlet]="cardTpl"
+                                [ngTemplateOutletContext]="{ $implicit: card }"
+                            />
+                        }
+                    }
                 }
-            }
-        }
+            </div>
+        </section>
     </div>
-</div>
+</main>
 
 <app-site-footer [translated]="false" />
 
 <ng-template #countryTpl let-col>
     <div class="country-group">
         <div class="country-name">{{ col.country }} ({{ col.total }})</div>
-        <div class="country-institution-list">
-            @for (row of col.rows; track $index) {
-                @if (row.subtopic) {
-                    <div
-                        class="stat-item subtopic"
-                        style="
-                            padding-left: 12px;
-                            font-size: 0.9em;
-                            opacity: 0.85;
-                            margin-top: -1px;
-                        "
-                    >
-                        <span class="stat-label">- {{ row.label }}</span>
-                        <span class="stat-number">{{ row.count }}</span>
-                    </div>
-                } @else {
-                    <div class="stat-item">
-                        <span class="stat-label">{{ row.label }}</span>
-                        <span class="stat-number">{{ row.count }}</span>
-                    </div>
-                }
-            }
-        </div>
+        @for (row of col.rows; track $index) {
+            <div class="stat-row" [class.stat-row--sub]="row.subtopic">
+                <span class="stat-row__label">{{
+                    row.subtopic ? '– ' + row.label : row.label
+                }}</span>
+                <span class="stat-row__value">{{ row.count }}</span>
+            </div>
+        }
     </div>
 </ng-template>
 
 <ng-template #cardTpl let-card>
-    <div class="participant-card">
-        <div class="photo-container">
-            <div class="photo-placeholder">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    width="32"
-                    height="32"
-                >
-                    <path
-                        d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"
-                    />
-                </svg>
-            </div>
-        </div>
-        <div class="participant-info">
-            <div class="participant-name">{{ card.name }}</div>
-            <div class="participant-title">{{ card.role }}</div>
-            @if (card.specialty) {
-                <div class="participant-specialty">{{ card.specialty }}</div>
-            }
-            <div class="participant-institution">{{ card.institution }}</div>
-            <div class="participant-country">{{ card.country }}</div>
-            @if (card.workshopBadges) {
-                <div class="participant-workshops-list">
-                    @for (badge of card.workshopBadges; track badge) {
-                        <span class="participant-workshop-badge">{{ badge }}</span>
-                    }
-                </div>
-            }
-        </div>
-    </div>
+    <article class="participant-card">
+        <h4 class="participant-card__name">{{ card.name }}</h4>
+        <p class="participant-card__role">{{ card.role }}</p>
+        @if (card.specialty) {
+            <p class="participant-card__specialty">{{ card.specialty }}</p>
+        }
+        <p class="participant-card__institution">{{ card.institution }}</p>
+        <p class="participant-card__country">{{ card.country }}</p>
+        @if (card.workshopBadges) {
+            <ul class="participant-card__badges">
+                @for (badge of card.workshopBadges; track badge) {
+                    <li>{{ badge }}</li>
+                }
+            </ul>
+        }
+    </article>
 </ng-template>

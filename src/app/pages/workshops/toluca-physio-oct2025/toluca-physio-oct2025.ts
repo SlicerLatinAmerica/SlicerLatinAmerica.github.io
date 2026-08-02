@@ -1,22 +1,17 @@
 import { Component } from '@angular/core';
 
 import { Speaker, Speakers } from '../../../shared/workshop/speakers/speakers';
-import {
-    WORKSHOP_FOOTER_SHORT,
-    WorkshopFooter,
-} from '../../../shared/workshop/workshop-footer/workshop-footer';
 import { WorkshopButtons } from '../../../shared/workshop/workshop-buttons/workshop-buttons';
 import { WorkshopHeader } from '../../../shared/workshop/workshop-header/workshop-header';
+import { SiteFooter } from '../../../shared/site-footer/site-footer';
 
 @Component({
     selector: 'app-toluca-physio-oct2025-page',
-    imports: [WorkshopButtons, WorkshopHeader, WorkshopFooter, Speakers],
+    imports: [WorkshopButtons, WorkshopHeader, SiteFooter, Speakers],
     templateUrl: './toluca-physio-oct2025.html',
     styles: ':host { display: contents }',
 })
 export class TolucaPhysioOct2025Page {
-    protected readonly footerLinks = WORKSHOP_FOOTER_SHORT;
-
     protected readonly speakers: readonly Speaker[] = [
         {
             name: 'Dr. Adriana Herlinda Vilchis González',

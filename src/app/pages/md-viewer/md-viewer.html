@@ -1,22 +1,30 @@
-<header class="md-viewer-header">
-    <div class="container md-viewer-header-top">
-        <a href="index.html"
-            ><img src="./public/assets/img/icon.svg" alt="3D Slicer for Latin America"
-        /></a>
-        <div class="md-header-actions">
-            <a href="#" class="md-back-btn" (click)="goBack($event)">← Back</a>
-            <span
-                id="md-short-url"
-                class="md-short-url"
-                [class.md-short-url--loading]="!ready()"
+<header class="md-header">
+    <div class="container md-header__inner">
+        <a routerLink="/index.html" class="md-header__brand">
+            <img
+                src="public/assets/img/icon.svg"
+                alt="3D Slicer for Latin America"
+                width="56"
+                height="56"
+            />
+        </a>
+        <div class="md-header__actions">
+            <a href="#" class="md-header__button" (click)="goBack($event)">&larr; Back</a>
+            <button
+                type="button"
+                class="md-header__button"
+                [disabled]="!ready()"
                 (click)="copyUrl()"
-                >{{ copyLabel() }}</span
             >
+                {{ copyLabel() }}
+            </button>
         </div>
     </div>
 </header>
 
-<div class="md-body">
-    <div id="md-error" class="md-error" [hidden]="!error()">{{ error() }}</div>
-    <div #content id="md-content"></div>
-</div>
+<main id="main" class="md-body">
+    @if (error()) {
+        <p class="md-error">{{ error() }}</p>
+    }
+    <div #content class="md-content"></div>
+</main>

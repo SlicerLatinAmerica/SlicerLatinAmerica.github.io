@@ -1,6 +1,8 @@
 <header class="workshop-header">
-    <a href="index.html">
-        <img src="public/assets/img/logo.png" [alt]="logoAlt()" />
-    </a>
-    <ng-content />
+    <div class="workshop-header__inner">
+        <a routerLink="/index.html">
+            <img src="public/assets/img/logo-320.png" [alt]="logoAlt()" width="294" height="320" />
+        </a>
+        <ng-content />
+    </div>
 </header>

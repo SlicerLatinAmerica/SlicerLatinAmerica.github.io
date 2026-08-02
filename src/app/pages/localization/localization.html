@@ -1,86 +1,113 @@
 <app-navbar active="localization" />
 
-<main class="container main-content">
-    <div class="row justify-content-center">
-        <div class="col-lg-10">
-            <h1 class="titulo mb-5">{{ 'localization.pageTitle' | t }}</h1>
+<main id="main" class="page">
+    <div class="page-header">
+        <div class="container">
+            <p class="page-header__eyebrow">{{ 'localization.eyebrow' | t }}</p>
+            <h1 class="page-header__title">{{ 'localization.pageTitle' | t }}</h1>
+            <p class="page-header__lead">{{ 'localization.intro' | t }}</p>
+        </div>
+    </div>
 
-            <section class="mb-5">
-                <p class="paragrafo">{{ 'localization.intro' | t }}</p>
+    <div class="container">
+        <section class="section">
+            <div class="section__head">
+                <h2 class="section__title">{{ 'localization.tutorials.title' | t }}</h2>
+            </div>
 
-                <div class="tutorials-card-container">
-                    @for (card of cards; track card.title) {
+            <div class="grid grid--auto" style="--col-min: 16rem">
+                @for (card of cards; track card.title) {
+                    <div class="tile">
+                        <img
+                            class="tile__icon"
+                            src="public/assets/img/mark.png"
+                            alt=""
+                            width="36"
+                            height="36"
+                            loading="lazy"
+                        />
+                        <h3 class="tile__title">
+                            {{ card.igt ? 'SlicerIGT Tutorials' : card.title }}
+                        </h3>
+                        <p class="tile__label">{{ 'localization.versionLabel' | t }}</p>
+
                         @if (card.igt) {
-                            <div class="tutorials-card" id="slicerIGTCard">
-                                <img src="./public/assets/img/icon.png" alt="Icon" />
-                                <h3>SlicerIGT Tutorials</h3>
-                                <p>{{ 'localization.versionLabel' | t }}</p>
-                                <div>
-                                    @for (group of igtGroups; track group.id) {
-                                        <a
-                                            data-bs-toggle="collapse"
-                                            [attr.data-bs-target]="'#' + group.id"
-                                            aria-expanded="false"
-                                            [attr.aria-controls]="group.id"
-                                            class="tutorial-btn-toggle"
-                                            >{{ 'localization.langs.' + group.labelKey | t }}</a
-                                        >
-                                    }
-                                </div>
+                            <div class="tile__links">
                                 @for (group of igtGroups; track group.id) {
-                                    <div
-                                        class="collapse mt-2"
-                                        [id]="group.id"
-                                        data-bs-parent="#slicerIGTCard"
+                                    <button
+                                        type="button"
+                                        class="chip"
+                                        [attr.aria-expanded]="openGroup() === group.id"
+                                        [attr.aria-controls]="group.id"
+                                        (click)="toggleGroup(group.id)"
                                     >
-                                        <div>
-                                            @for (file of group.files; track $index) {
-                                                <a [href]="file" target="_blank">{{
-                                                    igtUnits[$index]
-                                                }}</a>
-                                            }
-                                        </div>
-                                    </div>
+                                        {{ 'localization.langs.' + group.labelKey | t }}
+                                    </button>
                                 }
                             </div>
+                            @for (group of igtGroups; track group.id) {
+                                @if (openGroup() === group.id) {
+                                    <div class="tile__links" [id]="group.id">
+                                        @for (file of group.files; track $index) {
+                                            <a
+                                                class="chip"
+                                                [href]="file"
+                                                target="_blank"
+                                                rel="noopener"
+                                                >{{ igtUnits[$index] }}</a
+                                            >
+                                        }
+                                    </div>
+                                }
+                            }
                         } @else {
-                            <div class="tutorials-card">
-                                <img src="./public/assets/img/icon.png" alt="Icon" />
-                                <h3>{{ card.title }}</h3>
-                                <p>{{ 'localization.versionLabel' | t }}</p>
-                                <div>
-                                    @for (link of card.links; track link.href) {
-                                        <a [href]="link.href" target="_blank">{{
+                            <div class="tile__links">
+                                @for (link of card.links; track link.href) {
+                                    <a
+                                        class="chip"
+                                        [href]="link.href"
+                                        target="_blank"
+                                        rel="noopener"
+                                        >{{
                                             link.labelKey
                                                 ? ('localization.langs.' + link.labelKey | t)
                                                 : link.label
-                                        }}</a>
-                                    }
-                                </div>
+                                        }}</a
+                                    >
+                                }
                             </div>
                         }
-                    }
-                </div>
-            </section>
+                    </div>
+                }
+            </div>
+        </section>
 
-            <section class="mb-5">
-                <h2 class="titulo mb-3">{{ 'localization.glossary.title' | t }}</h2>
-                <p class="paragrafo">{{ 'localization.glossary.intro' | t }}</p>
-                <div class="tutorials-card-container">
-                    @for (glossary of glossaries; track glossary.href) {
-                        <div class="tutorials-card">
-                            <img src="./public/assets/img/icon.png" alt="Icon" />
-                            <h3>{{ glossary.title }}</h3>
-                            <div>
-                                <a [href]="glossary.href" target="_blank">{{
-                                    'localization.glossary.viewGlossary' | t
-                                }}</a>
-                            </div>
+        <section class="section">
+            <div class="section__head">
+                <h2 class="section__title">{{ 'localization.glossary.title' | t }}</h2>
+                <p class="section__lead">{{ 'localization.glossary.intro' | t }}</p>
+            </div>
+            <div class="grid grid--auto" style="--col-min: 16rem">
+                @for (glossary of glossaries; track glossary.href) {
+                    <div class="tile">
+                        <img
+                            class="tile__icon"
+                            src="public/assets/img/mark.png"
+                            alt=""
+                            width="36"
+                            height="36"
+                            loading="lazy"
+                        />
+                        <h3 class="tile__title">{{ glossary.title }}</h3>
+                        <div class="tile__links">
+                            <a class="chip" [href]="glossary.href" target="_blank" rel="noopener">{{
+                                'localization.glossary.viewGlossary' | t
+                            }}</a>
                         </div>
-                    }
-                </div>
-            </section>
-        </div>
+                    </div>
+                }
+            </div>
+        </section>
     </div>
 </main>
 

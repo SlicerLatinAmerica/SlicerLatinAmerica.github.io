@@ -1,8 +1,14 @@
-<div class="workshop-speakers">
+<div class="speakers">
     @for (speaker of speakers(); track speaker.name) {
         @if (speaker.href) {
-            <a [href]="speaker.href" target="_blank" class="workshop-speaker">
-                <img [src]="speaker.img" [alt]="speaker.alt ?? speaker.name" />
+            <a [href]="speaker.href" target="_blank" rel="noopener" class="speaker">
+                <img
+                    [src]="speaker.img"
+                    [alt]="speaker.alt ?? speaker.name"
+                    width="128"
+                    height="128"
+                    loading="lazy"
+                />
                 <h3>{{ speaker.name }}</h3>
                 <p>
                     <strong>{{ speaker.org }}</strong>
@@ -10,11 +16,17 @@
                 @if (speaker.bio) {
                     <p>{{ speaker.bio }}</p>
                 }
-                <span class="see-profile">See profile</span>
+                <span class="speaker__profile">See profile</span>
             </a>
         } @else {
-            <div class="workshop-speaker">
-                <img [src]="speaker.img" [alt]="speaker.alt ?? speaker.name" />
+            <div class="speaker">
+                <img
+                    [src]="speaker.img"
+                    [alt]="speaker.alt ?? speaker.name"
+                    width="128"
+                    height="128"
+                    loading="lazy"
+                />
                 <h3>{{ speaker.name }}</h3>
                 <p>
                     <strong>{{ speaker.org }}</strong>

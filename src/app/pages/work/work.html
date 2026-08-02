@@ -1,119 +1,130 @@
 <app-navbar active="work" />
 
-<main class="container main-content">
-    <div class="row justify-content-center">
-        <div class="col-lg-10">
-            <h1 class="titulo mb-5">{{ 'work.pageTitle' | t }}</h1>
-
-            <section class="mb-5">
-                <h2 class="titulo">{{ 'work.description.title' | t }}</h2>
-                <p class="paragrafo">{{ 'work.description.p1' | t }}</p>
-                <p class="paragrafo" [innerHTML]="'work.description.p2' | tHtml"></p>
-            </section>
-
-            <section class="mb-5">
-                <h2 class="titulo">{{ 'work.objectives.title' | t }}</h2>
-                <p class="paragrafo">{{ 'work.objectives.intro' | t }}</p>
-                <ul class="paragrafo custom-list">
-                    @for (objective of objectives; track objective) {
-                        <li class="mb-2">
-                            <strong>{{ 'work.objectives.' + objective | t }}</strong>
-                            <span>{{ 'work.objectives.' + objective + 'Desc' | t }}</span>
-                        </li>
-                    }
-                </ul>
-            </section>
-
-            <section class="mb-5">
-                <h2 class="titulo">{{ 'work.features.title' | t }}</h2>
-
-                <div class="row">
-                    <div class="col-md-6 text-center mb-4">
-                        <img
-                            src="./public/assets/img/TutorialMaker/GUIdeveloped.png"
-                            alt="Automated Tutorial Generation"
-                            class="img-fluid rounded shadow-sm mb-2 feature-screenshot"
-                        />
-                        <h3 class="h5 fw-bold">{{ 'work.features.automatedTitle' | t }}</h3>
-                        <p class="paragrafo small mb-0">{{ 'work.features.automatedDesc' | t }}</p>
-                    </div>
-
-                    <div class="col-md-6 text-center mb-4">
-                        <img
-                            src="./public/assets/img/TutorialMaker/annotations.png"
-                            alt="Integrated Annotation Tools"
-                            class="img-fluid rounded shadow-sm mb-2 feature-screenshot"
-                        />
-                        <h3 class="h5 fw-bold">{{ 'work.features.annotationTitle' | t }}</h3>
-                        <p class="paragrafo small mb-0">{{ 'work.features.annotationDesc' | t }}</p>
-                    </div>
-
-                    <div class="col-md-6 text-center mb-4">
-                        <div class="d-flex justify-content-center gap-3 mb-2 feature-img-container">
-                            <img
-                                src="./public/assets/img/TutorialMaker/html.png"
-                                alt="HTML"
-                                class="format-icon"
-                            />
-                            <img
-                                src="./public/assets/img/TutorialMaker/pdf.png"
-                                alt="PDF"
-                                class="format-icon"
-                            />
-                            <img
-                                src="./public/assets/img/TutorialMaker/md.png"
-                                alt="Markdown"
-                                class="format-icon"
-                            />
-                        </div>
-                        <h3 class="h5 fw-bold">{{ 'work.features.exportTitle' | t }}</h3>
-                        <p class="paragrafo small mb-0">{{ 'work.features.exportDesc' | t }}</p>
-                    </div>
-
-                    <div class="col-md-6 text-center mb-4">
-                        <div class="d-flex justify-content-center mb-2 feature-img-container">
-                            <img
-                                src="./public/assets/img/icon.png"
-                                alt="Multi-Language Support"
-                                class="img-fluid feature-icon-large"
-                            />
-                        </div>
-                        <h3 class="h5 fw-bold">{{ 'work.features.multiLangTitle' | t }}</h3>
-                        <p class="paragrafo small mb-0">{{ 'work.features.multiLangDesc' | t }}</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mb-5">
-                <h2 class="titulo">{{ 'work.repository.title' | t }}</h2>
-                <div class="alert alert-light border shadow-sm p-4">
-                    <p
-                        class="paragrafo mb-0"
-                        [innerHTML]="'work.repository.description' | tHtml"
-                    ></p>
-                </div>
-            </section>
-
-            <section class="mb-5">
-                <h2 class="titulo">{{ 'work.collection.title' | t }}</h2>
-                <div class="alert alert-light border shadow-sm p-4">
-                    <p
-                        class="paragrafo mb-0"
-                        [innerHTML]="'work.collection.description' | tHtml"
-                    ></p>
-                </div>
-            </section>
-
-            <section class="mb-5">
-                <h2 class="titulo">{{ 'work.localization.title' | t }}</h2>
-                <div class="alert alert-light border shadow-sm p-4">
-                    <p
-                        class="paragrafo mb-0"
-                        [innerHTML]="'work.localization.description' | tHtml"
-                    ></p>
-                </div>
-            </section>
+<main id="main" class="page">
+    <div class="page-header">
+        <div class="container">
+            <p class="page-header__eyebrow">{{ 'work.eyebrow' | t }}</p>
+            <h1 class="page-header__title">{{ 'work.pageTitle' | t }}</h1>
+            <p class="page-header__lead">{{ 'work.description.p1' | t }}</p>
         </div>
+    </div>
+
+    <div class="container container--narrow">
+        <section class="section">
+            <div class="section__head">
+                <h2 class="section__title">{{ 'work.description.title' | t }}</h2>
+            </div>
+            <div class="prose" [innerHTML]="'work.description.p2' | tHtml"></div>
+        </section>
+
+        <section class="section">
+            <div class="section__head">
+                <h2 class="section__title">{{ 'work.objectives.title' | t }}</h2>
+                <p class="section__lead">{{ 'work.objectives.intro' | t }}</p>
+            </div>
+            <ul class="checklist">
+                @for (objective of objectives; track objective) {
+                    <li>
+                        <strong>{{ 'work.objectives.' + objective | t }}</strong>
+                        <span>{{ 'work.objectives.' + objective + 'Desc' | t }}</span>
+                    </li>
+                }
+            </ul>
+        </section>
+
+        <section class="section">
+            <div class="section__head">
+                <h2 class="section__title">{{ 'work.features.title' | t }}</h2>
+            </div>
+            <div class="grid grid--2">
+                <article class="surface surface--flush">
+                    <img
+                        src="public/assets/img/TutorialMaker/GUIdeveloped.png"
+                        alt="Automated tutorial generation interface"
+                        class="showcase__image"
+                        loading="lazy"
+                    />
+                    <div class="showcase__body">
+                        <h3 class="feature__title">{{ 'work.features.automatedTitle' | t }}</h3>
+                        <p class="feature__text">{{ 'work.features.automatedDesc' | t }}</p>
+                    </div>
+                </article>
+
+                <article class="surface surface--flush">
+                    <img
+                        src="public/assets/img/TutorialMaker/annotations.png"
+                        alt="Integrated annotation tools"
+                        class="showcase__image"
+                        loading="lazy"
+                    />
+                    <div class="showcase__body">
+                        <h3 class="feature__title">{{ 'work.features.annotationTitle' | t }}</h3>
+                        <p class="feature__text">{{ 'work.features.annotationDesc' | t }}</p>
+                    </div>
+                </article>
+
+                <article class="surface surface--flush">
+                    <div class="showcase__icons">
+                        <img
+                            src="public/assets/img/TutorialMaker/html.png"
+                            alt="HTML"
+                            loading="lazy"
+                        />
+                        <img
+                            src="public/assets/img/TutorialMaker/pdf.png"
+                            alt="PDF"
+                            loading="lazy"
+                        />
+                        <img
+                            src="public/assets/img/TutorialMaker/md.png"
+                            alt="Markdown"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="showcase__body">
+                        <h3 class="feature__title">{{ 'work.features.exportTitle' | t }}</h3>
+                        <p class="feature__text">{{ 'work.features.exportDesc' | t }}</p>
+                    </div>
+                </article>
+
+                <article class="surface surface--flush">
+                    <div class="showcase__icons">
+                        <img
+                            src="public/assets/img/mark.png"
+                            alt="Multi-language support"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="showcase__body">
+                        <h3 class="feature__title">{{ 'work.features.multiLangTitle' | t }}</h3>
+                        <p class="feature__text">{{ 'work.features.multiLangDesc' | t }}</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="stack stack--lg">
+                <div>
+                    <h2 class="section__title">{{ 'work.repository.title' | t }}</h2>
+                    <div class="callout">
+                        <p [innerHTML]="'work.repository.description' | tHtml"></p>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="section__title">{{ 'work.collection.title' | t }}</h2>
+                    <div class="callout">
+                        <p [innerHTML]="'work.collection.description' | tHtml"></p>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="section__title">{{ 'work.localization.title' | t }}</h2>
+                    <div class="callout">
+                        <p [innerHTML]="'work.localization.description' | tHtml"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </main>
 

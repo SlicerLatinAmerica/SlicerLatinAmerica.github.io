@@ -1,27 +1,131 @@
-<nav class="navbar navbar-expand-lg custom-navbar" id="homeNavBar">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <img src="./public/assets/img/icon.png" alt="3D Slicer" />
+<a class="skip-link" href="#main">{{
+    translated() ? i18n.t('nav.skipToContent') : 'Skip to content'
+}}</a>
+
+<header class="app-navbar">
+    <div class="container app-navbar__inner">
+        <a class="app-navbar__brand" routerLink="/index.html">
+            <img src="public/assets/img/mark.png" alt="" width="44" height="44" />
+            <span class="app-navbar__wordmark">
+                <span>3D Slicer</span>
+                <span>for Latin America</span>
+            </span>
         </a>
-        @if (translated()) {
-            <div class="lang-selector-item d-flex align-items-center">
+
+        <nav
+            class="app-navbar__collapse"
+            [attr.data-open]="navOpen()"
+            [attr.aria-label]="translated() ? i18n.t('nav.primary') : 'Primary'"
+        >
+            <div>
+                <ul class="app-navbar__nav">
+                    @for (item of items; track item.key) {
+                        <li>
+                            @if (isGroup(item)) {
+                                <div class="lang-dropdown">
+                                    <button
+                                        type="button"
+                                        class="nav-link-item nav-group-toggle"
+                                        [attr.aria-expanded]="openMenu() === item.key"
+                                        [attr.aria-current]="
+                                            activeGroup() === item.key ? 'page' : null
+                                        "
+                                        (click)="toggleMenu(item.key, $event)"
+                                    >
+                                        {{ label(item) }}
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            aria-hidden="true"
+                                        >
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
+                                    </button>
+                                    @if (openMenu() === item.key) {
+                                        <ul class="lang-menu nav-submenu">
+                                            @for (child of children(item); track child.key) {
+                                                <li>
+                                                    <a
+                                                        class="lang-option"
+                                                        [routerLink]="child.href"
+                                                        [attr.aria-current]="
+                                                            child.key === active() ? 'page' : null
+                                                        "
+                                                        >{{ label(child) }}</a
+                                                    >
+                                                </li>
+                                            }
+                                        </ul>
+                                    }
+                                </div>
+                            } @else {
+                                <a
+                                    class="nav-link-item"
+                                    [routerLink]="item.href"
+                                    [attr.aria-current]="item.key === active() ? 'page' : null"
+                                    >{{ label(item) }}</a
+                                >
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
+
+        <div class="app-navbar__actions">
+            <button
+                type="button"
+                class="icon-button theme-toggle"
+                [attr.aria-label]="translated() ? i18n.t('nav.toggleTheme') : 'Toggle dark mode'"
+                [attr.aria-pressed]="themes.theme() === 'dark'"
+                (click)="toggleTheme($event)"
+            >
+                <svg
+                    class="theme-toggle__sun"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    aria-hidden="true"
+                >
+                    <circle cx="12" cy="12" r="4" />
+                    <path
+                        d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+                    />
+                </svg>
+                <svg
+                    class="theme-toggle__moon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+                </svg>
+            </button>
+
+            @if (translated()) {
                 <div class="lang-dropdown">
                     <button
-                        class="lang-dropdown-toggle"
-                        id="langDropdownBtn"
-                        [attr.aria-expanded]="menuOpen()"
-                        title="Change language"
-                        (click)="toggleMenu($event)"
+                        type="button"
+                        class="icon-button"
+                        [attr.aria-label]="i18n.t('nav.changeLanguage')"
+                        [attr.aria-expanded]="openMenu() === 'lang'"
+                        (click)="toggleMenu('lang', $event)"
                     >
                         <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
+                            viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
                             stroke-width="1.6"
                             stroke-linecap="round"
-                            viewBox="0 0 24 24"
+                            aria-hidden="true"
                         >
                             <circle cx="12" cy="12" r="9" />
                             <path d="M3.6 9h16.8M3.6 15h16.8" />
@@ -30,52 +134,72 @@
                             />
                         </svg>
                     </button>
-                    <ul
-                        class="lang-dropdown-menu"
-                        [class.open]="menuOpen()"
-                        id="langDropdownMenu"
-                        role="listbox"
-                    >
-                        @for (lang of langs; track lang.code) {
-                            <li role="option" [attr.aria-selected]="lang.code === i18n.lang()">
-                                <button
-                                    class="lang-btn"
-                                    [class.active]="lang.code === i18n.lang()"
-                                    (click)="selectLang(lang.code, $event)"
-                                >
-                                    <span class="lang-flag">{{ lang.flag }}</span>
-                                    <span>{{ lang.label }}</span>
-                                </button>
-                            </li>
-                        }
-                    </ul>
+                    @if (openMenu() === 'lang') {
+                        <ul class="lang-menu" role="menu">
+                            @for (lang of langs; track lang.code) {
+                                <li role="none">
+                                    <button
+                                        type="button"
+                                        class="lang-option"
+                                        role="menuitemradio"
+                                        [attr.aria-checked]="lang.code === i18n.lang()"
+                                        (click)="selectLang(lang.code, $event)"
+                                    >
+                                        <span class="lang-option__flag" aria-hidden="true">{{
+                                            lang.flag
+                                        }}</span>
+                                        <span>{{ lang.label }}</span>
+                                        <svg
+                                            class="lang-option__check"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            aria-hidden="true"
+                                        >
+                                            <path d="m5 13 4 4L19 7" />
+                                        </svg>
+                                    </button>
+                                </li>
+                            }
+                        </ul>
+                    }
                 </div>
-            </div>
-        }
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#homeNavbar"
-            aria-controls="homeNavbar"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="homeNavbar">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                @for (link of links; track link.key) {
-                    <li class="nav-item">
-                        <a
-                            class="nav-link titulo-navbar"
-                            [class.active]="link.key === active()"
-                            [href]="link.href"
-                            >{{ translated() ? ('nav.' + link.key | t) : link.label }}</a
-                        >
-                    </li>
+            }
+
+            <button
+                type="button"
+                class="icon-button nav-toggle"
+                [attr.aria-label]="translated() ? i18n.t('nav.toggleMenu') : 'Toggle navigation'"
+                [attr.aria-expanded]="navOpen()"
+                (click)="toggleNav($event)"
+            >
+                @if (navOpen()) {
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        aria-hidden="true"
+                    >
+                        <path d="m6 6 12 12M18 6 6 18" />
+                    </svg>
+                } @else {
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        aria-hidden="true"
+                    >
+                        <path d="M4 7h16M4 12h16M4 17h16" />
+                    </svg>
                 }
-            </ul>
+            </button>
         </div>
     </div>
-</nav>
+</header>

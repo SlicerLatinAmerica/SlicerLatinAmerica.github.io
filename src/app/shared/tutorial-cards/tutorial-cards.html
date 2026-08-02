@@ -1,30 +1,41 @@
-<div class="tutorials-card-container collection-grid">
+<div class="grid grid--auto" style="--col-min: 16rem">
     @for (card of cards; track card.id) {
-        <div class="tutorials-card">
-            <img src="./public/assets/img/icon.png" alt="Icon" />
-            <h3>{{ 'tutorialCollection.cards.' + card.key + '.title' | t }}</h3>
-            <p>{{ card.code }}</p>
-            <ul class="card-desc">
+        <div class="tile">
+            <img
+                class="tile__icon"
+                src="public/assets/img/mark.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+            />
+            <h3 class="tile__title">{{ 'tutorialCollection.cards.' + card.key + '.title' | t }}</h3>
+            <p class="tile__label">{{ card.code }}</p>
+            <ul class="tile__list">
                 <li>{{ 'tutorialCollection.cards.' + card.key + '.li1' | t }}</li>
                 <li>{{ 'tutorialCollection.cards.' + card.key + '.li2' | t }}</li>
                 <li>{{ 'tutorialCollection.cards.' + card.key + '.li3' | t }}</li>
                 <li>{{ 'tutorialCollection.cards.' + card.key + '.li4' | t }}</li>
             </ul>
-            <div [id]="'langs-' + card.id" class="mt-auto pt-2">
+            <div class="tile__links">
                 @if (tutorials.state() === 'loading') {
-                    <small class="text-muted">{{ 'tutorialCollection.loading' | t }}</small>
+                    <small class="tile__note">{{ 'tutorialCollection.loading' | t }}</small>
                 } @else if (tutorials.state() === 'error') {
                     <a
+                        class="chip"
                         href="https://github.com/SoniaPujolLab/SlicerTutorialMakerCollection/tree/main/Tutorials"
                         target="_blank"
+                        rel="noopener"
                         >{{ 'tutorialCollection.viewOnGitHub' | t }}</a
                     >
                 } @else if (languagesById()?.get(card.id)?.length) {
                     @for (lang of languagesById()?.get(card.id); track lang.url) {
-                        <a [href]="lang.url" target="_blank">{{ lang.display }}</a>
+                        <a class="chip" [href]="lang.url" target="_blank" rel="noopener">{{
+                            lang.display
+                        }}</a>
                     }
                 } @else {
-                    <small class="text-muted">{{ 'tutorialCollection.noLanguages' | t }}</small>
+                    <small class="tile__note">{{ 'tutorialCollection.noLanguages' | t }}</small>
                 }
             </div>
         </div>

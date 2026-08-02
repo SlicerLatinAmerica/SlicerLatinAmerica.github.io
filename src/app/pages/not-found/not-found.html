@@ -1,10 +1,12 @@
 <app-navbar />
 
-<div class="container main-content not-found">
-    <p class="not-found-code">404</p>
-    <h1 class="titulo">{{ 'notFound.pageTitle' | t }}</h1>
-    <p class="paragrafo">{{ 'notFound.description' | t }}</p>
-    <a class="btn btn-primary not-found-home" href="/">{{ 'notFound.backHome' | t }}</a>
-</div>
+<main id="main" class="page not-found">
+    <div class="container">
+        <p class="not-found__code">404</p>
+        <h1>{{ 'notFound.pageTitle' | t }}</h1>
+        <p class="not-found__text">{{ 'notFound.description' | t }}</p>
+        <a class="btn-cta" routerLink="/index.html">{{ 'notFound.backHome' | t }}</a>
+    </div>
+</main>
 
 <app-site-footer />

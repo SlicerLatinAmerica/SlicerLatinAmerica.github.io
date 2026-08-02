@@ -1,22 +1,28 @@
-<div class="gallery">
-    @for (image of images(); track image.src) {
-        <div
+<ul class="gallery">
+    @for (image of images(); track image.src; let i = $index) {
+        <li
             class="gallery-item"
-            [class.tall]="image.variant === 'tall'"
-            [class.wide]="image.variant === 'wide'"
-            (click)="openLightbox(image.src)"
+            [class.gallery-item--tall]="image.variant === 'tall'"
+            [class.gallery-item--wide]="image.variant === 'wide'"
         >
-            <img
-                [src]="image.src"
-                [alt]="image.alt"
-                loading="lazy"
-                [attr.decoding]="decodingAsync() ? 'async' : null"
-            />
-        </div>
+            <button type="button" (click)="open(image)">
+                <img
+                    [src]="image.src"
+                    [alt]="caption(image, i)"
+                    loading="lazy"
+                    [attr.decoding]="decodingAsync() ? 'async' : null"
+                />
+                <span class="visually-hidden">Open full size</span>
+            </button>
+        </li>
     }
-</div>
+</ul>
 
-<div #lightbox id="lightbox" class="lightbox" (click)="closeLightbox()">
-    <span class="close-lightbox">&times;</span>
-    <img #lightboxImg id="lightbox-img" src="" alt="Full screen image" />
-</div>
+<dialog #dialog class="lightbox" (click)="onBackdropClick($event)" (close)="current.set(null)">
+    <button type="button" class="lightbox__close" aria-label="Close image" (click)="close()">
+        &times;
+    </button>
+    @if (current(); as image) {
+        <img [src]="image.src" [alt]="image.alt ?? 'Full size workshop photo'" />
+    }
+</dialog>

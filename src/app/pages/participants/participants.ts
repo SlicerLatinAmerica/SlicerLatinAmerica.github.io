@@ -41,7 +41,7 @@ interface WorkshopSection {
     selector: 'app-participants-page',
     imports: [Navbar, SiteFooter, NgTemplateOutlet, ParticipantsMap],
     templateUrl: './participants.html',
-    styles: ':host { display: contents }',
+    styleUrl: './participants.css',
 })
 export class ParticipantsPage {
     protected readonly mode = signal<'alphabetical' | 'workshop'>('alphabetical');

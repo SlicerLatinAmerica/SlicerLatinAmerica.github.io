@@ -33,15 +33,20 @@ npm run format     # Prettier
 
 ```
 src/
+  styles/
+    tokens.css       design tokens: colour ramps, semantic colours, type, space, motion
+    base.css         element defaults, fluid typography, focus, reduced motion
+    layout.css       page shell, container, section rhythm, grid primitives
+    components.css   navbar, footer, cards, buttons, workshop and gallery components
   app/
-    core/            i18n service + bundled translations, <head> injection, tutorials fetch
-    shared/          navbar, footers, workshop header/speakers/gallery, tutorial cards
+    core/            i18n, SEO metadata, theme, tutorials fetch, generated site stats
+    shared/          navbar, site footer, workshop header/speakers/gallery, tutorial cards
     pages/           one folder per route (home, events, team, …, workshops/*)
-    app.routes.ts    single source of truth for routes + prerender list
+    app.routes.ts    single source of truth for routes, page metadata + prerender list
   root-assets/       .nojekyll copied to the deploy root
 public/assets/       images, PDFs, docs, and data/tutorials.json (fetched at runtime)
 events/              workshop instruction Markdown rendered by the md-viewer page
-tools/               post-build helper scripts
+tools/               build helper scripts
 ```
 
 ## Deployment

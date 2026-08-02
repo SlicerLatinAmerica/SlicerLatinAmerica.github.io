@@ -15,9 +15,13 @@
             [decodingAsync]="gallery().decodingAsync ?? false"
         />
 
-        <a [href]="gallery().backHref" class="back-link">Back to Workshop Main Page</a>
-        <a href="index.html" class="back-link">Back to Home</a>
+        <div class="cluster" style="margin-top: var(--space-6)">
+            <a [routerLink]="'/' + gallery().backHref" class="btn-cta"
+                >Back to Workshop Main Page</a
+            >
+            <a routerLink="/index.html" class="btn-ghost">Back to Home</a>
+        </div>
     </section>
 </main>
 
-<app-workshop-footer [linkKeys]="footerLinks" />
+<app-site-footer [translated]="false" />

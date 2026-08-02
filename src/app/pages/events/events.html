@@ -1,24 +1,27 @@
 <app-navbar active="events" />
 
-<main class="container main-content">
-    <h1 class="titulo mb-5">{{ 'events.pageTitle' | t }}</h1>
+<main id="main" class="page">
+    <div class="page-header">
+        <div class="container">
+            <p class="page-header__eyebrow">{{ 'events.eyebrow' | t }}</p>
+            <h1 class="page-header__title">{{ 'events.pageTitle' | t }}</h1>
+            <p class="page-header__lead">{{ 'events.lead' | t }}</p>
+        </div>
+    </div>
 
-    @for (item of items; track item.key) {
-        <section class="mb-5">
-            <h3 class="titulo">{{ 'events.items.' + item.key + '.title' | t }}</h3>
-            @if (item.tag === 'p') {
-                <p
-                    class="paragrafo"
-                    [innerHTML]="'events.items.' + item.key + '.description' | tHtml"
-                ></p>
-            } @else {
-                <div
-                    class="paragrafo"
-                    [innerHTML]="'events.items.' + item.key + '.description' | tHtml"
-                ></div>
+    <div class="container container--narrow">
+        <ol class="timeline">
+            @for (item of items; track item.key) {
+                <li class="timeline__item">
+                    <h2 class="timeline__title">{{ 'events.items.' + item.key + '.title' | t }}</h2>
+                    <div
+                        class="prose"
+                        [innerHTML]="'events.items.' + item.key + '.description' | tHtml"
+                    ></div>
+                </li>
             }
-        </section>
-    }
+        </ol>
+    </div>
 </main>
 
 <app-site-footer />

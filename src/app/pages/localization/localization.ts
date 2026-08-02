@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Navbar } from '../../shared/navbar/navbar';
@@ -16,4 +16,9 @@ export class LocalizationPage {
     protected readonly igtGroups = IGT_GROUPS;
     protected readonly igtUnits = IGT_UNITS;
     protected readonly glossaries = GLOSSARY_CARDS;
+    protected readonly openGroup = signal<string | null>(null);
+
+    protected toggleGroup(id: string): void {
+        this.openGroup.update((current) => (current === id ? null : id));
+    }
 }

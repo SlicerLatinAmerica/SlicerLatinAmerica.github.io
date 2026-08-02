@@ -1,11 +1,22 @@
-import { Component, ElementRef, afterNextRender, inject, signal, viewChild } from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    ViewEncapsulation,
+    afterNextRender,
+    inject,
+    signal,
+    viewChild,
+} from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
 import { marked } from 'marked';
 
 @Component({
     selector: 'app-md-viewer-page',
+    imports: [RouterLink],
     templateUrl: './md-viewer.html',
-    styles: ':host { display: contents }',
+    styleUrl: './md-viewer.css',
+    encapsulation: ViewEncapsulation.None,
 })
 export class MdViewerPage {
     protected readonly error = signal<string | null>(null);

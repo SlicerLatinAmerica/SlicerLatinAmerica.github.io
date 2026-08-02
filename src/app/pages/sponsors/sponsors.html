@@ -1,8 +1,39 @@
 <app-navbar active="acknowledgment" />
 
-<div class="container main-content">
-    <h1 class="titulo">{{ 'sponsors.pageTitle' | t }}</h1>
-    <p class="paragrafo">{{ 'sponsors.description' | t }}</p>
-</div>
+<main id="main" class="page">
+    <div class="page-header">
+        <div class="container">
+            <p class="page-header__eyebrow">{{ 'sponsors.eyebrow' | t }}</p>
+            <h1 class="page-header__title">{{ 'sponsors.pageTitle' | t }}</h1>
+            <p class="page-header__lead">{{ 'sponsors.lead' | t }}</p>
+        </div>
+    </div>
+
+    <div class="container container--narrow">
+        <section class="section">
+            <div class="callout">
+                <p>{{ 'sponsors.description' | t }}</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="grid grid--2">
+                <a
+                    class="feature"
+                    href="https://chanzuckerberg.com/eoss/"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    <h2 class="feature__title">{{ 'sponsors.grant.title' | t }}</h2>
+                    <p class="feature__text">{{ 'sponsors.grant.text' | t }}</p>
+                </a>
+                <a class="feature" href="https://www.slicer.org/" target="_blank" rel="noopener">
+                    <h2 class="feature__title">{{ 'sponsors.platform.title' | t }}</h2>
+                    <p class="feature__text">{{ 'sponsors.platform.text' | t }}</p>
+                </a>
+            </div>
+        </section>
+    </div>
+</main>
 
 <app-site-footer />

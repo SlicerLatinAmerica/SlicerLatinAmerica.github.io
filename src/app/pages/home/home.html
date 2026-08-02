@@ -1,22 +1,134 @@
-﻿<app-navbar active="project" />
+<app-navbar active="project" />
 
-<main class="container main-content">
-    <section class="row justify-content-center align-items-center mb-5">
-        <div class="col-12 col-md-5 d-flex flex-column align-items-center mb-4 mb-md-0">
-            <img
-                src="./public/assets/img/logo_with_people.png"
-                class="img-fluid hero-logo border rounded"
-                alt="3D Slicer Logo"
-            />
-            <p class="text-muted text-center mt-2" style="font-size: 0.72rem">
-                {{ 'index.imageCaption' | t }}
-            </p>
-        </div>
-        <div class="col-12 col-md-7">
-            <h1 class="titulo">{{ 'index.heroTitle' | t }}</h1>
-            <p class="paragrafo">{{ 'index.heroParagraph' | t }}</p>
+<main id="main" class="page">
+    <section class="hero">
+        <div class="container split" style="--split: 1.05fr 0.95fr">
+            <div class="hero__body">
+                <p class="page-header__eyebrow">{{ 'index.eyebrow' | t }}</p>
+                <h1 class="hero__title">{{ 'index.heroTitle' | t }}</h1>
+                <p class="hero__lead">{{ 'index.heroLead' | t }}</p>
+                <div class="cluster">
+                    <a class="btn-cta" routerLink="/work.html">
+                        {{ 'index.ctaWork' | t }}
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                    </a>
+                    <a class="btn-ghost" routerLink="/events.html">{{ 'index.ctaEvents' | t }}</a>
+                </div>
+            </div>
+
+            <figure class="media-figure hero__figure">
+                <img
+                    src="public/assets/img/logo_with_people.png"
+                    alt="Participants of the 2025 Slicer Toluca Workshop"
+                    width="1200"
+                    height="800"
+                    fetchpriority="high"
+                />
+                <figcaption>{{ 'index.imageCaption' | t }}</figcaption>
+            </figure>
         </div>
     </section>
+
+    <div class="container">
+        <section class="section" aria-labelledby="impact-heading">
+            <h2 id="impact-heading" class="visually-hidden">{{ 'index.stats.title' | t }}</h2>
+            <ul class="stat-strip">
+                @for (metric of metrics; track metric.key) {
+                    <li class="stat-strip__item">
+                        <span class="stat-strip__value">{{ metric.value }}</span>
+                        <span class="stat-strip__label">{{ 'index.stats.' + metric.key | t }}</span>
+                    </li>
+                }
+            </ul>
+        </section>
+
+        <section class="section" aria-labelledby="objectives-heading">
+            <div class="section__head">
+                <h2 id="objectives-heading" class="section__title">
+                    {{ 'index.objectives.title' | t }}
+                </h2>
+                <p class="section__lead">{{ 'index.objectives.lead' | t }}</p>
+            </div>
+
+            <div class="grid grid--auto" style="--col-min: 18rem">
+                @for (objective of objectives; track objective) {
+                    <article class="feature">
+                        <span class="feature__icon" aria-hidden="true">
+                            @switch (objective) {
+                                @case ('localization') {
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <circle cx="12" cy="12" r="9" />
+                                        <path
+                                            d="M3.6 9h16.8M3.6 15h16.8M12 3c-2.4 2.8-3.8 5.7-3.8 9s1.4 6.2 3.8 9M12 3c2.4 2.8 3.8 5.7 3.8 9s-1.4 6.2-3.8 9"
+                                        />
+                                    </svg>
+                                }
+                                @case ('automation') {
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M4 5h16M4 12h10M4 19h7" />
+                                        <path d="m17 14 4 4-4 4" />
+                                    </svg>
+                                }
+                                @case ('training') {
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M12 4 2 9l10 5 10-5-10-5Z" />
+                                        <path d="M6 11.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-5.5" />
+                                    </svg>
+                                }
+                            }
+                        </span>
+                        <h3 class="feature__title">
+                            {{ 'index.objectives.' + objective + '.title' | t }}
+                        </h3>
+                        <p class="feature__text">
+                            {{ 'index.objectives.' + objective + '.text' | t }}
+                        </p>
+                    </article>
+                }
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="cta-band">
+                <div>
+                    <h2 class="cta-band__title">{{ 'index.cta.title' | t }}</h2>
+                    <p class="cta-band__text">{{ 'index.cta.text' | t }}</p>
+                </div>
+                <a class="btn-cta" routerLink="/contact.html">{{ 'index.cta.button' | t }}</a>
+            </div>
+        </section>
+    </div>
 </main>
 
 <app-site-footer />
