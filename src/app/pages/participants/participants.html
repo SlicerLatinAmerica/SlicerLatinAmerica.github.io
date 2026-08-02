@@ -35,7 +35,11 @@
 
                     <div class="stat-card map-card">
                         <h3 class="stat-card-title">Geographic Distribution</h3>
-                        <div #map id="map"></div>
+                        @defer (on immediate) {
+                            <app-participants-map />
+                        } @placeholder {
+                            <div id="map"></div>
+                        }
                     </div>
                 </div>
             </div>

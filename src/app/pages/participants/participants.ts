@@ -1,11 +1,12 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, ElementRef, afterNextRender, computed, signal, viewChild } from '@angular/core';
+import SimpleBar from 'simplebar';
 
 import { Navbar } from '../../shared/navbar/navbar';
 import { SiteFooter } from '../../shared/site-footer/site-footer';
 import PARTICIPANTS from './participants-data.json';
+import { ParticipantsMap } from './participants-map';
 import {
-    CITY_COORDINATES,
     CountryColumn,
     MergedParticipant,
     Participant,
@@ -19,7 +20,6 @@ import {
     mergeByName,
     normalizeInstitution,
     normalizeName,
-    resolveCountry,
 } from './participants-logic';
 
 interface DisplayCard {
@@ -39,7 +39,7 @@ interface WorkshopSection {
 
 @Component({
     selector: 'app-participants-page',
-    imports: [Navbar, SiteFooter, NgTemplateOutlet],
+    imports: [Navbar, SiteFooter, NgTemplateOutlet, ParticipantsMap],
     templateUrl: './participants.html',
     styles: ':host { display: contents }',
 })
@@ -48,7 +48,6 @@ export class ParticipantsPage {
     protected readonly searchTerm = signal('');
 
     private readonly data = PARTICIPANTS as Participant[];
-    private readonly mapEl = viewChild.required<ElementRef<HTMLDivElement>>('map');
     private readonly leftCol = viewChild.required<ElementRef<HTMLDivElement>>('leftCol');
     private readonly rightCol = viewChild.required<ElementRef<HTMLDivElement>>('rightCol');
 
@@ -91,10 +90,7 @@ export class ParticipantsPage {
     protected readonly countLabel = countLabel;
 
     constructor() {
-        afterNextRender(() => {
-            void this.initMap();
-            void this.initScrollbars();
-        });
+        afterNextRender(() => this.initScrollbars());
     }
 
     protected setMode(mode: 'alphabetical' | 'workshop'): void {
@@ -128,52 +124,8 @@ export class ParticipantsPage {
         };
     }
 
-    private async initScrollbars(): Promise<void> {
-        const { default: SimpleBar } = await import('simplebar');
+    private initScrollbars(): void {
         new SimpleBar(this.leftCol().nativeElement, { autoHide: false });
         new SimpleBar(this.rightCol().nativeElement, { autoHide: false });
-    }
-
-    private async initMap(): Promise<void> {
-        const L = await import('leaflet');
-        const map = L.map(this.mapEl().nativeElement).setView([0, -50], 3);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution:
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            maxZoom: 18,
-        }).addTo(map);
-
-        const locationCounts: Record<string, Set<string>> = {};
-        this.data.forEach((p) => {
-            const country = resolveCountry(p);
-            (locationCounts[country] ??= new Set()).add(p.name.toLowerCase().trim());
-        });
-
-        Object.keys(locationCounts).forEach((country) => {
-            const coords = CITY_COORDINATES[country];
-            if (!coords) {
-                return;
-            }
-            const count = locationCounts[country].size;
-            const marker = L.circleMarker(coords, {
-                radius: Math.min(Math.sqrt(count) * 2.5, 70),
-                fillColor: '#0066cc',
-                color: '#003d7a',
-                weight: 2,
-                opacity: 1,
-                fillOpacity: 0.6,
-            }).addTo(map);
-            marker.bindPopup(
-                `<div style="max-width: 200px;"><h6 style="margin-bottom: 8px; font-weight: bold;">${country}</h6><p style="margin: 4px 0;"><strong>${count}</strong> ${count > 1 ? 'people' : 'person'}</p></div>`,
-            );
-        });
-
-        const bounds = Object.keys(locationCounts)
-            .filter((country) => CITY_COORDINATES[country])
-            .map((country) => CITY_COORDINATES[country]);
-        if (bounds.length > 0) {
-            map.fitBounds(bounds, { padding: [50, 50] });
-        }
-        setTimeout(() => map.invalidateSize(), 100);
     }
 }

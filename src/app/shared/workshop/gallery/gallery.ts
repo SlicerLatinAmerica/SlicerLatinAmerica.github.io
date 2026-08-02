@@ -8,6 +8,7 @@ import {
     input,
     viewChild,
 } from '@angular/core';
+import VanillaTilt from 'vanilla-tilt';
 
 export interface GalleryImage {
     src: string;
@@ -57,9 +58,8 @@ export class Gallery {
         }, 300);
     }
 
-    private async initEffects(): Promise<void> {
+    private initEffects(): void {
         const items = this.host.nativeElement.querySelectorAll<HTMLElement>('.gallery-item');
-        const { default: VanillaTilt } = await import('vanilla-tilt');
         VanillaTilt.init(items, {
             max: 1,
             speed: 100,
