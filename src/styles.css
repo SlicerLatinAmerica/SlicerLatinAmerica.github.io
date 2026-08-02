@@ -1726,3 +1726,38 @@ div.workshop-speaker:hover {
         margin-right: 0.4rem;
     }
 }
+
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.not-found-code {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 0 var(--spacing-sm);
+    color: var(--secondary-color);
+    letter-spacing: 0.05em;
+}
+
+.not-found .paragrafo {
+    text-align: center;
+    max-width: 34rem;
+}
+
+.not-found-home {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    padding: 0.6rem 1.75rem;
+    border-radius: var(--border-radius-sm);
+}
+
+@media (max-width: 575px) {
+    .not-found-code {
+        font-size: 4rem;
+    }
+}

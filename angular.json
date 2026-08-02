@@ -57,11 +57,6 @@
                 "output": "events"
               },
               {
-                "glob": "404.html",
-                "input": "src/root-assets",
-                "output": "."
-              },
-              {
                 "glob": ".nojekyll",
                 "input": "src/root-assets",
                 "output": "."

@@ -38,7 +38,7 @@ src/
     shared/          navbar, footers, workshop header/speakers/gallery, tutorial cards
     pages/           one folder per route (home, events, team, …, workshops/*)
     app.routes.ts    single source of truth for routes + prerender list
-  root-assets/       404.html and .nojekyll copied to the deploy root
+  root-assets/       .nojekyll copied to the deploy root
 public/assets/       images, PDFs, docs, and data/tutorials.json (fetched at runtime)
 events/              workshop instruction Markdown rendered by the md-viewer page
 tools/               post-build helper scripts

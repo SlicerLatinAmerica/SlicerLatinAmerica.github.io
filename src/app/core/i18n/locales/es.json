@@ -244,5 +244,10 @@
   },
   "contact": {
     "pageTitle": "Contacto"
+  },
+  "notFound": {
+    "pageTitle": "Página no encontrada",
+    "description": "La página que busca no existe o ha sido movida.",
+    "backHome": "Volver al inicio"
   }
 }

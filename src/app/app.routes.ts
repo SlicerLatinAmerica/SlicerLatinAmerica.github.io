@@ -18,6 +18,7 @@ function page(
 }
 
 const loadHome = () => import('./pages/home/home').then((m) => m.HomePage);
+const loadNotFound = () => import('./pages/not-found/not-found').then((m) => m.NotFoundPage);
 
 export const routes: Routes = [
     {
@@ -87,6 +88,7 @@ export const routes: Routes = [
         () => import('./pages/participants/participants').then((m) => m.ParticipantsPage),
         { ...site, leaflet: true, simplebar: true },
     ),
+    page('404.html', 'Page not found - 3D Slicer for Latin America', loadNotFound, site),
     page(
         'md-viewer.html',
         'Loading…',
@@ -248,6 +250,7 @@ export const routes: Routes = [
             { gallery },
         ),
     ),
+    page('**', 'Page not found - 3D Slicer for Latin America', loadNotFound, site),
 ];
 
 export const prerenderPaths: string[] = routes
