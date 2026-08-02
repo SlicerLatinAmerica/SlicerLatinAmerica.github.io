@@ -1,0 +1,23 @@
+<app-navbar active="tutorialCollection" />
+
+<main class="container main-content">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <h1 class="titulo mb-4">{{ 'tutorialCollection.pageTitle' | t }}</h1>
+
+            <section class="mb-5">
+                <p class="paragrafo" [innerHTML]="'tutorialCollection.intro' | tHtml"></p>
+                <p
+                    class="paragrafo"
+                    [innerHTML]="'tutorialCollection.translationsNotice' | tHtml"
+                ></p>
+            </section>
+
+            <section class="mb-5">
+                <app-tutorial-cards mode="collection" />
+            </section>
+        </div>
+    </div>
+</main>
+
+<app-site-footer />

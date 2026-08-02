@@ -1,0 +1,22 @@
+<header class="md-viewer-header">
+    <div class="container md-viewer-header-top">
+        <a href="index.html"
+            ><img src="./public/assets/img/icon.svg" alt="3D Slicer for Latin America"
+        /></a>
+        <div class="md-header-actions">
+            <a href="#" class="md-back-btn" (click)="goBack($event)">← Back</a>
+            <span
+                id="md-short-url"
+                class="md-short-url"
+                [class.md-short-url--loading]="!ready()"
+                (click)="copyUrl()"
+                >{{ copyLabel() }}</span
+            >
+        </div>
+    </div>
+</header>
+
+<div class="md-body">
+    <div id="md-error" class="md-error" [hidden]="!error()">{{ error() }}</div>
+    <div #content id="md-content"></div>
+</div>

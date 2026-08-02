@@ -1,0 +1,56 @@
+<app-navbar active="team" />
+
+<main class="container main-content">
+    <h1 class="titulo mb-5">{{ 'team.pageTitle' | t }}</h1>
+
+    @for (section of sections; track section.titleKey) {
+        <h2 class="titulo mb-4">{{ 'team.' + section.titleKey | t }}</h2>
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5">
+            @for (member of section.members; track member.name) {
+                <div class="col">
+                    @if (member.href) {
+                        <a
+                            [href]="member.href"
+                            target="_blank"
+                            class="card card-custom h-100 text-decoration-none"
+                        >
+                            <img
+                                [src]="member.img"
+                                class="card-img-top image-border"
+                                [alt]="member.alt"
+                            />
+                            <div class="card-body card-body-custom">
+                                <h5 class="cartao-titulo">{{ member.name }}</h5>
+                                <p class="cartao-subtitulo align-content-center">
+                                    <span>{{ 'team.roles.' + member.role | t }}</span>
+                                    @for (line of member.lines; track $index) {
+                                        <br />{{ line }}
+                                    }
+                                </p>
+                            </div>
+                        </a>
+                    } @else {
+                        <div class="card card-custom h-100">
+                            <img
+                                [src]="member.img"
+                                class="card-img-top image-border"
+                                [alt]="member.alt"
+                            />
+                            <div class="card-body card-body-custom">
+                                <h5 class="cartao-titulo">{{ member.name }}</h5>
+                                <p class="cartao-subtitulo align-content-center">
+                                    <span>{{ 'team.roles.' + member.role | t }}</span>
+                                    @for (line of member.lines; track $index) {
+                                        <br />{{ line }}
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    }
+</main>
+
+<app-site-footer />

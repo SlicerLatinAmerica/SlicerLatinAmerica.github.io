@@ -1,0 +1,32 @@
+<div class="tutorials-card-container collection-grid">
+    @for (card of cards; track card.id) {
+        <div class="tutorials-card">
+            <img src="./public/assets/img/icon.png" alt="Icon" />
+            <h3>{{ 'tutorialCollection.cards.' + card.key + '.title' | t }}</h3>
+            <p>{{ card.code }}</p>
+            <ul class="card-desc">
+                <li>{{ 'tutorialCollection.cards.' + card.key + '.li1' | t }}</li>
+                <li>{{ 'tutorialCollection.cards.' + card.key + '.li2' | t }}</li>
+                <li>{{ 'tutorialCollection.cards.' + card.key + '.li3' | t }}</li>
+                <li>{{ 'tutorialCollection.cards.' + card.key + '.li4' | t }}</li>
+            </ul>
+            <div [id]="'langs-' + card.id" class="mt-auto pt-2">
+                @if (tutorials.state() === 'loading') {
+                    <small class="text-muted">{{ 'tutorialCollection.loading' | t }}</small>
+                } @else if (tutorials.state() === 'error') {
+                    <a
+                        href="https://github.com/SoniaPujolLab/SlicerTutorialMakerCollection/tree/main/Tutorials"
+                        target="_blank"
+                        >{{ 'tutorialCollection.viewOnGitHub' | t }}</a
+                    >
+                } @else if (languagesById()?.get(card.id)?.length) {
+                    @for (lang of languagesById()?.get(card.id); track lang.url) {
+                        <a [href]="lang.url" target="_blank">{{ lang.display }}</a>
+                    }
+                } @else {
+                    <small class="text-muted">{{ 'tutorialCollection.noLanguages' | t }}</small>
+                }
+            </div>
+        </div>
+    }
+</div>

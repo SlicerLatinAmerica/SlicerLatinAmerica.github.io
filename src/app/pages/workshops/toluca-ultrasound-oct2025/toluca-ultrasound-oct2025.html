@@ -1,0 +1,95 @@
+<app-workshop-header logoAlt="3D Slicer Logo">
+    <h1>Slicer for Ultrasound in Latin America: Turning Images into Insights</h1>
+    <p>
+        Academic event focused on the role of biomedical engineering in the field of medical
+        imaging, with a special focus on the use of 3D Slicer and ultrasound technology.
+    </p>
+    <p><strong>October 27, 2025</strong><br />8:00 - 15:00 HR</p>
+    <p>
+        <strong>Location: Facultad de Ingeniería, Universidad Autónoma del Estado de México</strong>
+    </p>
+</app-workshop-header>
+
+<main class="workshop-main">
+    <app-workshop-buttons>
+        <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSd2LNbGXKgnaJ9ZnEmsipyX9lS8j3I-VQbq_DziX9OIO9L5Xg/viewform?usp=dialog"
+            target="_blank"
+            >📝 Registration</a
+        >
+        <a
+            href="https://soniapujollab.github.io/WorkShop_3DSlicer-Ultrasonido_Oct2025/"
+            target="_blank"
+            >🌐 Event Website</a
+        >
+        <a href="WorkshopToluca_Ultrasound_Oct2025_ending.html" target="_blank"
+            >📸 Event Photo Gallery</a
+        >
+    </app-workshop-buttons>
+
+    <section class="workshop-section">
+        <h2>Agenda</h2>
+        <ul class="agenda-list">
+            <li>
+                <span class="agenda-time">08:00-08:30</span>
+                <span class="agenda-desc">Welcome</span>
+            </li>
+            <li>
+                <span class="agenda-time">08:30-09:00</span>
+                <span class="agenda-desc"
+                    >Keynote Lecture: 3D Slicer for Ultrasound in Latin America: Turning Images into
+                    Insights (Dr. Sonia Pujol)</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">09:00-09:30</span>
+                <span class="agenda-desc"
+                    >Lecture: Basic concepts and physics of ultrasound (MCC. Enrique Hernández
+                    Laredo)</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">09:30-09:50</span>
+                <span class="agenda-desc">Coffee break</span>
+            </li>
+            <li>
+                <span class="agenda-time">09:50-11:20</span>
+                <span class="agenda-desc"
+                    >Lecture: Ultrasound image acquisition (Dr. Fausto Álvarez)</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">11:20-11:35</span>
+                <span class="agenda-desc">ROOM CHANGE</span>
+            </li>
+            <li>
+                <span class="agenda-time">11:35-12:15</span>
+                <span class="agenda-desc"
+                    >Workshop: Introduction to DICOM images: loading, visualization and other uses
+                    of 3D Slicer (MCI. Monserrat Ríos Hernández)</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">12:15-13:45</span>
+                <span class="agenda-desc"
+                    >Workshop: Ultrasound image segmentation in 3D Slicer (Ing. Leidy Mora)</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">13:45-13:55</span>
+                <span class="agenda-desc">Q&amp;A Session</span>
+            </li>
+            <li>
+                <span class="agenda-time">14:00</span>
+                <span class="agenda-desc">Closing remarks and networking</span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="workshop-section">
+        <h2>Speakers</h2>
+        <app-speakers [speakers]="speakers" />
+    </section>
+</main>
+
+<app-workshop-footer [linkKeys]="footerLinks" />

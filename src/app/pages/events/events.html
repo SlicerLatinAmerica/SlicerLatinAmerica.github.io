@@ -1,0 +1,24 @@
+<app-navbar active="events" />
+
+<main class="container main-content">
+    <h1 class="titulo mb-5">{{ 'events.pageTitle' | t }}</h1>
+
+    @for (item of items; track item.key) {
+        <section class="mb-5">
+            <h3 class="titulo">{{ 'events.items.' + item.key + '.title' | t }}</h3>
+            @if (item.tag === 'p') {
+                <p
+                    class="paragrafo"
+                    [innerHTML]="'events.items.' + item.key + '.description' | tHtml"
+                ></p>
+            } @else {
+                <div
+                    class="paragrafo"
+                    [innerHTML]="'events.items.' + item.key + '.description' | tHtml"
+                ></div>
+            }
+        </section>
+    }
+</main>
+
+<app-site-footer />

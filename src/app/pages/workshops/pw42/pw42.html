@@ -1,0 +1,204 @@
+<app-workshop-header>
+    <h1>42nd NA-MIC Project Week (PW42)</h1>
+    <p>3D Slicer for Latin America — Tutorial Maker &amp; Localization</p>
+    <p><strong>January 27–31, 2025</strong></p>
+    <p><strong>Location: Las Palmas, Gran Canaria, Spain</strong></p>
+</app-workshop-header>
+
+<main class="workshop-main">
+    <app-workshop-buttons>
+        <a
+            href="https://projectweek.na-mic.org/PW42_2025_GranCanaria/Projects/3DSlicerForLatinAmerica/"
+            target="_blank"
+            >🔗 Project Page</a
+        >
+        <a href="https://projectweek.na-mic.org/PW42_2025_GranCanaria/" target="_blank"
+            >🌐 PW42 Website</a
+        >
+    </app-workshop-buttons>
+
+    <section class="workshop-section">
+        <h2>Description</h2>
+        <p>
+            The 42nd NA-MIC Project Week was an in-person hackathon held at Las Palmas, Gran
+            Canaria, Spain, from January 27 to 31, 2025. The 3D Slicer for Latin America team
+            focused on advancing the <strong>Tutorial Maker</strong> extension and the localization
+            of 3D Slicer into Spanish and Portuguese.
+        </p>
+    </section>
+
+    <section class="workshop-section">
+        <h2>Objectives</h2>
+        <ul class="agenda-list">
+            <li>
+                <span class="agenda-time">Objective 1</span>
+                <span class="agenda-desc"
+                    >Solve existing GitHub issues related to core functionalities of the Tutorial
+                    Maker extension (e.g., click handling and widget resizing during
+                    annotations).</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">Objective 2</span>
+                <span class="agenda-desc"
+                    >Fix GitHub issues raised during the African team tests (e.g., Annotator buttons
+                    not working properly, PDF exporter breaking the original format).</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">Objective 3</span>
+                <span class="agenda-desc"
+                    >Fix problems in existing tutorials (e.g., missing slides in PDFs).</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">Objective 4</span>
+                <span class="agenda-desc"
+                    >Improve the code's legibility and the extension's overall performance.</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">Objective 5</span>
+                <span class="agenda-desc">Collect more feedback from users at the event.</span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="workshop-section">
+        <h2>Progress &amp; Results</h2>
+        <ul class="agenda-list">
+            <li>
+                <span class="agenda-time">Core Bug Fixes</span>
+                <span class="agenda-desc"
+                    >Fixed core-related issues blocking users from completing tutorials, including
+                    event handling and widget resizing.</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">GitHub Actions</span>
+                <span class="agenda-desc"
+                    >Created a GitHub Action to automatically run extension tests on pushes to
+                    <code>main</code> or <code>develop</code> branches and on pull requests.</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">PDF &amp; HTML Export</span>
+                <span class="agenda-desc"
+                    >Reviewed and improved the FileMDHTML approach for exporting tutorials to HTML
+                    and printing to PDF.</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">TutorialGUI Improvements</span>
+                <span class="agenda-desc"
+                    >Improved the Annotator launch and event handling; added new features including
+                    the ability to select and add screenshots multiple times.</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">New Use Cases</span>
+                <span class="agenda-desc"
+                    >Developed a new BoneReconstructionPlanner tutorial as a Tutorial Maker use
+                    case.</span
+                >
+            </li>
+            <li>
+                <span class="agenda-time">Translations</span>
+                <span class="agenda-desc">
+                    Manually translated the following tutorials to Portuguese and Spanish:
+                    <ul style="margin-top: 0.5rem">
+                        <li>
+                            <strong>Segmentation for 3D Printing</strong>&nbsp; (A. Nagy, C.
+                            Pintér)&nbsp;&nbsp;
+                            <a
+                                href="./public/assets/pdfs/Tutorials/SegmentationFor3DPrinting_es.pdf"
+                                target="_blank"
+                                class="hyperlink"
+                                >Spanish</a
+                            >,&nbsp;
+                            <a
+                                href="./public/assets/pdfs/Tutorials/Segmentation3DPrinting-ANagy-CPinter_pt-BR.pdf"
+                                target="_blank"
+                                class="hyperlink"
+                                >Portuguese (BR)</a
+                            >
+                        </li>
+                        <li>
+                            <strong>Slicer Developer: Programming in Slicer</strong>&nbsp; (S.
+                            Pujol, S. Pieper)&nbsp;&nbsp;
+                            <a
+                                href="./public/assets/pdfs/Tutorials/Slicer5_ProgrammingTutorial_es-419.pdf"
+                                target="_blank"
+                                class="hyperlink"
+                                >Spanish</a
+                            >,&nbsp;
+                            <a
+                                href="./public/assets/pdfs/Tutorials/Slicer5_Programando%20no%20Slicer_SPujol-SPieper.pdf"
+                                target="_blank"
+                                class="hyperlink"
+                                >Portuguese (BR)</a
+                            >
+                        </li>
+                    </ul>
+                </span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="workshop-section">
+        <h2>In-Person Attendees</h2>
+        <app-speakers [speakers]="attendees" />
+    </section>
+
+    <section class="workshop-section">
+        <h2>Full Project Team</h2>
+        <ul class="agenda-list">
+            @for (member of fullTeam; track member) {
+                <li>
+                    <span class="agenda-desc">{{ member }}</span>
+                </li>
+            }
+        </ul>
+    </section>
+
+    <section class="workshop-section">
+        <h2>Background &amp; References</h2>
+        <ul class="agenda-list">
+            <li>
+                <span class="agenda-desc">
+                    <a
+                        href="https://projectweek.na-mic.org/PW42_2025_GranCanaria/Projects/3DSlicerForLatinAmerica/"
+                        target="_blank"
+                        class="hyperlink"
+                    >
+                        PW42 Project Page — 3D Slicer for Latin America
+                    </a>
+                </span>
+            </li>
+            <li>
+                <span class="agenda-desc">
+                    <a
+                        href="https://github.com/SlicerLatinAmerica/SlicerTutorialMaker"
+                        target="_blank"
+                        class="hyperlink"
+                    >
+                        SlicerTutorialMaker GitHub Repository
+                    </a>
+                </span>
+            </li>
+            <li>
+                <span class="agenda-desc">
+                    <a
+                        href="https://projectweek.na-mic.org/PW42_2025_GranCanaria/"
+                        target="_blank"
+                        class="hyperlink"
+                    >
+                        42nd NA-MIC Project Week Official Website
+                    </a>
+                </span>
+            </li>
+        </ul>
+    </section>
+</main>
+
+<app-workshop-footer />

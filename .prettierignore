@@ -1,0 +1,7 @@
+dist
+node_modules
+.angular
+public
+src/app/pages/participants/participants-data.json
+src/app/core/i18n/locales
+src/styles.css
