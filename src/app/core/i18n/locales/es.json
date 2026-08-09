@@ -188,7 +188,7 @@
         "lead": "Los investigadores, desarrolladores, colaboradores y estudiantes detrás de 3D Slicer para América Latina."
     },
     "work": {
-        "pageTitle": "Tutorial Maker",
+        "pageTitle": "Nuestro trabajo",
         "description": {
             "title": "Descripción",
             "p1": "El Tutorial Maker es una herramienta para automatizar la creación de tutoriales dentro del entorno 3D Slicer. Para lograr este objetivo, se ha implementado una metodología de gestión de proyectos que combina reuniones virtuales semanales y el uso de la plataforma GitHub como sistema de control de versiones para el desarrollo de código y la colaboración.",
@@ -231,7 +231,9 @@
             "title": "Localización",
             "description": "La <a href=\"localization.html\" class=\"hyperlink\">página de Localización</a> contiene los tutoriales traducidos (portugués y español) y las versiones originales en inglés."
         },
-        "eyebrow": "Lo que construimos"
+        "eyebrow": "Lo que construimos",
+        "lead": "Tutoriales localizados, una colección de tutoriales en crecimiento y la herramienta de código abierto que creamos para producirlos y mantenerlos.",
+        "toolTitle": "La herramienta Tutorial Maker"
     },
     "localization": {
         "pageTitle": "Localización",

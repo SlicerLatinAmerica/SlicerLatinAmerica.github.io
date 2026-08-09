@@ -11,6 +11,7 @@ import { SITE_NAME } from './core/site';
     selector: 'app-root',
     imports: [RouterOutlet],
     template: '<div #scroll class="app-scroll"><router-outlet /></div>',
+    host: { '(document:click)': 'onDocumentClick($event)' },
 })
 export class App {
     private readonly router = inject(Router);
@@ -40,6 +41,41 @@ export class App {
         }
         this.document.body.classList.add('has-overlay-scroll');
         this.simplebar = new SimpleBar(this.scroll().nativeElement, { autoHide: true });
+    }
+
+    protected onDocumentClick(event: MouseEvent): void {
+        if (event.defaultPrevented || event.button !== 0) {
+            return;
+        }
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+            return;
+        }
+
+        const anchor = (event.target as Element | null)?.closest?.('a');
+        const href = anchor?.getAttribute('href');
+        if (!anchor || !href || anchor.target || anchor.hasAttribute('download')) {
+            return;
+        }
+        if (/^(https?:)?\/\//i.test(href) || /^(mailto|tel|#)/i.test(href)) {
+            return;
+        }
+
+        const origin = this.document.defaultView?.location.origin;
+        if (!origin) {
+            return;
+        }
+        const url = new URL(anchor.href, origin);
+        if (url.origin !== origin) {
+            return;
+        }
+
+        const path = url.pathname.replace(/^\//, '');
+        if (!this.router.config.some((route) => route.path === path)) {
+            return;
+        }
+
+        event.preventDefault();
+        void this.router.navigateByUrl(url.pathname + url.search + url.hash);
     }
 
     private scrollToTop(): void {

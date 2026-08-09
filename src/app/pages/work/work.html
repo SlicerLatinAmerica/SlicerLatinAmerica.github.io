@@ -5,16 +5,71 @@
         <div class="container">
             <p class="page-header__eyebrow">{{ 'work.eyebrow' | t }}</p>
             <h1 class="page-header__title">{{ 'work.pageTitle' | t }}</h1>
-            <p class="page-header__lead">{{ 'work.description.p1' | t }}</p>
+            <p class="page-header__lead">{{ 'work.lead' | t }}</p>
         </div>
     </div>
 
     <div class="container container--narrow">
         <section class="section">
-            <div class="section__head">
-                <h2 class="section__title">{{ 'work.description.title' | t }}</h2>
+            <div class="grid grid--2">
+                <article class="feature">
+                    <span class="feature__icon" aria-hidden="true">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M4 5.5A1.5 1.5 0 0 1 5.5 4H10a2 2 0 0 1 2 2v13a1.6 1.6 0 0 0-1.6-1.6H4Z"
+                            />
+                            <path
+                                d="M20 5.5A1.5 1.5 0 0 0 18.5 4H14a2 2 0 0 0-2 2v13a1.6 1.6 0 0 1 1.6-1.6H20Z"
+                            />
+                        </svg>
+                    </span>
+                    <h2 class="feature__title">{{ 'work.collection.title' | t }}</h2>
+                    <p
+                        class="feature__text"
+                        [innerHTML]="'work.collection.description' | tHtml"
+                    ></p>
+                </article>
+
+                <article class="feature">
+                    <span class="feature__icon" aria-hidden="true">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="9" />
+                            <path
+                                d="M3.6 9h16.8M3.6 15h16.8M12 3c-2.4 2.8-3.8 5.7-3.8 9s1.4 6.2 3.8 9M12 3c2.4 2.8 3.8 5.7 3.8 9s-1.4 6.2-3.8 9"
+                            />
+                        </svg>
+                    </span>
+                    <h2 class="feature__title">{{ 'work.localization.title' | t }}</h2>
+                    <p
+                        class="feature__text"
+                        [innerHTML]="'work.localization.description' | tHtml"
+                    ></p>
+                </article>
             </div>
-            <div class="prose" [innerHTML]="'work.description.p2' | tHtml"></div>
+        </section>
+
+        <section class="section">
+            <div class="section__head">
+                <h2 class="section__title">{{ 'work.toolTitle' | t }}</h2>
+            </div>
+            <div class="prose">
+                <p>{{ 'work.description.p1' | t }}</p>
+                <p [innerHTML]="'work.description.p2' | tHtml"></p>
+            </div>
         </section>
 
         <section class="section">
@@ -104,25 +159,11 @@
         </section>
 
         <section class="section">
-            <div class="stack stack--lg">
-                <div>
-                    <h2 class="section__title">{{ 'work.repository.title' | t }}</h2>
-                    <div class="callout">
-                        <p [innerHTML]="'work.repository.description' | tHtml"></p>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="section__title">{{ 'work.collection.title' | t }}</h2>
-                    <div class="callout">
-                        <p [innerHTML]="'work.collection.description' | tHtml"></p>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="section__title">{{ 'work.localization.title' | t }}</h2>
-                    <div class="callout">
-                        <p [innerHTML]="'work.localization.description' | tHtml"></p>
-                    </div>
-                </div>
+            <div class="section__head">
+                <h2 class="section__title">{{ 'work.repository.title' | t }}</h2>
+            </div>
+            <div class="callout">
+                <p [innerHTML]="'work.repository.description' | tHtml"></p>
             </div>
         </section>
     </div>
