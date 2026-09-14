@@ -43,7 +43,7 @@
         "heroTitle": "3D Slicer para a América Latina",
         "heroParagraph": "Bem-vindo à iniciativa 3D Slicer para a América Latina. Nossa missão é aproximar a tecnologia avançada de imagens médicas da comunidade regional por meio de três objetivos fundamentais. Estamos localizando a plataforma 3D Slicer para o espanhol latino-americano e o português brasileiro, ampliando sua acessibilidade. Ao mesmo tempo, desenvolvemos uma nova extensão do Slicer para automatizar a localização, os testes e o versionamento dos fluxos de trabalho de tutoriais. Além do desenvolvimento técnico, organizamos workshops práticos de treinamento no Slicer e eventos de divulgação usando versões localizadas do 3D Slicer, para capacitar a próxima geração de pesquisadores e clínicos na América Latina.",
         "eyebrow": "Imagens médicas de código aberto",
-        "heroLead": "Localizamos a plataforma 3D Slicer para o espanhol latino-americano e o português brasileiro, automatizamos fluxos de trabalho de tutoriais e oferecemos treinamento prático para pesquisadores e clínicos da região.",
+        "heroLead": "Levando tecnologia avançada de imagens médicas à comunidade clínica e de pesquisa da América Latina.",
         "ctaWork": "Conheça nosso trabalho",
         "ctaEvents": "Ver próximos eventos",
         "stats": {
@@ -92,7 +92,7 @@
             },
             "workshopTolucaUSoct2025": {
                 "title": "Workshop Slicer Toluca, 27 out. de 2025, Toluca, México",
-                "description": "O <a href=\"WorkshopToluca_Ultrasound_Oct2025.html\" class=\"hyperlink\">Workshop Slicer Toluca</a>, realizado em 27 de outubro de 2025, em Toluca, México, teve como tema o Slicer para Ultrassom na América Latina."
+                "description": "O <a href=\"WorkshopToluca_Ultrasound_Oct2025.html\" class=\"hyperlink\">Workshop Slicer Toluca</a>, realizado em 27 de outubro de 2025, em Toluca, México, teve como tema o Slicer para ultrassom na América Latina."
             },
             "cziOpenScience2025": {
                 "title": "CZI Open Science 2025, 19-22 out. de 2025, Carlsbad, Califórnia",
@@ -100,7 +100,7 @@
             },
             "workshopTolucaPhysio2025": {
                 "title": "Workshop Slicer Toluca, 8 e 10 out. de 2025, Toluca, México",
-                "description": "O <a href=\"WorkshopToluca_Physio_Oct2025.html\" class=\"hyperlink\">Workshop Slicer Toluca</a>, realizado nos dias 8 e 10 de outubro de 2025, em Toluca, México, teve como tema a tecnologia baseada em IA para médicos especialistas em Medicina de Reabilitação."
+                "description": "O <a href=\"WorkshopToluca_Physio_Oct2025.html\" class=\"hyperlink\">Workshop Slicer Toluca</a>, realizado nos dias 8 e 10 de outubro de 2025, em Toluca, México, teve como tema a tecnologia baseada em IA para médicos especialistas em medicina de reabilitação."
             },
             "workshopRPAIJune2025": {
                 "title": "Workshop Slicer Ribeirão Preto, 30 jun. de 2025, Ribeirão Preto, Brasil",
@@ -108,7 +108,7 @@
             },
             "workshopTolucaUSJune2025": {
                 "title": "Workshop Slicer Toluca, 6 jun. de 2025, Toluca, México",
-                "description": "O <a href=\"WorkshopToluca_Ultrasound_June2025.html\" class=\"hyperlink\">Workshop Slicer Toluca</a>, realizado em 6 de junho de 2025, na Universidad del Valle de México (UVM), Toluca, teve como tema Imagens de Ultrassom."
+                "description": "O <a href=\"WorkshopToluca_Ultrasound_June2025.html\" class=\"hyperlink\">Workshop Slicer Toluca</a>, realizado em 6 de junho de 2025, na Universidad del Valle de México (UVM), Toluca, teve como tema imagens de ultrassom."
             },
             "pw42": {
                 "title": "42ª Semana de Projetos Slicer (PW42), 27-31 jan. de 2025, Las Palmas, Gran Canária, Espanha",
@@ -128,7 +128,7 @@
             },
             "workshopTolucaSegJune2024": {
                 "title": "Workshop Slicer Toluca, 10 jun. de 2024, Toluca, México",
-                "description": "O <a href=\"WorkshopToluca_Segmentation_June2024.html\" class=\"hyperlink\">Workshop Slicer Toluca</a>, realizado em 10 de junho de 2024, em Toluca, México, teve como tema Segmentação e Reconstrução 3D."
+                "description": "O <a href=\"WorkshopToluca_Segmentation_June2024.html\" class=\"hyperlink\">Workshop Slicer Toluca</a>, realizado em 10 de junho de 2024, em Toluca, México, teve como tema segmentação e reconstrução 3D."
             },
             "workshopTolucaKidneysMay2024": {
                 "title": "Workshop Slicer Toluca, 7 e 14 mai. de 2024, Toluca, México",
@@ -247,8 +247,7 @@
         "langs": {
             "english": "Inglês",
             "portugueseBR": "Português (BR)",
-            "spanishLA": "Espanhol (América Latina)",
-            "french": "Francês"
+            "spanishLA": "Espanhol (América Latina)"
         },
         "eyebrow": "Recursos",
         "tutorials": {
@@ -302,7 +301,7 @@
     "sponsors": {
         "pageTitle": "Agradecimentos",
         "description": "O projeto '3D Slicer para a América Latina' foi viabilizado por meio de uma bolsa do programa Essential Open Source Software for Science (EOSS ciclo 5) da Chan Zuckerberg Initiative.",
-        "eyebrow": "Agradecimento",
+        "eyebrow": "Agradecimentos",
         "lead": "Este projeto existe graças ao apoio de nossos financiadores e da comunidade de código aberto.",
         "grant": {
             "title": "Chan Zuckerberg Initiative",

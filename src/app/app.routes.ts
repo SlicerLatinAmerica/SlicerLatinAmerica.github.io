@@ -252,7 +252,7 @@ export const routes: Routes = [
     ),
     page(
         'sponsors.html',
-        `Acknowledgment${SUFFIX}`,
+        `Acknowledgments${SUFFIX}`,
         'The 3D Slicer for Latin America project is supported by an Essential Open Source Software for Science grant from the Chan Zuckerberg Initiative.',
         () => import('./pages/sponsors/sponsors').then((m) => m.SponsorsPage),
     ),

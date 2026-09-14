@@ -31,13 +31,26 @@ const COMMUNITY_LANGS = new Set([
     'German',
     'hu',
     'zh_Hans',
+    'zh-Hans',
+    'zh_Hant',
+    'zh-Hant',
     'pt',
     'Spanish',
 ]);
 
+const COMMUNITY_PRIORITY = ['Spanish (Latin America)', 'Portuguese (BR)'];
+
+const communityRank = (label: string): number => {
+    const index = COMMUNITY_PRIORITY.indexOf(label);
+    return index === -1 ? COMMUNITY_PRIORITY.length : index;
+};
+
 const COMMUNITY_DISPLAY_NAMES: Record<string, string> = {
     hu: 'Hungarian',
-    zh_Hans: 'Chinese',
+    zh_Hans: 'Chinese (Simplified)',
+    'zh-Hans': 'Chinese (Simplified)',
+    zh_Hant: 'Chinese (Traditional)',
+    'zh-Hant': 'Chinese (Traditional)',
     pt: 'Portuguese',
 };
 
@@ -62,6 +75,9 @@ export class TutorialCards {
         const result = new Map<string, { url: string; display: string }[]>();
         for (const card of CARDS) {
             const languages = (state[card.id] ?? []).filter((lang) => allowed.has(lang.label));
+            if (this.mode() === 'community') {
+                languages.sort((a, b) => communityRank(a.label) - communityRank(b.label));
+            }
             result.set(
                 card.id,
                 languages.map((lang) => ({

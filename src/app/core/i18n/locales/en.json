@@ -7,7 +7,7 @@
         "localization": "Localization",
         "tutorialCollection": "Slicer Tutorial Maker Collection",
         "communityLocalization": "Community Localization",
-        "acknowledgment": "Acknowledgment",
+        "acknowledgment": "Acknowledgments",
         "contact": "Contact",
         "resources": "Resources",
         "participants": "Participants",
@@ -25,7 +25,7 @@
         "localization": "Localization",
         "tutorialCollection": "Slicer Tutorial Maker Collection",
         "communityLocalization": "Community Localization",
-        "acknowledgment": "Acknowledgment",
+        "acknowledgment": "Acknowledgments",
         "contact": "Contact",
         "participants": "Participants",
         "tagline": "Open-source medical imaging, localized for the Latin American research and clinical community.",
@@ -43,7 +43,7 @@
         "heroTitle": "3D Slicer for Latin America",
         "heroParagraph": "Welcome to the 3D Slicer for Latin America initiative. Our mission is to bridge the gap between advanced medical imaging technology and the regional community through three core objectives. We are localizing the 3D Slicer platform into Latin America Spanish and Brazilian Portuguese to enhance accessibility. Simultaneously, we are engineering a new Slicer extension to automate the localization, testing, and versioning of tutorial workflows. Beyond technical development, we are organizing hands-on Slicer training workshops and outreach events using localized version of 3D Slicer to empower the next generation of researchers and clinicians in Latin America.",
         "eyebrow": "Open-source medical imaging",
-        "heroLead": "We localize the 3D Slicer platform into Latin American Spanish and Brazilian Portuguese, automate tutorial workflows, and run hands-on training for researchers and clinicians across the region.",
+        "heroLead": "Bringing advanced medical imaging technology to the Latin American research and clinical community.",
         "ctaWork": "Explore our work",
         "ctaEvents": "See upcoming events",
         "stats": {
@@ -88,11 +88,11 @@
             },
             "workshopRPAIOct2025": {
                 "title": "Slicer Ribeirão Preto Workshop, Oct.31, 2025, Ribeirão Preto, Brazil",
-                "description": "The <a href=\"WorkshopRP_AI2025.html\" class=\"hyperlink\">Slicer Ribeirão Preto Workshop</a>, held on October 31, 2025, in Ribeirão Preto, Brazil, focused on AI-driven technology for Radiologists."
+                "description": "The <a href=\"WorkshopRP_AI2025.html\" class=\"hyperlink\">Slicer Ribeirão Preto Workshop</a>, held on October 31, 2025, in Ribeirão Preto, Brazil, focused on AI-driven technology for radiologists."
             },
             "workshopTolucaUSoct2025": {
                 "title": "Slicer Toluca Workshop, Oct.27, 2025, Toluca, Mexico",
-                "description": "The <a href=\"WorkshopToluca_Ultrasound_Oct2025.html\" class=\"hyperlink\">Slicer Toluca Workshop</a>, held on October 27, 2025, in Toluca, Mexico, focused on Slicer for Ultrasound in Latin America."
+                "description": "The <a href=\"WorkshopToluca_Ultrasound_Oct2025.html\" class=\"hyperlink\">Slicer Toluca Workshop</a>, held on October 27, 2025, in Toluca, Mexico, focused on Slicer for ultrasound in Latin America."
             },
             "cziOpenScience2025": {
                 "title": "CZI Open Science 2025, Oct. 19-22, 2025, Carlsbad, California",
@@ -100,19 +100,19 @@
             },
             "workshopTolucaPhysio2025": {
                 "title": "Slicer Toluca Workshop, Oct.8 & 10, 2025, Toluca, Mexico",
-                "description": "The <a href=\"WorkshopToluca_Physio_Oct2025.html\" class=\"hyperlink\">Slicer Toluca Workshop</a>, held on October 8 &amp; 10, 2025, in Toluca, Mexico, focused on AI-based technology for Rehabilitation Medicine Physicians."
+                "description": "The <a href=\"WorkshopToluca_Physio_Oct2025.html\" class=\"hyperlink\">Slicer Toluca Workshop</a>, held on October 8 &amp; 10, 2025, in Toluca, Mexico, focused on AI-based technology for rehabilitation medicine physicians."
             },
             "workshopRPAIJune2025": {
                 "title": "Slicer Ribeirão Preto Workshop, June 30, 2025, Ribeirão Preto, Brazil",
-                "description": "The <a href=\"WorkshopRP_AI2025_june.html\" class=\"hyperlink\">Slicer Ribeirão Preto Workshop</a>, held on June 30, 2025, in Ribeirão Preto, Brazil, focused on AI-driven technology for Radiologists."
+                "description": "The <a href=\"WorkshopRP_AI2025_june.html\" class=\"hyperlink\">Slicer Ribeirão Preto Workshop</a>, held on June 30, 2025, in Ribeirão Preto, Brazil, focused on AI-driven technology for radiologists."
             },
             "workshopTolucaUSJune2025": {
                 "title": "Slicer Toluca Workshop, June 6, 2025, Toluca, Mexico",
-                "description": "The <a href=\"WorkshopToluca_Ultrasound_June2025.html\" class=\"hyperlink\">Slicer Toluca Workshop</a>, held on June 6, 2025, at Universidad del Valle de México (UVM), Toluca, focused on Ultrasound Images."
+                "description": "The <a href=\"WorkshopToluca_Ultrasound_June2025.html\" class=\"hyperlink\">Slicer Toluca Workshop</a>, held on June 6, 2025, at Universidad del Valle de México (UVM), Toluca, focused on ultrasound images."
             },
             "pw42": {
                 "title": "42nd Slicer Project Week hackathon (PW42), Jan.27-31, 2025, Las Palmas, Gran Canaria, Spain",
-                "description": "The <a href=\"PW42_2025_GranCanaria.html\" class=\"hyperlink\">42nd Slicer Project Week</a> was held in person at Las Palmas, Gran Canaria, Spain. Douglas Samuel Gonçalves, Lucas Sanchez Silva, and Victor Manuel Montaño Serrano attended in person. The team worked on the <a href=\"https://projectweek.na-mic.org/PW42_2025_GranCanaria/Projects/3DSlicerForLatinAmerica/\" class=\"hyperlink\">3D Slicer for Latin America project</a>, advancing Tutorial Maker with bug fixes, new features, automated testing infrastructure, and translations of tutorials to Portuguese and Spanish."
+                "description": "The <a href=\"PW42_2025_GranCanaria.html\" class=\"hyperlink\">42nd Slicer Project Week</a> was held in person at Las Palmas, Gran Canaria, Spain. Douglas Samuel Gonçalves, Lucas Sanchez Silva, and Victor Manuel Montaño Serrano attended in person. The team worked on the <a href=\"https://projectweek.na-mic.org/PW42_2025_GranCanaria/Projects/3DSlicerForLatinAmerica/\" class=\"hyperlink\">3D Slicer for Latin America project</a>, advancing Tutorial Maker with bug fixes, new features, automated testing infrastructure, and translations of tutorials into Portuguese and Spanish."
             },
             "cziOpenScience2024": {
                 "title": "CZI Open Science 2024",
@@ -120,7 +120,7 @@
             },
             "cbeb2024": {
                 "title": "Brazilian Congress of Biomedical Engineering (CBEB2024), September 2-6, 2024, Ribeirão Preto, Brazil",
-                "description": "The Slicer for Latin America team presented a poster entitled \"Preliminary Results of 3D Slicer Localization to Portuguese and Spanish for the Latin American Biomedical Engineering Community\" at the <a href=\"https://sbeb.org.br/cbeb2024/\" class=\"hyperlink\">XIX Brazilian Congress of Biomedical Engineering (CBEB2024)</a>, September 2-6, 2024, Ribeirão Preto, Brazil."
+                "description": "The Slicer for Latin America team presented a poster entitled \"Preliminary Results of 3D Slicer Localization into Portuguese and Spanish for the Latin American Biomedical Engineering Community\" at the <a href=\"https://sbeb.org.br/cbeb2024/\" class=\"hyperlink\">XIX Brazilian Congress of Biomedical Engineering (CBEB2024)</a>, September 2-6, 2024, Ribeirão Preto, Brazil."
             },
             "pw41": {
                 "title": "41st Slicer Project Week hackathon (PW41), June 24-28, 2024, Cambridge, MA, USA",
@@ -128,11 +128,11 @@
             },
             "workshopTolucaSegJune2024": {
                 "title": "Slicer Toluca Workshop, June 10, 2024, Toluca, Mexico",
-                "description": "The <a href=\"WorkshopToluca_Segmentation_June2024.html\" class=\"hyperlink\">Slicer Toluca Workshop</a>, held on June 10, 2024, in Toluca, Mexico, focused on Segmentation and 3D Reconstruction."
+                "description": "The <a href=\"WorkshopToluca_Segmentation_June2024.html\" class=\"hyperlink\">Slicer Toluca Workshop</a>, held on June 10, 2024, in Toluca, Mexico, focused on segmentation and 3D reconstruction."
             },
             "workshopTolucaKidneysMay2024": {
                 "title": "Slicer Toluca Workshop, May 7 & 14, 2024, Toluca, Mexico",
-                "description": "The <a href=\"WorkshopToluca_Kidneys_May2024.html\" class=\"hyperlink\">Slicer Toluca Workshop</a>, held on May 7 &amp; 14, 2024, in Toluca, Mexico, focused on Obtaining 3D models of the kidneys from CT imaging."
+                "description": "The <a href=\"WorkshopToluca_Kidneys_May2024.html\" class=\"hyperlink\">Slicer Toluca Workshop</a>, held on May 7 &amp; 14, 2024, in Toluca, Mexico, focused on obtaining 3D models of the kidneys from CT imaging."
             },
             "pw40": {
                 "title": "40th Slicer Project Week hackathon (PW40), Jan.29 - Feb.2, 2024, Las Palmas, Gran Canaria, Spain",
@@ -148,14 +148,14 @@
             },
             "pw38": {
                 "title": "38th Slicer Project Week hackathon (PW38), Jan.30 - Feb.3, 2023, Las Palmas, Gran Canaria, Spain",
-                "description": "The <a href=\"PW38_2023_GranCanaria.html\" class=\"hyperlink\">38th Slicer Project Week</a> was held January 30 - February 3, 2023, in Las Palmas, Gran Canaria, Spain. Dr. Sonia Pujol hosted daily online sessions on 3D Slicer internationalization and introduced the \"3D Slicer for Latin America: Localization and Outreach\" project to the 3D Slicer community at the event. Dr. Adriana Vilchis González and Dr. Luiz Murta participated in the daily sessions that brought together 23 participants from Mexico, Brazil, Senegal, Hungary, Mauritania, the USA, and Canada. Dr. Pujol gave a training tutorial on how to use 3D Slicer internationalization infrastructure to translate 3D Slicer in multiple languages at the event. The Latin American team members contributed to the <a href=\"https://projectweek.na-mic.org/PW38_2023_GranCanaria/Projects/3DSlicerInternationalization/\" class=\"hyperlink\">3D Slicer Internationalization project</a>."
+                "description": "The <a href=\"PW38_2023_GranCanaria.html\" class=\"hyperlink\">38th Slicer Project Week</a> was held January 30 - February 3, 2023, in Las Palmas, Gran Canaria, Spain. Dr. Sonia Pujol hosted daily online sessions on 3D Slicer internationalization and introduced the \"3D Slicer for Latin America: Localization and Outreach\" project to the 3D Slicer community at the event. Dr. Adriana Vilchis González and Dr. Luiz Murta participated in the daily sessions that brought together 23 participants from Mexico, Brazil, Senegal, Hungary, Mauritania, the USA, and Canada. Dr. Pujol gave a training tutorial on how to use 3D Slicer internationalization infrastructure to translate 3D Slicer into multiple languages at the event. The Latin American team members contributed to the <a href=\"https://projectweek.na-mic.org/PW38_2023_GranCanaria/Projects/3DSlicerInternationalization/\" class=\"hyperlink\">3D Slicer Internationalization project</a>."
             },
             "rsna2022": {
                 "title": "108th Annual Meeting of the Radiological Society of North America (RSNA 2022), Nov.27 - Dec.1, 2022, Chicago, IL, USA",
                 "description": "We introduced the \"3D Slicer for Latin America: Localization and Outreach\" project in our educational exhibit entitled \"The 3D Slicer open source software platform for medical image processing, 3D visualization and image-guided therapy\" (Sonia Pujol, PhD, Steve Pieper, PhD, Andras Lasso, PhD, Andriy Fedorov, PhD, Ron Kikinis, MD) at the 108th Annual Meeting of the Radiological Society of North America (RSNA 2022)."
             },
             "claib2022": {
-                "title": "IX Latin American Congress on Biomedical Engineering (CLAIB 2022) and the XXVIII Brazilian Congress on Engineering Biomedical Engineering (CBEB 2022), Oct.24-28, 2022, Santa Catarina, Brazil",
+                "title": "IX Latin American Congress on Biomedical Engineering (CLAIB 2022) and the XXVIII Brazilian Congress on Biomedical Engineering (CBEB 2022), Oct.24-28, 2022, Santa Catarina, Brazil",
                 "description": "The project was presented at the <a href=\"CLAIB_CBEB_2022.html\" class=\"hyperlink\">CLAIB 2022 / CBEB 2022</a> conference, held October 24–28, 2022, in Santa Catarina, Brazil."
             }
         },
@@ -191,8 +191,8 @@
         "pageTitle": "Our Work",
         "description": {
             "title": "Description",
-            "p1": "The Tutorial Maker is a tool to automate the creation of tutorials within the 3D Slicer environment. To achieve this goal, a project management methodology has been implemented, combining weekly virtual meetings and using the GitHub platform as a code development and collaboration system version control.",
-            "p2": "This tool was developed by <b>The 3D Slicer Latin America team</b>, whose members have made significant progress in developing the Tutorial Maker Module, focusing on improving its functionality, usability, and accessibility."
+            "p1": "The Tutorial Maker is a tool to automate the creation of tutorials within the 3D Slicer environment. To achieve this goal, a project management methodology has been implemented, combining weekly virtual meetings and using GitHub for version control, code development, and collaboration.",
+            "p2": "This tool was developed by <b>the 3D Slicer for Latin America team</b>, whose members have made significant progress in developing the Tutorial Maker Module, focusing on improving its functionality, usability, and accessibility."
         },
         "objectives": {
             "title": "Objectives",
@@ -247,8 +247,7 @@
         "langs": {
             "english": "English",
             "portugueseBR": "Portuguese (BR)",
-            "spanishLA": "Spanish (Latin America)",
-            "french": "French"
+            "spanishLA": "Spanish (Latin America)"
         },
         "eyebrow": "Resources",
         "tutorials": {
@@ -300,9 +299,9 @@
         "eyebrow": "Resources"
     },
     "sponsors": {
-        "pageTitle": "Acknowledgment",
+        "pageTitle": "Acknowledgments",
         "description": "The '3D Slicer for Latin America' project has been made possible through an Essential Open Source Software for Science (EOSS cycle 5) grant from the Chan Zuckerberg Initiative.",
-        "eyebrow": "Acknowledgment",
+        "eyebrow": "Acknowledgments",
         "lead": "This project exists thanks to the support of our funders and the wider open-source community.",
         "grant": {
             "title": "Chan Zuckerberg Initiative",

@@ -35,7 +35,6 @@ export const LOCALIZATION_CARDS: readonly TutorialCard[] = [
             { href: `${PDFS}/3DSlicerDICOMTutorial-SPujol_en_US.pdf`, labelKey: 'english' },
             { href: `${PDFS}/DICOM_Pt.pdf`, labelKey: 'portugueseBR' },
             { href: `${PDFS}/DICOM_Es.pdf`, labelKey: 'spanishLA' },
-            { href: `${PDFS}/3DSlicerDICOMTutorial-SPujol_fr.pdf`, labelKey: 'french' },
         ],
     },
     {
@@ -44,7 +43,6 @@ export const LOCALIZATION_CARDS: readonly TutorialCard[] = [
             { href: `${PDFS}/SlicerVisualizationTutorial-SPujol_en_US.pdf`, labelKey: 'english' },
             { href: `${PDFS}/Basics_of_Data_Loading_Pt.pdf`, labelKey: 'portugueseBR' },
             { href: `${PDFS}/Basics_of_Data_Loading_Es.pdf`, labelKey: 'spanishLA' },
-            { href: `${PDFS}/SlicerVisualizationTutorial-SPujol_fr.pdf`, labelKey: 'french' },
         ],
     },
     {
@@ -166,9 +164,5 @@ export const GLOSSARY_CARDS = [
     {
         title: 'Slicer Glossary - Portuguese (Brazil)',
         href: 'https://github.com/SoniaPujolLab/SlicerLanguagePacks/blob/main/Glossary_pt-br.md',
-    },
-    {
-        title: 'Slicer Glossary - French',
-        href: 'https://github.com/SoniaPujolLab/SlicerLanguagePacks/blob/main/Glossary_fr.md',
     },
 ] as const;

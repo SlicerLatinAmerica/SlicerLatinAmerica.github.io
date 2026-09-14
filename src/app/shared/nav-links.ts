@@ -29,7 +29,7 @@ export const NAV_LINKS = [
         label: 'Slicer Tutorial Maker Collection',
     },
     { key: 'participants', href: '/participants.html', label: 'Participants' },
-    { key: 'acknowledgment', href: '/sponsors.html', label: 'Acknowledgment' },
+    { key: 'acknowledgment', href: '/sponsors.html', label: 'Acknowledgments' },
     { key: 'contact', href: '/contact.html', label: 'Contact' },
 ] as const satisfies readonly NavLink[];
 
